@@ -237,21 +237,25 @@ def render_antera_handoff(text):
 def customer_selector(required=False, label="Active customer"):
     """Render the shared customer picker. Persists across pages via session_state.
     Returns the active customer dict or None.
+
+    No walk-in option - every transaction belongs to a customer. Default is
+    '+ Add new customer' which surfaces the add-new form so first-time users
+    can't accidentally proceed without a customer attached.
     """
     customers = repo.list_customers()
-    WALK_IN = "(Walk-in / no customer profile)"
-    options = [WALK_IN] + [f"{c['display_name']} [{c['customer_id'][:8]}]" for c in customers] + ["+ Add new customer"]
+    ADD_NEW = "+ Add new customer"
+    options = [ADD_NEW] + [f"{c['display_name']} [{c['customer_id'][:8]}]" for c in customers]
 
-    # Default to last-selected if it still exists
-    last_label = st.session_state.get("active_customer_label", WALK_IN)
+    # Default to last-selected if it still exists, otherwise ADD_NEW
+    last_label = st.session_state.get("active_customer_label", ADD_NEW)
     if last_label not in options:
-        last_label = WALK_IN
+        last_label = ADD_NEW
     default_idx = options.index(last_label)
 
     selected = st.selectbox(label + ":", options, index=default_idx, key="customer_picker_widget")
     st.session_state["active_customer_label"] = selected
 
-    if selected == "+ Add new customer":
+    if selected == ADD_NEW:
         with st.form("new_customer_form"):
             nc1, nc2 = st.columns([2, 1])
             with nc1:
@@ -268,12 +272,6 @@ def customer_selector(required=False, label="Active customer"):
                 else:
                     st.error("Display name required.")
         if required:
-            st.stop()
-        return None
-
-    if selected == WALK_IN:
-        if required:
-            st.warning("Pick or create a customer to continue.")
             st.stop()
         return None
 
