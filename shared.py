@@ -246,13 +246,25 @@ def customer_selector(required=False, label="Active customer"):
     ADD_NEW = "+ Add new customer"
     options = [ADD_NEW] + [f"{c['display_name']} [{c['customer_id'][:8]}]" for c in customers]
 
-    # Default to last-selected if it still exists, otherwise ADD_NEW
-    last_label = st.session_state.get("active_customer_label", ADD_NEW)
-    if last_label not in options:
-        last_label = ADD_NEW
-    default_idx = options.index(last_label)
+    # FIRST: apply any pending forced selection set by a previous run (e.g. just
+    # after creating a new customer). This must happen BEFORE the widget renders
+    # because Streamlit only allows writing a widget's key from outside its own run.
+    if "_pending_customer_label" in st.session_state:
+        forced = st.session_state.pop("_pending_customer_label")
+        if forced in options:
+            st.session_state["customer_picker_widget"] = forced
 
-    selected = st.selectbox(label + ":", options, index=default_idx, key="customer_picker_widget")
+    # Initialize widget value if absent, restoring cross-page persisted label
+    if "customer_picker_widget" not in st.session_state:
+        restored = st.session_state.get("active_customer_label", ADD_NEW)
+        if restored not in options:
+            restored = ADD_NEW
+        st.session_state["customer_picker_widget"] = restored
+    elif st.session_state["customer_picker_widget"] not in options:
+        st.session_state["customer_picker_widget"] = ADD_NEW
+
+    selected = st.selectbox(label + ":", options, key="customer_picker_widget")
+    # Mirror to the cross-page persisted label
     st.session_state["active_customer_label"] = selected
 
     if selected == ADD_NEW:
@@ -267,13 +279,9 @@ def customer_selector(required=False, label="Active customer"):
                 if new_name.strip():
                     created = repo.create_customer(new_name, antera_customer_id=new_antera, notes=new_notes)
                     new_label = f"{created['display_name']} [{created['customer_id'][:8]}]"
-                    # Set the persistent label so next render picks the new customer
-                    # via the index= parameter. We must DELETE the widget key (not
-                    # set it) — Streamlit forbids writing a widget's own key from
-                    # the same run that instantiated it.
+                    # Set pending flag — next run applies it BEFORE the widget renders.
+                    st.session_state["_pending_customer_label"] = new_label
                     st.session_state["active_customer_label"] = new_label
-                    if "customer_picker_widget" in st.session_state:
-                        del st.session_state["customer_picker_widget"]
                     st.success(f"Created: {created['display_name']}")
                     st.rerun()
                 else:

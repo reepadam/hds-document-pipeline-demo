@@ -130,28 +130,49 @@ def build_quote_pdf(
         story.append(Spacer(1, 0.1 * inch))
 
     # ---- Line items table ----
+    # Each non-zero size becomes its own row for visual clarity. Lines with a
+    # single One-Size garment (totes, towels) collapse back to a single row.
     story.append(Paragraph("Line items", h2_style))
 
-    line_headers = ["Garment", "Color", "Placement", "Decoration", "Logo size", "Qty", "Unit price", "Subtotal"]
+    line_headers = ["Garment", "Size", "Color", "Placement", "Decoration", "Logo size", "Qty", "Unit price", "Subtotal"]
     line_rows = [line_headers]
     for ln in lines:
-        line_rows.append([
-            Paragraph(ln.get("garment_type", "—"), body_style),
-            Paragraph(ln.get("base_color", "—"), body_style),
-            Paragraph(ln.get("placement", "—") or "—", body_style),
-            Paragraph(ln.get("method_label", "—"), body_style),
-            Paragraph(
-                f"{ln.get('logo_width_in', 0):.1f}\" × {ln.get('logo_height_in', 0):.1f}\"",
-                body_style,
-            ),
-            Paragraph(str(ln.get("quantity", 0)), right_style),
-            Paragraph(f"${ln.get('customer_price_per_pc', 0):.2f}", right_style),
-            Paragraph(f"<b>${ln.get('line_total', 0):,.2f}</b>", right_style),
-        ])
+        sizes = ln.get("sizes", {}) or {}
+        nonzero = [(sz, q) for sz, q in sizes.items() if q > 0]
+        per_pc = ln.get("customer_price_per_pc", 0)
+        # If no sizes recorded or only One Size, fall back to single row
+        if not nonzero or (len(nonzero) == 1 and nonzero[0][0] in ("One Size", "OSFA")):
+            qty = ln.get("quantity", 0) if not nonzero else nonzero[0][1]
+            size_label = nonzero[0][0] if nonzero else "—"
+            line_rows.append([
+                Paragraph(ln.get("garment_type", "—"), body_style),
+                Paragraph(size_label, body_style),
+                Paragraph(ln.get("base_color", "—"), body_style),
+                Paragraph(ln.get("placement", "—") or "—", body_style),
+                Paragraph(ln.get("method_label", "—"), body_style),
+                Paragraph(f"{ln.get('logo_width_in', 0):.1f}\" × {ln.get('logo_height_in', 0):.1f}\"", body_style),
+                Paragraph(str(qty), right_style),
+                Paragraph(f"${per_pc:.2f}", right_style),
+                Paragraph(f"<b>${per_pc * qty:,.2f}</b>", right_style),
+            ])
+        else:
+            # Expand into one row per size
+            for sz, q in nonzero:
+                line_rows.append([
+                    Paragraph(ln.get("garment_type", "—"), body_style),
+                    Paragraph(sz, body_style),
+                    Paragraph(ln.get("base_color", "—"), body_style),
+                    Paragraph(ln.get("placement", "—") or "—", body_style),
+                    Paragraph(ln.get("method_label", "—"), body_style),
+                    Paragraph(f"{ln.get('logo_width_in', 0):.1f}\" × {ln.get('logo_height_in', 0):.1f}\"", body_style),
+                    Paragraph(str(q), right_style),
+                    Paragraph(f"${per_pc:.2f}", right_style),
+                    Paragraph(f"<b>${per_pc * q:,.2f}</b>", right_style),
+                ])
 
     line_table = Table(
         line_rows,
-        colWidths=[1.25*inch, 0.75*inch, 1.0*inch, 1.0*inch, 0.85*inch, 0.4*inch, 0.85*inch, 0.95*inch],
+        colWidths=[1.15*inch, 0.45*inch, 0.65*inch, 0.95*inch, 0.95*inch, 0.85*inch, 0.4*inch, 0.75*inch, 0.85*inch],
         repeatRows=1,
     )
     line_table.setStyle(TableStyle([
@@ -162,7 +183,7 @@ def build_quote_pdf(
         ("ROWBACKGROUNDS", (0, 1), (-1, -1), [colors.white, HDS_BG]),
         ("GRID", (0, 0), (-1, -1), 0.3, LIGHT_GRAY),
         ("VALIGN", (0, 0), (-1, -1), "MIDDLE"),
-        ("ALIGN", (5, 1), (-1, -1), "RIGHT"),
+        ("ALIGN", (6, 1), (-1, -1), "RIGHT"),
         ("LEFTPADDING", (0, 0), (-1, -1), 4),
         ("RIGHTPADDING", (0, 0), (-1, -1), 4),
         ("TOPPADDING", (0, 0), (-1, -1), 4),
@@ -171,13 +192,8 @@ def build_quote_pdf(
     story.append(line_table)
     story.append(Spacer(1, 0.2 * inch))
 
-    # Size breakdown notes (per line) - small font
+    # (Size breakdown section removed — sizes now appear per-row in the line items table)
     size_lines = []
-    for i, ln in enumerate(lines):
-        sizes = ln.get("sizes", {}) or {}
-        size_str = ", ".join(f"{sz}: {q}" for sz, q in sizes.items() if q > 0)
-        if size_str:
-            size_lines.append(f"<b>{ln.get('garment_type','line ' + str(i+1))} ({ln.get('base_color','')}):</b> {size_str}")
     if size_lines:
         story.append(Paragraph("<b>Size breakdown</b>", h2_style))
         for sl in size_lines:
