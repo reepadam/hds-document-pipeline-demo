@@ -267,11 +267,13 @@ def customer_selector(required=False, label="Active customer"):
                 if new_name.strip():
                     created = repo.create_customer(new_name, antera_customer_id=new_antera, notes=new_notes)
                     new_label = f"{created['display_name']} [{created['customer_id'][:8]}]"
-                    # Update BOTH the persistent state AND the widget's state key.
-                    # Streamlit prefers session_state[widget_key] over the index= param,
-                    # so without this the dropdown sticks on "+ Add new customer".
+                    # Set the persistent label so next render picks the new customer
+                    # via the index= parameter. We must DELETE the widget key (not
+                    # set it) — Streamlit forbids writing a widget's own key from
+                    # the same run that instantiated it.
                     st.session_state["active_customer_label"] = new_label
-                    st.session_state["customer_picker_widget"] = new_label
+                    if "customer_picker_widget" in st.session_state:
+                        del st.session_state["customer_picker_widget"]
                     st.success(f"Created: {created['display_name']}")
                     st.rerun()
                 else:
