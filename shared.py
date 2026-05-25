@@ -118,7 +118,8 @@ def inject_styles():
         .module-card-link {
           text-decoration: none !important;
           color: inherit !important;
-          display: block;
+          display: flex;
+          height: 100%;
           cursor: pointer;
           transition: transform 0.12s ease, box-shadow 0.12s ease;
         }
@@ -135,8 +136,24 @@ def inject_styles():
           background: white;
           border-radius: 10px;
           padding: 1.2rem;
-          height: 100%;
+          width: 100%;
+          display: flex;
+          flex-direction: column;
           transition: border-color 0.12s ease, box-shadow 0.12s ease;
+        }
+        .module-card .module-desc {
+          flex: 1 1 auto;
+        }
+        .module-card .module-handoff {
+          margin-top: auto;
+          padding-top: 0.5rem;
+        }
+        /* Force Streamlit column children to stretch equally in a row */
+        div[data-testid="stHorizontalBlock"] > div[data-testid="stColumn"] {
+          display: flex;
+        }
+        div[data-testid="stColumn"] > div[data-testid="stVerticalBlock"] {
+          width: 100%;
         }
         .module-card h3 {
           margin-top: 0 !important;
