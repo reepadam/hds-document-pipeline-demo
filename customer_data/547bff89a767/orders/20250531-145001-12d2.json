@@ -135,5 +135,16 @@
   "total_customer": 41800.44,
   "total_profit": 10835.35,
   "markup_pct": 35.0,
-  "job_number": "JOB-DEN-2026-0073"
+  "job_number": "JOB-DEN-2026-0073",
+  "approval_stage": "completed",
+  "stage_changed_at": "2025-05-31T14:50:01Z",
+  "approval_log": [
+    {
+      "at": "2025-05-31T14:50:01Z",
+      "actor": "system (seed)",
+      "action": "created",
+      "to_stage": "completed",
+      "notes": "Order seeded directly at stage 'completed' for demo."
+    }
+  ]
 }

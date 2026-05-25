@@ -62,5 +62,16 @@
   "total_customer": 2008.93,
   "total_profit": 520.49,
   "markup_pct": 35.0,
-  "job_number": "JOB-SKN-2026-0083"
+  "job_number": "JOB-SKN-2026-0083",
+  "approval_stage": "completed",
+  "stage_changed_at": "2025-07-09T14:50:02Z",
+  "approval_log": [
+    {
+      "at": "2025-07-09T14:50:02Z",
+      "actor": "system (seed)",
+      "action": "created",
+      "to_stage": "completed",
+      "notes": "Order seeded directly at stage 'completed' for demo."
+    }
+  ]
 }

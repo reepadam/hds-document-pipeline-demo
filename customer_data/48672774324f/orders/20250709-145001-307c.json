@@ -62,5 +62,16 @@
   "total_customer": 8884.05,
   "total_profit": 2301.73,
   "markup_pct": 35.0,
-  "job_number": "JOB-CAV-2026-0092"
+  "job_number": "JOB-CAV-2026-0092",
+  "approval_stage": "completed",
+  "stage_changed_at": "2025-07-09T14:50:01Z",
+  "approval_log": [
+    {
+      "at": "2025-07-09T14:50:01Z",
+      "actor": "system (seed)",
+      "action": "created",
+      "to_stage": "completed",
+      "notes": "Order seeded directly at stage 'completed' for demo."
+    }
+  ]
 }

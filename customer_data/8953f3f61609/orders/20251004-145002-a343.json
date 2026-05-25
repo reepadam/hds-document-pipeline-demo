@@ -104,5 +104,16 @@
   "total_customer": 8592.37,
   "total_profit": 2227.66,
   "markup_pct": 35.0,
-  "job_number": "JOB-LUM-2026-0118"
+  "job_number": "JOB-LUM-2026-0118",
+  "approval_stage": "completed",
+  "stage_changed_at": "2025-10-04T14:50:02Z",
+  "approval_log": [
+    {
+      "at": "2025-10-04T14:50:02Z",
+      "actor": "system (seed)",
+      "action": "created",
+      "to_stage": "completed",
+      "notes": "Order seeded directly at stage 'completed' for demo."
+    }
+  ]
 }

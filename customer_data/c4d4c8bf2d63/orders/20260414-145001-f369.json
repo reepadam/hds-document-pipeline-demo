@@ -112,5 +112,16 @@
   "total_customer": 17500.75,
   "total_profit": 4535.96,
   "markup_pct": 35.0,
-  "job_number": "JOB-HMK-2026-0312"
+  "job_number": "JOB-HMK-2026-0312",
+  "approval_stage": "draft",
+  "stage_changed_at": "2026-04-14T14:50:01Z",
+  "approval_log": [
+    {
+      "at": "2026-04-14T14:50:01Z",
+      "actor": "system (seed)",
+      "action": "created",
+      "to_stage": "draft",
+      "notes": "Order seeded directly at stage 'draft' for demo."
+    }
+  ]
 }

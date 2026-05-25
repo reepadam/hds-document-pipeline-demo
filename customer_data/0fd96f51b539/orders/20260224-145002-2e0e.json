@@ -88,5 +88,16 @@
   "total_customer": 165546.33,
   "total_profit": 42898.87,
   "markup_pct": 35.0,
-  "job_number": "JOB-RST-2026-0511"
+  "job_number": "JOB-RST-2026-0511",
+  "approval_stage": "approved",
+  "stage_changed_at": "2026-02-24T14:50:02Z",
+  "approval_log": [
+    {
+      "at": "2026-02-24T14:50:02Z",
+      "actor": "system (seed)",
+      "action": "created",
+      "to_stage": "approved",
+      "notes": "Order seeded directly at stage 'approved' for demo."
+    }
+  ]
 }

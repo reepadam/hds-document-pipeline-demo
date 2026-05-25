@@ -43,5 +43,16 @@
   "total_customer": 8477.33,
   "total_profit": 2197.83,
   "markup_pct": 35.0,
-  "handoff_text": "HDS MARKETING - PRODUCTION HANDOFF\nCustomer: Big Lots  [Antera: CUS-BIG-024]\nArtwork file: Big_Lots_2001_logo.svg\nDecoration method: embroidery\nThread/ink: Madeira Classic 40 rayon for primary colors; Madeira Supertwist for black (superior sheen and durability on visible logos)\n\nLINE ITEMS:\n  - 350 x T-shirt (100% cotton) (White) [Embroidery] @ Center Chest 10.0x8.0\" [S=100, M=100, L=100, XL=50] @ $24.10/pc = $8,434.13\n\nONE-TIME SETUP FEES (per unique method):\n  - Embroidery: $43.20\n\nTOTAL UNITS: 350\nLINES SUBTOTAL: $8,434.13\nONE-TIME SETUP: $43.20\nCUSTOMER QUOTE (grand total): $8,477.33\nHOUSE COST (incl. setup): $6,279.50\nGROSS MARGIN: $2,197.83 (35% markup)\n\nPRODUCTION NOTES:\n  - Digitize SVG in Wilcom or Tajima software; confirm stitch count stays under 10,500 and minimum line width is \u22650.10 inch (text strokes).\n  - Pull Madeira thread codes 1800 (White), 1101 or 1410 (Orange \u2013 verify PMS match to #f77f0d), and 1810 (Black Supertwist); queue on Tajima heads with round 4.25-inch hoop.\n  - Produce 2\u20133 sample pieces; inspect text clarity, satin finish uniformity, and stabilizer removal; adjust density if needed.\n  - Confirm final artwork approval from customer re: trademark compliance and size/placement on left chest (standard 3.5 \u00d7 2.8 inch)."
+  "handoff_text": "HDS MARKETING - PRODUCTION HANDOFF\nCustomer: Big Lots  [Antera: CUS-BIG-024]\nArtwork file: Big_Lots_2001_logo.svg\nDecoration method: embroidery\nThread/ink: Madeira Classic 40 rayon for primary colors; Madeira Supertwist for black (superior sheen and durability on visible logos)\n\nLINE ITEMS:\n  - 350 x T-shirt (100% cotton) (White) [Embroidery] @ Center Chest 10.0x8.0\" [S=100, M=100, L=100, XL=50] @ $24.10/pc = $8,434.13\n\nONE-TIME SETUP FEES (per unique method):\n  - Embroidery: $43.20\n\nTOTAL UNITS: 350\nLINES SUBTOTAL: $8,434.13\nONE-TIME SETUP: $43.20\nCUSTOMER QUOTE (grand total): $8,477.33\nHOUSE COST (incl. setup): $6,279.50\nGROSS MARGIN: $2,197.83 (35% markup)\n\nPRODUCTION NOTES:\n  - Digitize SVG in Wilcom or Tajima software; confirm stitch count stays under 10,500 and minimum line width is \u22650.10 inch (text strokes).\n  - Pull Madeira thread codes 1800 (White), 1101 or 1410 (Orange \u2013 verify PMS match to #f77f0d), and 1810 (Black Supertwist); queue on Tajima heads with round 4.25-inch hoop.\n  - Produce 2\u20133 sample pieces; inspect text clarity, satin finish uniformity, and stabilizer removal; adjust density if needed.\n  - Confirm final artwork approval from customer re: trademark compliance and size/placement on left chest (standard 3.5 \u00d7 2.8 inch).",
+  "approval_stage": "pending_customer",
+  "stage_changed_at": "2026-05-25T15:07:51Z",
+  "approval_log": [
+    {
+      "at": "2026-05-25T15:07:51Z",
+      "actor": "system (seed)",
+      "action": "created",
+      "to_stage": "pending_customer",
+      "notes": "Order seeded directly at stage 'pending_customer' for demo."
+    }
+  ]
 }

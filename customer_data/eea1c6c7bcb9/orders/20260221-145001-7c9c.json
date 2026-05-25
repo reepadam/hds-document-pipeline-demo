@@ -58,5 +58,16 @@
   "total_customer": 5270.4,
   "total_profit": 1366.4,
   "markup_pct": 35.0,
-  "job_number": "JOB-ARI-2026-0044"
+  "job_number": "JOB-ARI-2026-0044",
+  "approval_stage": "completed",
+  "stage_changed_at": "2026-02-21T14:50:01Z",
+  "approval_log": [
+    {
+      "at": "2026-02-21T14:50:01Z",
+      "actor": "system (seed)",
+      "action": "created",
+      "to_stage": "completed",
+      "notes": "Order seeded directly at stage 'completed' for demo."
+    }
+  ]
 }

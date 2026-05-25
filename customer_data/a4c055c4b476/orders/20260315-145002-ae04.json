@@ -116,5 +116,16 @@
   "total_customer": 22767.71,
   "total_profit": 5902.73,
   "markup_pct": 35.0,
-  "job_number": "JOB-AHN-2026-0156"
+  "job_number": "JOB-AHN-2026-0156",
+  "approval_stage": "pending_customer",
+  "stage_changed_at": "2026-03-15T14:50:02Z",
+  "approval_log": [
+    {
+      "at": "2026-03-15T14:50:02Z",
+      "actor": "system (seed)",
+      "action": "created",
+      "to_stage": "pending_customer",
+      "notes": "Order seeded directly at stage 'pending_customer' for demo."
+    }
+  ]
 }

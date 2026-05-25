@@ -64,5 +64,16 @@
   "total_customer": 8478.39,
   "total_profit": 2198.09,
   "markup_pct": 35.0,
-  "handoff_text": "HDS MARKETING - PRODUCTION HANDOFF\nCustomer: Pepsi Co  [Antera: HSR-4126813]\nArtwork file: Pepsi_2023.svg\nDecoration method: screen_print\nThread/ink: Wilflex Epic Plastisol (red and navy)\n\nLINE ITEMS:\n  - 160 x T-shirt (100% cotton) (Royal Blue) @ Center Chest 20.0x8.0\" [XS=20, S=20, M=20, L=20, XL=20, 2XL=20, 3XL=20, 4XL=20] @ $33.72/pc = $5,395.68\n  - 50 x Denim jacket (Black Denim) @ Full Back 10.0x12.0\" [L=50] @ $61.65/pc = $3,082.71\n\nTOTAL UNITS: 210\nHOUSE COST: $6,280.30\nCUSTOMER QUOTE: $8,478.39\nGROSS MARGIN: $2,198.09 (35% markup)\n\nPRODUCTION NOTES:\n  - Verify customer trademark clearance for Pepsi logo production\n  - Import SVG into screen-print RIP software (e.g., Corel, Adobe), create separate CMYK color separations for red and navy, and generate film positives at 1:1 scale\n  - Prepare two screens (156 mesh) with emulsion, expose, and test print on white 100% cotton t-shirt to confirm color match and ink cure\n  - Set up multi-color press with platen and cure unit; run sample 5-piece batch, QC for registration, color saturation, and hand feel; proceed to full order"
+  "handoff_text": "HDS MARKETING - PRODUCTION HANDOFF\nCustomer: Pepsi Co  [Antera: HSR-4126813]\nArtwork file: Pepsi_2023.svg\nDecoration method: screen_print\nThread/ink: Wilflex Epic Plastisol (red and navy)\n\nLINE ITEMS:\n  - 160 x T-shirt (100% cotton) (Royal Blue) @ Center Chest 20.0x8.0\" [XS=20, S=20, M=20, L=20, XL=20, 2XL=20, 3XL=20, 4XL=20] @ $33.72/pc = $5,395.68\n  - 50 x Denim jacket (Black Denim) @ Full Back 10.0x12.0\" [L=50] @ $61.65/pc = $3,082.71\n\nTOTAL UNITS: 210\nHOUSE COST: $6,280.30\nCUSTOMER QUOTE: $8,478.39\nGROSS MARGIN: $2,198.09 (35% markup)\n\nPRODUCTION NOTES:\n  - Verify customer trademark clearance for Pepsi logo production\n  - Import SVG into screen-print RIP software (e.g., Corel, Adobe), create separate CMYK color separations for red and navy, and generate film positives at 1:1 scale\n  - Prepare two screens (156 mesh) with emulsion, expose, and test print on white 100% cotton t-shirt to confirm color match and ink cure\n  - Set up multi-color press with platen and cure unit; run sample 5-piece batch, QC for registration, color saturation, and hand feel; proceed to full order",
+  "approval_stage": "pending_production_mgr",
+  "stage_changed_at": "2026-05-24T23:35:34Z",
+  "approval_log": [
+    {
+      "at": "2026-05-24T23:35:34Z",
+      "actor": "system (seed)",
+      "action": "created",
+      "to_stage": "pending_production_mgr",
+      "notes": "Order seeded directly at stage 'pending_production_mgr' for demo."
+    }
+  ]
 }

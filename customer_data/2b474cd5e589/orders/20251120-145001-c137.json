@@ -119,5 +119,16 @@
   "total_customer": 79987.84,
   "total_profit": 20727.39,
   "markup_pct": 35.0,
-  "job_number": "JOB-NFL-2026-0211"
+  "job_number": "JOB-NFL-2026-0211",
+  "approval_stage": "completed",
+  "stage_changed_at": "2025-11-20T14:50:01Z",
+  "approval_log": [
+    {
+      "at": "2025-11-20T14:50:01Z",
+      "actor": "system (seed)",
+      "action": "created",
+      "to_stage": "completed",
+      "notes": "Order seeded directly at stage 'completed' for demo."
+    }
+  ]
 }

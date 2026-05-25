@@ -139,5 +139,16 @@
   "total_customer": 36794.84,
   "total_profit": 9531.57,
   "markup_pct": 35.0,
-  "job_number": "JOB-SWR-2026-0299"
+  "job_number": "JOB-SWR-2026-0299",
+  "approval_stage": "approved",
+  "stage_changed_at": "2026-04-28T14:50:03Z",
+  "approval_log": [
+    {
+      "at": "2026-04-28T14:50:03Z",
+      "actor": "system (seed)",
+      "action": "created",
+      "to_stage": "approved",
+      "notes": "Order seeded directly at stage 'approved' for demo."
+    }
+  ]
 }

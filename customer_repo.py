@@ -271,6 +271,138 @@ def queue_counts():
     """Return {queue_name: entry_count} for all known queues."""
     return {q: len(list_queue(q)) for q in VALID_QUEUES}
 
+# ============================================================
+# APPROVAL STAGE MANAGEMENT
+# ============================================================
+
+# Sports/licensed customers go through 3-party approval (team/property +
+# league + sponsor). Corporate customers go through internal review only.
+SPORTS_STAGES = [
+    "draft", "pending_customer", "pending_league", "pending_sponsor",
+    "approved", "in_production", "completed",
+]
+CORPORATE_STAGES = [
+    "draft", "pending_customer", "pending_production_mgr",
+    "approved", "in_production", "completed",
+]
+STAGE_LABELS = {
+    "draft": "Draft",
+    "pending_customer": "Pending Customer Review",
+    "pending_league": "Pending League / Properties",
+    "pending_sponsor": "Pending Sponsor Sign-off",
+    "pending_production_mgr": "Pending Production Mgr",
+    "approved": "Approved — Ready for Production",
+    "in_production": "In Production",
+    "completed": "Completed",
+    "rejected": "Rejected / Change Requested",
+}
+STAGE_ICONS = {
+    "draft": "📝",
+    "pending_customer": "👤",
+    "pending_league": "🏛️",
+    "pending_sponsor": "💰",
+    "pending_production_mgr": "🏭",
+    "approved": "✅",
+    "in_production": "⚙️",
+    "completed": "📦",
+    "rejected": "⚠️",
+}
+
+
+def get_customer_category(customer):
+    """Returns 'sports' or 'corporate'. Reads from customer record (default corporate)."""
+    if not customer:
+        return "corporate"
+    return customer.get("category", "corporate")
+
+
+def get_flow_for_customer(customer):
+    """Return the approval-stage list for this customer's category."""
+    cat = get_customer_category(customer)
+    return SPORTS_STAGES if cat == "sports" else CORPORATE_STAGES
+
+
+def set_customer_category(customer_id, category):
+    """Update a customer's category (sports/corporate). Persists to customers.json."""
+    customers = _load_customers()
+    for c in customers:
+        if c["customer_id"] == customer_id:
+            c["category"] = category
+            _save_customers(customers)
+            return c
+    return None
+
+
+def advance_order_stage(customer_id, order_id, actor="system", notes="", to_stage=None):
+    """Advance an order to the next stage (or specific to_stage). Appends to approval_log."""
+    order_path = _customer_dir(customer_id) / "orders" / f"{order_id}.json"
+    if not order_path.exists():
+        return None
+    rec = json.loads(order_path.read_text())
+    cust = get_customer(customer_id)
+    flow = get_flow_for_customer(cust)
+    current = rec.get("approval_stage", "draft")
+    if to_stage:
+        new_stage = to_stage
+    else:
+        try:
+            idx = flow.index(current)
+            new_stage = flow[idx + 1] if idx + 1 < len(flow) else current
+        except ValueError:
+            new_stage = flow[0]
+    rec["approval_stage"] = new_stage
+    rec.setdefault("approval_log", []).append({
+        "at": _now_iso(),
+        "actor": actor,
+        "action": "advanced",
+        "to_stage": new_stage,
+        "from_stage": current,
+        "notes": notes,
+    })
+    rec["stage_changed_at"] = _now_iso()
+    order_path.write_text(json.dumps(rec, indent=2, default=str))
+    return rec
+
+
+def reject_order(customer_id, order_id, actor="system", notes=""):
+    """Mark order as rejected/change-requested. Sends back to draft."""
+    order_path = _customer_dir(customer_id) / "orders" / f"{order_id}.json"
+    if not order_path.exists():
+        return None
+    rec = json.loads(order_path.read_text())
+    current = rec.get("approval_stage", "draft")
+    rec["approval_stage"] = "rejected"
+    rec.setdefault("approval_log", []).append({
+        "at": _now_iso(),
+        "actor": actor,
+        "action": "rejected",
+        "from_stage": current,
+        "notes": notes,
+    })
+    rec["stage_changed_at"] = _now_iso()
+    order_path.write_text(json.dumps(rec, indent=2, default=str))
+    return rec
+
+
+def list_all_orders_with_stage():
+    """Return ALL orders across all customers, with approval stage info attached.
+    Used by the Approvals & Changes kanban view."""
+    out = []
+    for c in list_customers():
+        cid = c["customer_id"]
+        orders_dir = _customer_dir(cid) / "orders"
+        if not orders_dir.exists():
+            continue
+        for f in orders_dir.glob("*.json"):
+            try:
+                rec = json.loads(f.read_text())
+                rec["_customer"] = c
+                out.append(rec)
+            except json.JSONDecodeError:
+                continue
+    return out
+
+
 def list_orders(customer_id, logo_id=None):
     """All orders for a customer (optionally filtered by logo), newest first."""
     orders_dir = _customer_dir(customer_id) / "orders"

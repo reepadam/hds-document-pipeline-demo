@@ -123,6 +123,15 @@ MODULES = [
         "page": "pages/9_Reporting.py",
         "handoff": "Demo skinny: JSON queues. Prod: pushes to Antera + Sheets.",
     },
+    {
+        "icon": "📋",
+        "chip": "BROWSE: APPROVALS",
+        "chip_class": "browse",
+        "name": "Approvals & Change Mgmt",
+        "desc": "Every order, grouped by approval stage. Sports/licensed orders route through team → league/properties → sponsor sign-off (NFL Properties, MLB, NBA, NHL). Corporate orders route through customer → production-mgr. Approve or request change in one click, with audit log. Replaces email-thread approvals where status hides in someone's inbox.",
+        "page": "pages/10_Approvals_and_Changes.py",
+        "handoff": "→ Locks Antera production work order when fully approved",
+    },
 ]
 
 # Render as 3-up rows. Each card is a clickable <a> wrapping the whole tile.

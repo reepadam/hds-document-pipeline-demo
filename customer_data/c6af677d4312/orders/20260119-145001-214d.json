@@ -61,5 +61,16 @@
   "total_customer": 53303.99,
   "total_profit": 13819.55,
   "markup_pct": 35.0,
-  "job_number": null
+  "job_number": null,
+  "approval_stage": "pending_league",
+  "stage_changed_at": "2026-01-19T14:50:01Z",
+  "approval_log": [
+    {
+      "at": "2026-01-19T14:50:01Z",
+      "actor": "system (seed)",
+      "action": "created",
+      "to_stage": "pending_league",
+      "notes": "Order seeded directly at stage 'pending_league' for demo."
+    }
+  ]
 }

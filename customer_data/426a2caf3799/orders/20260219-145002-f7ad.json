@@ -81,5 +81,16 @@
   "total_customer": 7729.57,
   "total_profit": 2004.61,
   "markup_pct": 35.0,
-  "job_number": "JOB-PEL-2026-0103"
+  "job_number": "JOB-PEL-2026-0103",
+  "approval_stage": "approved",
+  "stage_changed_at": "2026-02-19T14:50:02Z",
+  "approval_log": [
+    {
+      "at": "2026-02-19T14:50:02Z",
+      "actor": "system (seed)",
+      "action": "created",
+      "to_stage": "approved",
+      "notes": "Order seeded directly at stage 'approved' for demo."
+    }
+  ]
 }

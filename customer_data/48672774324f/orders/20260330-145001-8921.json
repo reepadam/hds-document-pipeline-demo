@@ -134,5 +134,16 @@
   "total_customer": 33019.2,
   "total_profit": 8560.53,
   "markup_pct": 35.0,
-  "job_number": "JOB-CAV-2026-0088"
+  "job_number": "JOB-CAV-2026-0088",
+  "approval_stage": "pending_sponsor",
+  "stage_changed_at": "2026-03-30T14:50:01Z",
+  "approval_log": [
+    {
+      "at": "2026-03-30T14:50:01Z",
+      "actor": "system (seed)",
+      "action": "created",
+      "to_stage": "pending_sponsor",
+      "notes": "Order seeded directly at stage 'pending_sponsor' for demo."
+    }
+  ]
 }

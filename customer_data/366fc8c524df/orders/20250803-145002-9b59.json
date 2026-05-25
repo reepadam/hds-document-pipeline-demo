@@ -134,5 +134,16 @@
   "total_customer": 2677.34,
   "total_profit": 694.01,
   "markup_pct": 35.0,
-  "job_number": "JOB-FUJ-2026-0040"
+  "job_number": "JOB-FUJ-2026-0040",
+  "approval_stage": "completed",
+  "stage_changed_at": "2025-08-03T14:50:02Z",
+  "approval_log": [
+    {
+      "at": "2025-08-03T14:50:02Z",
+      "actor": "system (seed)",
+      "action": "created",
+      "to_stage": "completed",
+      "notes": "Order seeded directly at stage 'completed' for demo."
+    }
+  ]
 }

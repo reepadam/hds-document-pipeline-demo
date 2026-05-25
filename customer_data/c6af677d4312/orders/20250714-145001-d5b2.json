@@ -58,5 +58,16 @@
   "total_customer": 12962.02,
   "total_profit": 3361.21,
   "markup_pct": 35.0,
-  "job_number": null
+  "job_number": null,
+  "approval_stage": "completed",
+  "stage_changed_at": "2025-07-14T14:50:01Z",
+  "approval_log": [
+    {
+      "at": "2025-07-14T14:50:01Z",
+      "actor": "system (seed)",
+      "action": "created",
+      "to_stage": "completed",
+      "notes": "Order seeded directly at stage 'completed' for demo."
+    }
+  ]
 }

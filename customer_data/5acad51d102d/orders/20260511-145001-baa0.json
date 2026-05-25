@@ -108,5 +108,16 @@
   "total_customer": 17162.92,
   "total_profit": 4448.97,
   "markup_pct": 35.0,
-  "job_number": "JOB-NEP-2026-0036"
+  "job_number": "JOB-NEP-2026-0036",
+  "approval_stage": "completed",
+  "stage_changed_at": "2026-05-11T14:50:01Z",
+  "approval_log": [
+    {
+      "at": "2026-05-11T14:50:01Z",
+      "actor": "system (seed)",
+      "action": "created",
+      "to_stage": "completed",
+      "notes": "Order seeded directly at stage 'completed' for demo."
+    }
+  ]
 }
