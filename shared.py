@@ -79,14 +79,17 @@ def inject_styles():
         }
         .antera-handoff {
           background: #fff5ee;
+          color: #2a2a2a;
           border-left: 3px solid var(--hds-coral);
           padding: 0.4rem 0.7rem;
           font-size: 0.8rem;
           border-radius: 4px;
           margin: 0.4rem 0;
         }
+        .antera-handoff strong { color: var(--hds-navy); }
         .auto-flag {
           background: #eef5ee;
+          color: #2a2a2a;
           border-left: 3px solid #4a8d4a;
           padding: 0.4rem 0.8rem;
           border-radius: 4px;
@@ -109,12 +112,14 @@ def inject_styles():
         }
         .row-subtotal {
           background: #f1f4f8;
+          color: #2a2a2a;
           border-left: 3px solid var(--hds-coral);
           padding: 0.3rem 0.6rem;
           font-size: 0.82rem;
           margin-top: 0.3rem;
           border-radius: 4px;
         }
+        .row-subtotal strong { color: var(--hds-navy); }
         .module-card-link {
           text-decoration: none !important;
           color: inherit !important;

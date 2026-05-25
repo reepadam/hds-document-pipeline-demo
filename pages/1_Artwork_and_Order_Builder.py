@@ -506,14 +506,14 @@ lines = collect_lines()
 if lines:
     st.markdown("---")
     st.subheader("Quote Summary")
-    col_widths = [1.5, 0.85, 1.2, 1.2, 0.8, 1.4, 0.55, 0.9, 0.9, 0.95, 1.05]
-    col_headers = ["Garment", "Color", "Placement", "Method", "Size (in)", "Size breakdown", "Qty",
-                   "Decor/pc", "House/pc", "Customer/pc", "Line total"]
+    col_widths = [1.6, 1.0, 1.3, 1.2, 0.8, 1.5, 0.55, 0.85, 0.85, 0.95, 1.1]
+    col_headers = ["Garment", "Color", "Placement", "Method", "Size", "Sizes/qty", "Qty",
+                   "Decor", "House", "Cust", "Line total"]
     hcols = st.columns(col_widths)
     for c, h in zip(hcols, col_headers):
         c.markdown(f"**{h}**")
     for ln in lines:
-        cols = st.columns(col_widths)
+        cols = st.columns(col_widths)  # widths set above
         cols[0].markdown(ln["garment_type"])
         # Color cell: name + chip + hex code if a custom hex was picked
         color_hex_disp = ln.get("base_color_hex") or ""
@@ -615,8 +615,9 @@ if lines:
             f"Customer: {active_customer['display_name'] if active_customer else '(walk-in)'}"
             + (f"  [Antera: {active_customer.get('antera_customer_id') or '?'}]" if active_customer else ""),
             f"Artwork file: {filename}",
-            f"Decoration method: {recs.get('recommended_decoration_method','?')}",
-            f"Thread/ink: {recs.get('thread_or_ink_recommendation',{}).get('brand_product','?')}",
+            f"Suggested method (from artwork analysis): {recs.get('recommended_decoration_method','?')}",
+            f"Suggested thread/ink: {recs.get('thread_or_ink_recommendation',{}).get('brand_product','?')}",
+            "(Per-line method may differ - see line items.)",
             "",
             "LINE ITEMS:",
         ]
