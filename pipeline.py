@@ -594,7 +594,8 @@ def get_logo_recommendations(vision_features, garment, input_format="png"):
 
 
 def build_quote_line(garment_type, base_color, quantity, recs, markup_pct=35.0,
-                     logo_width_in=None, logo_height_in=None, placement=None, method=None):
+                     logo_width_in=None, logo_height_in=None, placement=None, method=None,
+                     base_color_hex=None):
     """Roll a single line item into a full quote: blank + (method-driven, size-scaled) decoration + markup.
 
     method: one of METHOD_COSTS keys (embroidery, screen_print, dtg, heat_transfer,
@@ -633,6 +634,7 @@ def build_quote_line(garment_type, base_color, quantity, recs, markup_pct=35.0,
     return {
         "garment_type": garment_type,
         "base_color": base_color,
+        "base_color_hex": base_color_hex,
         "quantity": quantity,
         "placement": placement,
         "method": method_key,

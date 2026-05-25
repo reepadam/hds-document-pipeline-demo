@@ -319,8 +319,8 @@ for idx, row_id in enumerate(list(st.session_state["row_ids"])):
                 if st.session_state.get(last_named_key) != named_color:
                     st.session_state[hex_key] = color_name_to_hex(named_color)
                     st.session_state[last_named_key] = named_color
-                st.color_picker("Hex (mockup)", key=hex_key,
-                                help="Mockup display color. Overrides the dropdown's default shade for the preview. Order still references the dropdown name.")
+                st.color_picker("Exact hex", key=hex_key,
+                                help="Exact color the garment is ordered in (PMS-match the blank). Auto-fills from the dropdown's named shade; override for brand-critical orders like '#0159a3' for IKEA blue. Flows to mockup, quote PDF, and production handoff.")
         with top_cols[3]:
             valid_placements = list(GARMENT_PLACEMENTS.get(garment_choice, {"Left Chest": (3.5, 3.0)}).keys())
             plc_key = f"plc_{row_id}"
@@ -430,6 +430,7 @@ for idx, row_id in enumerate(list(st.session_state["row_ids"])):
                     garment_choice, st.session_state.get(color_key, ""), row_qty, recs,
                     markup_pct=markup_pct, logo_width_in=w_val, logo_height_in=h_val,
                     placement=placement_choice, method=method_choice,
+                    base_color_hex=st.session_state.get(f"hex_{row_id}"),
                 )
                 st.markdown(
                     f'<div class="row-subtotal">'
@@ -494,6 +495,7 @@ def collect_lines():
             garment_type, color, total_qty, recs,
             markup_pct=markup_pct, logo_width_in=w_in, logo_height_in=h_in,
             placement=placement, method=method_picked,
+            base_color_hex=st.session_state.get(f"hex_{row_id}"),
         )
         q["sizes"] = size_qtys
         q["row_id"] = row_id
@@ -513,7 +515,16 @@ if lines:
     for ln in lines:
         cols = st.columns(col_widths)
         cols[0].markdown(ln["garment_type"])
-        cols[1].markdown(ln["base_color"])
+        # Color cell: name + chip + hex code if a custom hex was picked
+        color_hex_disp = ln.get("base_color_hex") or ""
+        if color_hex_disp:
+            cols[1].markdown(
+                f'<span style="display:inline-block;width:10px;height:10px;background:{color_hex_disp};border:1px solid #888;border-radius:2px;vertical-align:middle;margin-right:4px;"></span>'
+                f'{ln["base_color"]}<br><span style="font-size:0.75rem;color:#888;">{color_hex_disp}</span>',
+                unsafe_allow_html=True,
+            )
+        else:
+            cols[1].markdown(ln["base_color"])
         cols[2].markdown(ln.get("placement") or "—")
         cols[3].markdown(ln.get("method_label", "—"))
         cols[4].markdown(f"{ln.get('logo_width_in') or 0:.1f}x{ln.get('logo_height_in') or 0:.1f}")
@@ -611,8 +622,11 @@ if lines:
         ]
         for ln in lines:
             size_str = ", ".join(f"{sz}={q}" for sz, q in ln["sizes"].items() if q > 0)
+            color_str = ln['base_color']
+            if ln.get('base_color_hex'):
+                color_str = f"{ln['base_color']} {ln['base_color_hex']}"
             handoff_lines.append(
-                f"  - {ln['quantity']} x {ln['garment_type']} ({ln['base_color']}) "
+                f"  - {ln['quantity']} x {ln['garment_type']} ({color_str}) "
                 f"[{ln.get('method_label','?')}] @ {ln.get('placement','?')} {ln.get('logo_width_in',0):.1f}x{ln.get('logo_height_in',0):.1f}\" "
                 f"[{size_str}] @ ${ln['customer_price_per_pc']:.2f}/pc = ${ln['line_total']:,.2f}"
             )

@@ -147,7 +147,12 @@ def build_quote_pdf(
             line_rows.append([
                 Paragraph(ln.get("garment_type", "—"), body_style),
                 Paragraph(size_label, body_style),
-                Paragraph(ln.get("base_color", "—"), body_style),
+                Paragraph(
+                    ln.get("base_color", "—")
+                    + (f"<br/><font size='7' color='#888888'>{ln['base_color_hex']}</font>"
+                       if ln.get("base_color_hex") else ""),
+                    body_style,
+                ),
                 Paragraph(ln.get("placement", "—") or "—", body_style),
                 Paragraph(ln.get("method_label", "—"), body_style),
                 Paragraph(f"{ln.get('logo_width_in', 0):.1f}\" × {ln.get('logo_height_in', 0):.1f}\"", body_style),
@@ -161,7 +166,12 @@ def build_quote_pdf(
                 line_rows.append([
                     Paragraph(ln.get("garment_type", "—"), body_style),
                     Paragraph(sz, body_style),
-                    Paragraph(ln.get("base_color", "—"), body_style),
+                    Paragraph(
+                    ln.get("base_color", "—")
+                    + (f"<br/><font size='7' color='#888888'>{ln['base_color_hex']}</font>"
+                       if ln.get("base_color_hex") else ""),
+                    body_style,
+                ),
                     Paragraph(ln.get("placement", "—") or "—", body_style),
                     Paragraph(ln.get("method_label", "—"), body_style),
                     Paragraph(f"{ln.get('logo_width_in', 0):.1f}\" × {ln.get('logo_height_in', 0):.1f}\"", body_style),
