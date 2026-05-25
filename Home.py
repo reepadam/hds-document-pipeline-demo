@@ -138,23 +138,6 @@ for row_start in range(0, len(MODULES), 3):
             except Exception:
                 st.caption(f"(link disabled: {mod['page']})")
 
-# ---- "And one more thing" / coming next ----
-st.markdown("---")
-st.subheader("Coming next")
-st.caption("Roadmap items - each builds on the same pipeline and customer-repo foundation.")
-
-NEXT = [
-    ("📥 Email order intake", "Customer emails artwork + line items → system parses the attachment, extracts the line items from the body, generates a handoff sheet draft for your team to QC and quote. No data entry, no copy-paste."),
-    ("📱 Zebra edit-an-order", "Production-floor handheld snaps a photo of a marked-up printed work order. System parses the handwritten changes and applies them to the existing order BEFORE it locks to production. Catches last-minute customer changes that otherwise get missed."),
-    ("📊 Sheets AP queue", "Bills & Invoices module writes each extracted invoice as a row in a Google Sheet. AP team reviews/approves in Sheets, then bulk-pushes to Antera. Single point of human review, audit trail intact."),
-    ("💬 Customer order chatbot", "Existing customers chat with a bot that references their saved logos and order history. 'Reorder the navy polos with the same logo, this time 50 medium and 30 large.' Pulls directly from the Customer Library."),
-]
-for name, desc in NEXT:
-    st.markdown(
-        f'<div class="coming-next"><strong>{name}</strong><br><span style="font-size:0.85rem;color:#555;">{desc}</span></div>',
-        unsafe_allow_html=True,
-    )
-
 # ---- Footer ----
 st.markdown("---")
 st.caption(
