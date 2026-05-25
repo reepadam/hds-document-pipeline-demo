@@ -446,15 +446,10 @@ for idx, row_id in enumerate(list(st.session_state["row_ids"])):
             else:
                 st.caption("_(Mockup only for image/SVG)_")
 
-add_col, gen_col = st.columns([1, 1])
-with add_col:
-    if st.button("+ Add line"):
-        st.session_state["row_ids"].append(uuid.uuid4().hex[:8])
-        st.session_state["quote_locked"] = False
-        st.rerun()
-with gen_col:
-    if st.button("Generate Quote", type="primary"):
-        st.session_state["quote_locked"] = True
+if st.button("+ Add line"):
+    st.session_state["row_ids"].append(uuid.uuid4().hex[:8])
+    st.session_state["quote_locked"] = False
+    st.rerun()
 
 # Collect lines
 def collect_lines():
@@ -568,6 +563,15 @@ if lines:
     tcol2.metric("Total house cost", f"${total_house:,.2f}", help=f"Lines ${lines_house:,.2f} + Setup ${setup_house:,.2f}")
     tcol3.metric("Customer quote", f"${total_customer:,.2f}", help=f"Lines ${lines_customer:,.2f} + Setup ${setup_customer:,.2f}")
     tcol4.metric(f"Gross margin (@{markup_pct:.0f}%)", f"${total_profit:,.2f}")
+
+    # Generate Quote action lives at the end of the summary - flow goes
+    # build lines → review totals → click generate → handoff sheet/PDF appears.
+    st.markdown("&nbsp;")
+    gen_cols = st.columns([3, 2, 3])
+    with gen_cols[1]:
+        if st.button("📑 Generate Quote", type="primary", use_container_width=True, key="gen_quote_btn"):
+            st.session_state["quote_locked"] = True
+            st.rerun()
 
     if st.session_state.get("quote_locked"):
         st.markdown("---")
