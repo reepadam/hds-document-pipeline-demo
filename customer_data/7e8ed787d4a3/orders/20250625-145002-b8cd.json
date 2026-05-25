@@ -1,0 +1,89 @@
+{
+  "order_id": "20250625-145002-b8cd",
+  "customer_id": "7e8ed787d4a3",
+  "logo_id": "869b68b8c94c",
+  "created_at": "2025-06-25T14:50:02Z",
+  "filename": "skanska-vector-logo-free-download-11574198418xhlvz37x0v.png",
+  "method": "embroidery",
+  "lines": [
+    {
+      "garment_type": "Canvas tote bag",
+      "base_color": "Natural",
+      "quantity": 15,
+      "placement": "Center Front",
+      "method": "screen_print",
+      "method_label": "Screen print",
+      "logo_width_in": 8.0,
+      "logo_height_in": 8.0,
+      "logo_area_sqin": 64.0,
+      "size_scale_factor": 6.4,
+      "blank_cost_per_pc": 3.5,
+      "materials_per_pc": 1.28,
+      "labor_per_pc": 3.84,
+      "decoration_cost_per_pc": 5.12,
+      "house_cost_per_pc": 8.62,
+      "customer_price_per_pc": 11.64,
+      "line_total": 174.56,
+      "markup_pct": 35.0,
+      "sizes": {
+        "One Size": 15
+      }
+    },
+    {
+      "garment_type": "Cap / hat (structured)",
+      "base_color": "Navy",
+      "quantity": 55,
+      "placement": "Back",
+      "method": "embroidery",
+      "method_label": "Embroidery",
+      "logo_width_in": 3.5,
+      "logo_height_in": 1.5,
+      "logo_area_sqin": 5.25,
+      "size_scale_factor": 0.53,
+      "blank_cost_per_pc": 6.75,
+      "materials_per_pc": 0.26,
+      "labor_per_pc": 0.63,
+      "decoration_cost_per_pc": 0.89,
+      "house_cost_per_pc": 7.64,
+      "customer_price_per_pc": 10.32,
+      "line_total": 567.46,
+      "markup_pct": 35.0,
+      "sizes": {
+        "OSFA": 55
+      }
+    },
+    {
+      "garment_type": "Polo shirt (cotton-poly blend)",
+      "base_color": "Navy",
+      "quantity": 35,
+      "placement": "Right Sleeve",
+      "method": "embroidery",
+      "method_label": "Embroidery",
+      "logo_width_in": 3.0,
+      "logo_height_in": 3.0,
+      "logo_area_sqin": 9.0,
+      "size_scale_factor": 0.9,
+      "blank_cost_per_pc": 11.0,
+      "materials_per_pc": 0.45,
+      "labor_per_pc": 1.08,
+      "decoration_cost_per_pc": 1.53,
+      "house_cost_per_pc": 12.53,
+      "customer_price_per_pc": 16.92,
+      "line_total": 592.04,
+      "markup_pct": 35.0,
+      "sizes": {
+        "S": 16,
+        "M": 5,
+        "L": 3,
+        "XL": 8,
+        "2XL": 3
+      }
+    }
+  ],
+  "total_units": 105,
+  "total_house": 1045.05,
+  "total_customer": 1411.01,
+  "total_profit": 365.96,
+  "markup_pct": 35.0,
+  "job_number": "JOB-SKN-2026-0083"
+}

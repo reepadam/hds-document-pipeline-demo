@@ -1,0 +1,92 @@
+{
+  "order_id": "20251109-145001-c244",
+  "customer_id": "2b474cd5e589",
+  "logo_id": "507ffe8a3656",
+  "created_at": "2025-11-09T14:50:01Z",
+  "filename": "National_Football_League_logo.svg.png",
+  "method": "embroidery",
+  "lines": [
+    {
+      "garment_type": "T-shirt (100% cotton)",
+      "base_color": "Red",
+      "quantity": 1250,
+      "placement": "Full Front",
+      "method": "screen_print",
+      "method_label": "Screen print",
+      "logo_width_in": 12.0,
+      "logo_height_in": 12.0,
+      "logo_area_sqin": 144.0,
+      "size_scale_factor": 14.4,
+      "blank_cost_per_pc": 4.25,
+      "materials_per_pc": 2.88,
+      "labor_per_pc": 8.64,
+      "decoration_cost_per_pc": 11.52,
+      "house_cost_per_pc": 15.77,
+      "customer_price_per_pc": 21.29,
+      "line_total": 26611.88,
+      "markup_pct": 35.0,
+      "sizes": {
+        "S": 248,
+        "M": 255,
+        "L": 246,
+        "XL": 251,
+        "2XL": 250
+      }
+    },
+    {
+      "garment_type": "Denim jacket",
+      "base_color": "Black Denim",
+      "quantity": 689,
+      "placement": "Left Chest",
+      "method": "embroidery",
+      "method_label": "Embroidery",
+      "logo_width_in": 3.5,
+      "logo_height_in": 3.0,
+      "logo_area_sqin": 10.5,
+      "size_scale_factor": 1.05,
+      "blank_cost_per_pc": 28.0,
+      "materials_per_pc": 0.53,
+      "labor_per_pc": 1.26,
+      "decoration_cost_per_pc": 1.79,
+      "house_cost_per_pc": 29.79,
+      "customer_price_per_pc": 40.21,
+      "line_total": 27704.52,
+      "markup_pct": 35.0,
+      "sizes": {
+        "S": 178,
+        "M": 171,
+        "L": 172,
+        "XL": 168
+      }
+    },
+    {
+      "garment_type": "Cap / hat (structured)",
+      "base_color": "Navy",
+      "quantity": 559,
+      "placement": "Back",
+      "method": "embroidery",
+      "method_label": "Embroidery",
+      "logo_width_in": 3.5,
+      "logo_height_in": 1.5,
+      "logo_area_sqin": 5.25,
+      "size_scale_factor": 0.53,
+      "blank_cost_per_pc": 6.75,
+      "materials_per_pc": 0.26,
+      "labor_per_pc": 0.63,
+      "decoration_cost_per_pc": 0.89,
+      "house_cost_per_pc": 7.64,
+      "customer_price_per_pc": 10.32,
+      "line_total": 5767.41,
+      "markup_pct": 35.0,
+      "sizes": {
+        "OSFA": 559
+      }
+    }
+  ],
+  "total_units": 2498,
+  "total_house": 44565.57,
+  "total_customer": 60160.76,
+  "total_profit": 15595.19,
+  "markup_pct": 35.0,
+  "job_number": "JOB-NFL-2026-0200"
+}

@@ -1,0 +1,70 @@
+{
+  "order_id": "20251208-145001-73b2",
+  "customer_id": "48672774324f",
+  "logo_id": "6b323c2201ca",
+  "created_at": "2025-12-08T14:50:01Z",
+  "filename": "Cleveland_Cavaliers_logo.svg",
+  "method": "embroidery",
+  "lines": [
+    {
+      "garment_type": "T-shirt (100% cotton)",
+      "base_color": "Royal Blue",
+      "quantity": 132,
+      "placement": "Full Front",
+      "method": "screen_print",
+      "method_label": "Screen print",
+      "logo_width_in": 12.0,
+      "logo_height_in": 12.0,
+      "logo_area_sqin": 144.0,
+      "size_scale_factor": 14.4,
+      "blank_cost_per_pc": 4.25,
+      "materials_per_pc": 2.88,
+      "labor_per_pc": 8.64,
+      "decoration_cost_per_pc": 11.52,
+      "house_cost_per_pc": 15.77,
+      "customer_price_per_pc": 21.29,
+      "line_total": 2810.21,
+      "markup_pct": 35.0,
+      "sizes": {
+        "S": 25,
+        "M": 29,
+        "L": 24,
+        "XL": 29,
+        "2XL": 25
+      }
+    },
+    {
+      "garment_type": "Hoodie / sweatshirt (heavy fleece)",
+      "base_color": "Charcoal",
+      "quantity": 280,
+      "placement": "Left Chest",
+      "method": "embroidery",
+      "method_label": "Embroidery",
+      "logo_width_in": 3.5,
+      "logo_height_in": 3.0,
+      "logo_area_sqin": 10.5,
+      "size_scale_factor": 1.05,
+      "blank_cost_per_pc": 18.5,
+      "materials_per_pc": 0.53,
+      "labor_per_pc": 1.26,
+      "decoration_cost_per_pc": 1.79,
+      "house_cost_per_pc": 20.29,
+      "customer_price_per_pc": 27.38,
+      "line_total": 7667.73,
+      "markup_pct": 35.0,
+      "sizes": {
+        "S": 55,
+        "M": 55,
+        "L": 53,
+        "XL": 58,
+        "2XL": 59
+      }
+    }
+  ],
+  "total_units": 412,
+  "total_house": 7819.84,
+  "total_customer": 10554.89,
+  "total_profit": 2735.05,
+  "markup_pct": 35.0,
+  "job_number": "JOB-CAV-2026-0092"
+}

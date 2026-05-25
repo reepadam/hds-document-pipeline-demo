@@ -1,0 +1,88 @@
+{
+  "order_id": "20260417-145002-8202",
+  "customer_id": "8953f3f61609",
+  "logo_id": "a73f9d4758f9",
+  "created_at": "2026-04-17T14:50:02Z",
+  "filename": "84lumber.png",
+  "method": "embroidery",
+  "lines": [
+    {
+      "garment_type": "Cap / hat (structured)",
+      "base_color": "White",
+      "quantity": 264,
+      "placement": "Back",
+      "method": "embroidery",
+      "method_label": "Embroidery",
+      "logo_width_in": 3.5,
+      "logo_height_in": 1.5,
+      "logo_area_sqin": 5.25,
+      "size_scale_factor": 0.53,
+      "blank_cost_per_pc": 6.75,
+      "materials_per_pc": 0.26,
+      "labor_per_pc": 0.63,
+      "decoration_cost_per_pc": 0.89,
+      "house_cost_per_pc": 7.64,
+      "customer_price_per_pc": 10.32,
+      "line_total": 2723.79,
+      "markup_pct": 35.0,
+      "sizes": {
+        "OSFA": 264
+      }
+    },
+    {
+      "garment_type": "Denim jacket",
+      "base_color": "Dark Indigo",
+      "quantity": 255,
+      "placement": "Left Chest",
+      "method": "embroidery",
+      "method_label": "Embroidery",
+      "logo_width_in": 3.5,
+      "logo_height_in": 3.0,
+      "logo_area_sqin": 10.5,
+      "size_scale_factor": 1.05,
+      "blank_cost_per_pc": 28.0,
+      "materials_per_pc": 0.53,
+      "labor_per_pc": 1.26,
+      "decoration_cost_per_pc": 1.79,
+      "house_cost_per_pc": 29.79,
+      "customer_price_per_pc": 40.21,
+      "line_total": 10253.49,
+      "markup_pct": 35.0,
+      "sizes": {
+        "S": 63,
+        "M": 63,
+        "L": 66,
+        "XL": 63
+      }
+    },
+    {
+      "garment_type": "Canvas tote bag",
+      "base_color": "Red",
+      "quantity": 146,
+      "placement": "Center Front",
+      "method": "screen_print",
+      "method_label": "Screen print",
+      "logo_width_in": 8.0,
+      "logo_height_in": 8.0,
+      "logo_area_sqin": 64.0,
+      "size_scale_factor": 6.4,
+      "blank_cost_per_pc": 3.5,
+      "materials_per_pc": 1.28,
+      "labor_per_pc": 3.84,
+      "decoration_cost_per_pc": 5.12,
+      "house_cost_per_pc": 8.62,
+      "customer_price_per_pc": 11.64,
+      "line_total": 1699.0,
+      "markup_pct": 35.0,
+      "sizes": {
+        "One Size": 146
+      }
+    }
+  ],
+  "total_units": 665,
+  "total_house": 10928.93,
+  "total_customer": 14753.23,
+  "total_profit": 3824.3,
+  "markup_pct": 35.0,
+  "job_number": "JOB-LUM-2026-0118"
+}

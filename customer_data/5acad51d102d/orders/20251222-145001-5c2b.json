@@ -1,0 +1,93 @@
+{
+  "order_id": "20251222-145001-5c2b",
+  "customer_id": "5acad51d102d",
+  "logo_id": "186dc872f31f",
+  "created_at": "2025-12-22T14:50:01Z",
+  "filename": "New_England_Patriots_logo.svg",
+  "method": "embroidery",
+  "lines": [
+    {
+      "garment_type": "Polo shirt (cotton-poly blend)",
+      "base_color": "Red",
+      "quantity": 631,
+      "placement": "Right Sleeve",
+      "method": "embroidery",
+      "method_label": "Embroidery",
+      "logo_width_in": 3.0,
+      "logo_height_in": 3.0,
+      "logo_area_sqin": 9.0,
+      "size_scale_factor": 0.9,
+      "blank_cost_per_pc": 11.0,
+      "materials_per_pc": 0.45,
+      "labor_per_pc": 1.08,
+      "decoration_cost_per_pc": 1.53,
+      "house_cost_per_pc": 12.53,
+      "customer_price_per_pc": 16.92,
+      "line_total": 10673.68,
+      "markup_pct": 35.0,
+      "sizes": {
+        "S": 120,
+        "M": 131,
+        "L": 127,
+        "XL": 125,
+        "2XL": 128
+      }
+    },
+    {
+      "garment_type": "Canvas tote bag",
+      "base_color": "Black",
+      "quantity": 524,
+      "placement": "Center Front",
+      "method": "screen_print",
+      "method_label": "Screen print",
+      "logo_width_in": 8.0,
+      "logo_height_in": 8.0,
+      "logo_area_sqin": 64.0,
+      "size_scale_factor": 6.4,
+      "blank_cost_per_pc": 3.5,
+      "materials_per_pc": 1.28,
+      "labor_per_pc": 3.84,
+      "decoration_cost_per_pc": 5.12,
+      "house_cost_per_pc": 8.62,
+      "customer_price_per_pc": 11.64,
+      "line_total": 6097.79,
+      "markup_pct": 35.0,
+      "sizes": {
+        "One Size": 524
+      }
+    },
+    {
+      "garment_type": "Polo shirt (cotton-poly blend)",
+      "base_color": "Black",
+      "quantity": 615,
+      "placement": "Right Sleeve",
+      "method": "embroidery",
+      "method_label": "Embroidery",
+      "logo_width_in": 3.0,
+      "logo_height_in": 3.0,
+      "logo_area_sqin": 9.0,
+      "size_scale_factor": 0.9,
+      "blank_cost_per_pc": 11.0,
+      "materials_per_pc": 0.45,
+      "labor_per_pc": 1.08,
+      "decoration_cost_per_pc": 1.53,
+      "house_cost_per_pc": 12.53,
+      "customer_price_per_pc": 16.92,
+      "line_total": 10403.03,
+      "markup_pct": 35.0,
+      "sizes": {
+        "S": 126,
+        "M": 127,
+        "L": 122,
+        "XL": 122,
+        "2XL": 118
+      }
+    }
+  ],
+  "total_units": 1770,
+  "total_house": 20186.26,
+  "total_customer": 27251.45,
+  "total_profit": 7065.19,
+  "markup_pct": 35.0,
+  "job_number": "JOB-NEP-2026-0036"
+}

@@ -1,0 +1,65 @@
+{
+  "order_id": "20250628-145002-cb82",
+  "customer_id": "0fd96f51b539",
+  "logo_id": "9109addda03d",
+  "created_at": "2025-06-28T14:50:02Z",
+  "filename": "rolling-stones-logo-png_seeklogo-119555.png",
+  "method": "embroidery",
+  "lines": [
+    {
+      "garment_type": "Towel (terrycloth)",
+      "base_color": "Black",
+      "quantity": 2988,
+      "placement": "Corner Embroidery",
+      "method": "embroidery",
+      "method_label": "Embroidery",
+      "logo_width_in": 3.0,
+      "logo_height_in": 3.0,
+      "logo_area_sqin": 9.0,
+      "size_scale_factor": 0.9,
+      "blank_cost_per_pc": 7.5,
+      "materials_per_pc": 0.45,
+      "labor_per_pc": 1.08,
+      "decoration_cost_per_pc": 1.53,
+      "house_cost_per_pc": 9.03,
+      "customer_price_per_pc": 12.19,
+      "line_total": 36425.21,
+      "markup_pct": 35.0,
+      "sizes": {
+        "Sport (16x27)": 2988
+      }
+    },
+    {
+      "garment_type": "Denim jacket",
+      "base_color": "Black Denim",
+      "quantity": 1892,
+      "placement": "Full Back",
+      "method": "embroidery",
+      "method_label": "Embroidery",
+      "logo_width_in": 10.0,
+      "logo_height_in": 12.0,
+      "logo_area_sqin": 120.0,
+      "size_scale_factor": 12.0,
+      "blank_cost_per_pc": 28.0,
+      "materials_per_pc": 6.0,
+      "labor_per_pc": 14.4,
+      "decoration_cost_per_pc": 20.4,
+      "house_cost_per_pc": 48.4,
+      "customer_price_per_pc": 65.34,
+      "line_total": 123623.28,
+      "markup_pct": 35.0,
+      "sizes": {
+        "S": 481,
+        "M": 470,
+        "L": 470,
+        "XL": 471
+      }
+    }
+  ],
+  "total_units": 4880,
+  "total_house": 118586.44,
+  "total_customer": 160091.69,
+  "total_profit": 41505.25,
+  "markup_pct": 35.0,
+  "job_number": "JOB-RST-2026-0511"
+}

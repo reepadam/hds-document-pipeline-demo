@@ -1,0 +1,66 @@
+{
+  "order_id": "20250919-145002-1d2e",
+  "customer_id": "7e8ed787d4a3",
+  "logo_id": "869b68b8c94c",
+  "created_at": "2025-09-19T14:50:02Z",
+  "filename": "skanska-vector-logo-free-download-11574198418xhlvz37x0v.png",
+  "method": "screen_print",
+  "lines": [
+    {
+      "garment_type": "T-shirt (100% cotton)",
+      "base_color": "Red",
+      "quantity": 6,
+      "placement": "Left Chest",
+      "method": "screen_print",
+      "method_label": "Screen print",
+      "logo_width_in": 3.5,
+      "logo_height_in": 3.0,
+      "logo_area_sqin": 10.5,
+      "size_scale_factor": 1.05,
+      "blank_cost_per_pc": 4.25,
+      "materials_per_pc": 0.21,
+      "labor_per_pc": 0.63,
+      "decoration_cost_per_pc": 0.84,
+      "house_cost_per_pc": 5.09,
+      "customer_price_per_pc": 6.87,
+      "line_total": 41.23,
+      "markup_pct": 35.0,
+      "sizes": {
+        "S": 13,
+        "M": -1,
+        "L": -4,
+        "XL": -4,
+        "2XL": 2
+      }
+    },
+    {
+      "garment_type": "Canvas tote bag",
+      "base_color": "Red",
+      "quantity": 56,
+      "placement": "Center Front",
+      "method": "screen_print",
+      "method_label": "Screen print",
+      "logo_width_in": 8.0,
+      "logo_height_in": 8.0,
+      "logo_area_sqin": 64.0,
+      "size_scale_factor": 6.4,
+      "blank_cost_per_pc": 3.5,
+      "materials_per_pc": 1.28,
+      "labor_per_pc": 3.84,
+      "decoration_cost_per_pc": 5.12,
+      "house_cost_per_pc": 8.62,
+      "customer_price_per_pc": 11.64,
+      "line_total": 651.67,
+      "markup_pct": 35.0,
+      "sizes": {
+        "One Size": 56
+      }
+    }
+  ],
+  "total_units": 62,
+  "total_house": 538.26,
+  "total_customer": 726.65,
+  "total_profit": 188.39,
+  "markup_pct": 35.0,
+  "job_number": "JOB-SKN-2026-0077"
+}

@@ -1,0 +1,62 @@
+{
+  "order_id": "20260304-145001-be5f",
+  "customer_id": "5acad51d102d",
+  "logo_id": "186dc872f31f",
+  "created_at": "2026-03-04T14:50:01Z",
+  "filename": "New_England_Patriots_logo.svg",
+  "method": "screen_print",
+  "lines": [
+    {
+      "garment_type": "Canvas tote bag",
+      "base_color": "Black",
+      "quantity": 583,
+      "placement": "Center Front",
+      "method": "screen_print",
+      "method_label": "Screen print",
+      "logo_width_in": 8.0,
+      "logo_height_in": 8.0,
+      "logo_area_sqin": 64.0,
+      "size_scale_factor": 6.4,
+      "blank_cost_per_pc": 3.5,
+      "materials_per_pc": 1.28,
+      "labor_per_pc": 3.84,
+      "decoration_cost_per_pc": 5.12,
+      "house_cost_per_pc": 8.62,
+      "customer_price_per_pc": 11.64,
+      "line_total": 6784.37,
+      "markup_pct": 35.0,
+      "sizes": {
+        "One Size": 583
+      }
+    },
+    {
+      "garment_type": "Canvas tote bag",
+      "base_color": "Black",
+      "quantity": 56,
+      "placement": "Center Front",
+      "method": "screen_print",
+      "method_label": "Screen print",
+      "logo_width_in": 8.0,
+      "logo_height_in": 8.0,
+      "logo_area_sqin": 64.0,
+      "size_scale_factor": 6.4,
+      "blank_cost_per_pc": 3.5,
+      "materials_per_pc": 1.28,
+      "labor_per_pc": 3.84,
+      "decoration_cost_per_pc": 5.12,
+      "house_cost_per_pc": 8.62,
+      "customer_price_per_pc": 11.64,
+      "line_total": 651.67,
+      "markup_pct": 35.0,
+      "sizes": {
+        "One Size": 56
+      }
+    }
+  ],
+  "total_units": 639,
+  "total_house": 5533.18,
+  "total_customer": 7469.79,
+  "total_profit": 1936.61,
+  "markup_pct": 35.0,
+  "job_number": "JOB-NEP-2026-0029"
+}

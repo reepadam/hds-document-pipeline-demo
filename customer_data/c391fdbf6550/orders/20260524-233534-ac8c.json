@@ -1,0 +1,68 @@
+{
+  "order_id": "20260524-233534-ac8c",
+  "customer_id": "c391fdbf6550",
+  "logo_id": "ed152b2029e1",
+  "created_at": "2026-05-24T23:35:34Z",
+  "filename": "Pepsi_2023.svg",
+  "method": "screen_print",
+  "lines": [
+    {
+      "garment_type": "T-shirt (100% cotton)",
+      "base_color": "Royal Blue",
+      "quantity": 160,
+      "placement": "Center Chest",
+      "logo_width_in": 20.0,
+      "logo_height_in": 8.0,
+      "logo_area_sqin": 160.0,
+      "size_scale_factor": 16.0,
+      "blank_cost_per_pc": 4.25,
+      "decoration_cost_per_pc": 20.73,
+      "house_cost_per_pc": 24.98,
+      "customer_price_per_pc": 33.72,
+      "line_total": 5395.68,
+      "markup_pct": 35.0,
+      "sizes": {
+        "XS": 20,
+        "S": 20,
+        "M": 20,
+        "L": 20,
+        "XL": 20,
+        "2XL": 20,
+        "3XL": 20,
+        "4XL": 20
+      },
+      "row_id": "93807c5c"
+    },
+    {
+      "garment_type": "Denim jacket",
+      "base_color": "Black Denim",
+      "quantity": 50,
+      "placement": "Full Back",
+      "logo_width_in": 10.0,
+      "logo_height_in": 12.0,
+      "logo_area_sqin": 120.0,
+      "size_scale_factor": 12.0,
+      "blank_cost_per_pc": 28.0,
+      "decoration_cost_per_pc": 17.67,
+      "house_cost_per_pc": 45.67,
+      "customer_price_per_pc": 61.65,
+      "line_total": 3082.71,
+      "markup_pct": 35.0,
+      "sizes": {
+        "S": 0,
+        "M": 0,
+        "L": 50,
+        "XL": 0,
+        "2XL": 0,
+        "3XL": 0
+      },
+      "row_id": "e7479574"
+    }
+  ],
+  "total_units": 210,
+  "total_house": 6280.3,
+  "total_customer": 8478.39,
+  "total_profit": 2198.09,
+  "markup_pct": 35.0,
+  "handoff_text": "HDS MARKETING - PRODUCTION HANDOFF\nCustomer: Pepsi Co  [Antera: HSR-4126813]\nArtwork file: Pepsi_2023.svg\nDecoration method: screen_print\nThread/ink: Wilflex Epic Plastisol (red and navy)\n\nLINE ITEMS:\n  - 160 x T-shirt (100% cotton) (Royal Blue) @ Center Chest 20.0x8.0\" [XS=20, S=20, M=20, L=20, XL=20, 2XL=20, 3XL=20, 4XL=20] @ $33.72/pc = $5,395.68\n  - 50 x Denim jacket (Black Denim) @ Full Back 10.0x12.0\" [L=50] @ $61.65/pc = $3,082.71\n\nTOTAL UNITS: 210\nHOUSE COST: $6,280.30\nCUSTOMER QUOTE: $8,478.39\nGROSS MARGIN: $2,198.09 (35% markup)\n\nPRODUCTION NOTES:\n  - Verify customer trademark clearance for Pepsi logo production\n  - Import SVG into screen-print RIP software (e.g., Corel, Adobe), create separate CMYK color separations for red and navy, and generate film positives at 1:1 scale\n  - Prepare two screens (156 mesh) with emulsion, expose, and test print on white 100% cotton t-shirt to confirm color match and ink cure\n  - Set up multi-color press with platen and cure unit; run sample 5-piece batch, QC for registration, color saturation, and hand feel; proceed to full order"
+}

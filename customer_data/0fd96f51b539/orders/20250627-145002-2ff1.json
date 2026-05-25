@@ -1,0 +1,69 @@
+{
+  "order_id": "20250627-145002-2ff1",
+  "customer_id": "0fd96f51b539",
+  "logo_id": "9109addda03d",
+  "created_at": "2025-06-27T14:50:02Z",
+  "filename": "rolling-stones-logo-png_seeklogo-119555.png",
+  "method": "screen_print",
+  "lines": [
+    {
+      "garment_type": "T-shirt (100% cotton)",
+      "base_color": "Black",
+      "quantity": 2202,
+      "placement": "Full Back",
+      "method": "screen_print",
+      "method_label": "Screen print",
+      "logo_width_in": 12.0,
+      "logo_height_in": 14.0,
+      "logo_area_sqin": 168.0,
+      "size_scale_factor": 16.8,
+      "blank_cost_per_pc": 4.25,
+      "materials_per_pc": 3.36,
+      "labor_per_pc": 10.08,
+      "decoration_cost_per_pc": 13.44,
+      "house_cost_per_pc": 17.69,
+      "customer_price_per_pc": 23.88,
+      "line_total": 52587.06,
+      "markup_pct": 35.0,
+      "sizes": {
+        "S": 437,
+        "M": 442,
+        "L": 437,
+        "XL": 442,
+        "2XL": 444
+      }
+    },
+    {
+      "garment_type": "Performance / athletic (poly)",
+      "base_color": "Navy",
+      "quantity": 1259,
+      "placement": "Left Chest",
+      "method": "sublimation",
+      "method_label": "Sublimation (poly garments only)",
+      "logo_width_in": 3.5,
+      "logo_height_in": 3.0,
+      "logo_area_sqin": 10.5,
+      "size_scale_factor": 1.05,
+      "blank_cost_per_pc": 9.25,
+      "materials_per_pc": 0.32,
+      "labor_per_pc": 0.53,
+      "decoration_cost_per_pc": 0.84,
+      "house_cost_per_pc": 10.09,
+      "customer_price_per_pc": 13.62,
+      "line_total": 17149.47,
+      "markup_pct": 35.0,
+      "sizes": {
+        "S": 322,
+        "M": 313,
+        "L": 309,
+        "XL": 315
+      }
+    }
+  ],
+  "total_units": 3461,
+  "total_house": 51686.69,
+  "total_customer": 69777.03,
+  "total_profit": 18090.34,
+  "markup_pct": 35.0,
+  "job_number": "JOB-RST-2026-0500"
+}

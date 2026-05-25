@@ -1,0 +1,66 @@
+{
+  "order_id": "20250709-145001-307c",
+  "customer_id": "48672774324f",
+  "logo_id": "6b323c2201ca",
+  "created_at": "2025-07-09T14:50:01Z",
+  "filename": "Cleveland_Cavaliers_logo.svg",
+  "method": "embroidery",
+  "lines": [
+    {
+      "garment_type": "Canvas tote bag",
+      "base_color": "Natural",
+      "quantity": 300,
+      "placement": "Center Front",
+      "method": "screen_print",
+      "method_label": "Screen print",
+      "logo_width_in": 8.0,
+      "logo_height_in": 8.0,
+      "logo_area_sqin": 64.0,
+      "size_scale_factor": 6.4,
+      "blank_cost_per_pc": 3.5,
+      "materials_per_pc": 1.28,
+      "labor_per_pc": 3.84,
+      "decoration_cost_per_pc": 5.12,
+      "house_cost_per_pc": 8.62,
+      "customer_price_per_pc": 11.64,
+      "line_total": 3491.1,
+      "markup_pct": 35.0,
+      "sizes": {
+        "One Size": 300
+      }
+    },
+    {
+      "garment_type": "Polo shirt (cotton-poly blend)",
+      "base_color": "White",
+      "quantity": 308,
+      "placement": "Left Chest",
+      "method": "embroidery",
+      "method_label": "Embroidery",
+      "logo_width_in": 3.5,
+      "logo_height_in": 3.0,
+      "logo_area_sqin": 10.5,
+      "size_scale_factor": 1.05,
+      "blank_cost_per_pc": 11.0,
+      "materials_per_pc": 0.53,
+      "labor_per_pc": 1.26,
+      "decoration_cost_per_pc": 1.79,
+      "house_cost_per_pc": 12.79,
+      "customer_price_per_pc": 17.26,
+      "line_total": 5316.0,
+      "markup_pct": 35.0,
+      "sizes": {
+        "S": 64,
+        "M": 65,
+        "L": 59,
+        "XL": 61,
+        "2XL": 59
+      }
+    }
+  ],
+  "total_units": 608,
+  "total_house": 6582.32,
+  "total_customer": 8884.05,
+  "total_profit": 2301.73,
+  "markup_pct": 35.0,
+  "job_number": "JOB-CAV-2026-0092"
+}

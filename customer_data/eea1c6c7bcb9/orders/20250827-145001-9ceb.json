@@ -1,0 +1,89 @@
+{
+  "order_id": "20250827-145001-9ceb",
+  "customer_id": "eea1c6c7bcb9",
+  "logo_id": "2ecb241edad0",
+  "created_at": "2025-08-27T14:50:01Z",
+  "filename": "Arizona_Cardinals_logo.svg",
+  "method": "embroidery",
+  "lines": [
+    {
+      "garment_type": "Polo shirt (cotton-poly blend)",
+      "base_color": "Black",
+      "quantity": 530,
+      "placement": "Right Sleeve",
+      "method": "embroidery",
+      "method_label": "Embroidery",
+      "logo_width_in": 3.0,
+      "logo_height_in": 3.0,
+      "logo_area_sqin": 9.0,
+      "size_scale_factor": 0.9,
+      "blank_cost_per_pc": 11.0,
+      "materials_per_pc": 0.45,
+      "labor_per_pc": 1.08,
+      "decoration_cost_per_pc": 1.53,
+      "house_cost_per_pc": 12.53,
+      "customer_price_per_pc": 16.92,
+      "line_total": 8965.22,
+      "markup_pct": 35.0,
+      "sizes": {
+        "S": 99,
+        "M": 104,
+        "L": 108,
+        "XL": 111,
+        "2XL": 108
+      }
+    },
+    {
+      "garment_type": "Towel (terrycloth)",
+      "base_color": "White",
+      "quantity": 331,
+      "placement": "Corner Embroidery",
+      "method": "embroidery",
+      "method_label": "Embroidery",
+      "logo_width_in": 3.0,
+      "logo_height_in": 3.0,
+      "logo_area_sqin": 9.0,
+      "size_scale_factor": 0.9,
+      "blank_cost_per_pc": 7.5,
+      "materials_per_pc": 0.45,
+      "labor_per_pc": 1.08,
+      "decoration_cost_per_pc": 1.53,
+      "house_cost_per_pc": 9.03,
+      "customer_price_per_pc": 12.19,
+      "line_total": 4035.06,
+      "markup_pct": 35.0,
+      "sizes": {
+        "Sport (16x27)": 331
+      }
+    },
+    {
+      "garment_type": "Cap / hat (structured)",
+      "base_color": "Red",
+      "quantity": 343,
+      "placement": "Front Center",
+      "method": "embroidery",
+      "method_label": "Embroidery",
+      "logo_width_in": 4.0,
+      "logo_height_in": 2.25,
+      "logo_area_sqin": 9.0,
+      "size_scale_factor": 0.9,
+      "blank_cost_per_pc": 6.75,
+      "materials_per_pc": 0.45,
+      "labor_per_pc": 1.08,
+      "decoration_cost_per_pc": 1.53,
+      "house_cost_per_pc": 8.28,
+      "customer_price_per_pc": 11.18,
+      "line_total": 3834.05,
+      "markup_pct": 35.0,
+      "sizes": {
+        "OSFA": 343
+      }
+    }
+  ],
+  "total_units": 1204,
+  "total_house": 12501.87,
+  "total_customer": 16877.53,
+  "total_profit": 4375.66,
+  "markup_pct": 35.0,
+  "job_number": "JOB-ARI-2026-0051"
+}

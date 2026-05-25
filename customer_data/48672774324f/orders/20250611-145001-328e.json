@@ -1,0 +1,69 @@
+{
+  "order_id": "20250611-145001-328e",
+  "customer_id": "48672774324f",
+  "logo_id": "6b323c2201ca",
+  "created_at": "2025-06-11T14:50:01Z",
+  "filename": "Cleveland_Cavaliers_logo.svg",
+  "method": "screen_print",
+  "lines": [
+    {
+      "garment_type": "Performance / athletic (poly)",
+      "base_color": "Sport Gray",
+      "quantity": 188,
+      "placement": "Full Back",
+      "method": "sublimation",
+      "method_label": "Sublimation (poly garments only)",
+      "logo_width_in": 12.0,
+      "logo_height_in": 14.0,
+      "logo_area_sqin": 168.0,
+      "size_scale_factor": 16.8,
+      "blank_cost_per_pc": 9.25,
+      "materials_per_pc": 5.04,
+      "labor_per_pc": 8.4,
+      "decoration_cost_per_pc": 13.44,
+      "house_cost_per_pc": 22.69,
+      "customer_price_per_pc": 30.63,
+      "line_total": 5758.72,
+      "markup_pct": 35.0,
+      "sizes": {
+        "S": 52,
+        "M": 44,
+        "L": 44,
+        "XL": 48
+      }
+    },
+    {
+      "garment_type": "T-shirt (100% cotton)",
+      "base_color": "Black",
+      "quantity": 370,
+      "placement": "Full Front",
+      "method": "screen_print",
+      "method_label": "Screen print",
+      "logo_width_in": 12.0,
+      "logo_height_in": 12.0,
+      "logo_area_sqin": 144.0,
+      "size_scale_factor": 14.4,
+      "blank_cost_per_pc": 4.25,
+      "materials_per_pc": 2.88,
+      "labor_per_pc": 8.64,
+      "decoration_cost_per_pc": 11.52,
+      "house_cost_per_pc": 15.77,
+      "customer_price_per_pc": 21.29,
+      "line_total": 7877.12,
+      "markup_pct": 35.0,
+      "sizes": {
+        "S": 75,
+        "M": 79,
+        "L": 72,
+        "XL": 73,
+        "2XL": 71
+      }
+    }
+  ],
+  "total_units": 558,
+  "total_house": 10130.62,
+  "total_customer": 13676.34,
+  "total_profit": 3545.72,
+  "markup_pct": 35.0,
+  "job_number": "JOB-CAV-2026-0088"
+}

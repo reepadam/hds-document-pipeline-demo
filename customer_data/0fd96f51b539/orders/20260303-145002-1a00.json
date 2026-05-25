@@ -1,0 +1,92 @@
+{
+  "order_id": "20260303-145002-1a00",
+  "customer_id": "0fd96f51b539",
+  "logo_id": "9109addda03d",
+  "created_at": "2026-03-03T14:50:02Z",
+  "filename": "rolling-stones-logo-png_seeklogo-119555.png",
+  "method": "embroidery",
+  "lines": [
+    {
+      "garment_type": "T-shirt (100% cotton)",
+      "base_color": "Sport Gray",
+      "quantity": 1855,
+      "placement": "Full Front",
+      "method": "screen_print",
+      "method_label": "Screen print",
+      "logo_width_in": 12.0,
+      "logo_height_in": 12.0,
+      "logo_area_sqin": 144.0,
+      "size_scale_factor": 14.4,
+      "blank_cost_per_pc": 4.25,
+      "materials_per_pc": 2.88,
+      "labor_per_pc": 8.64,
+      "decoration_cost_per_pc": 11.52,
+      "house_cost_per_pc": 15.77,
+      "customer_price_per_pc": 21.29,
+      "line_total": 39492.02,
+      "markup_pct": 35.0,
+      "sizes": {
+        "S": 374,
+        "M": 371,
+        "L": 376,
+        "XL": 368,
+        "2XL": 366
+      }
+    },
+    {
+      "garment_type": "Towel (terrycloth)",
+      "base_color": "Navy",
+      "quantity": 1914,
+      "placement": "Corner Embroidery",
+      "method": "embroidery",
+      "method_label": "Embroidery",
+      "logo_width_in": 3.0,
+      "logo_height_in": 3.0,
+      "logo_area_sqin": 9.0,
+      "size_scale_factor": 0.9,
+      "blank_cost_per_pc": 7.5,
+      "materials_per_pc": 0.45,
+      "labor_per_pc": 1.08,
+      "decoration_cost_per_pc": 1.53,
+      "house_cost_per_pc": 9.03,
+      "customer_price_per_pc": 12.19,
+      "line_total": 23332.62,
+      "markup_pct": 35.0,
+      "sizes": {
+        "Sport (16x27)": 1914
+      }
+    },
+    {
+      "garment_type": "Denim jacket",
+      "base_color": "Dark Indigo",
+      "quantity": 2588,
+      "placement": "Left Chest",
+      "method": "embroidery",
+      "method_label": "Embroidery",
+      "logo_width_in": 3.5,
+      "logo_height_in": 3.0,
+      "logo_area_sqin": 10.5,
+      "size_scale_factor": 1.05,
+      "blank_cost_per_pc": 28.0,
+      "materials_per_pc": 0.53,
+      "labor_per_pc": 1.26,
+      "decoration_cost_per_pc": 1.79,
+      "house_cost_per_pc": 29.79,
+      "customer_price_per_pc": 40.21,
+      "line_total": 104062.83,
+      "markup_pct": 35.0,
+      "sizes": {
+        "S": 651,
+        "M": 645,
+        "L": 647,
+        "XL": 645
+      }
+    }
+  ],
+  "total_units": 6357,
+  "total_house": 123690.29,
+  "total_customer": 166964.42,
+  "total_profit": 43274.13,
+  "markup_pct": 35.0,
+  "job_number": "JOB-RST-2026-0511"
+}

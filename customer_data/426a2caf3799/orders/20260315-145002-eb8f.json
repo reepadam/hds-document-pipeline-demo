@@ -1,0 +1,68 @@
+{
+  "order_id": "20260315-145002-eb8f",
+  "customer_id": "426a2caf3799",
+  "logo_id": "552bd0cbcca1",
+  "created_at": "2026-03-15T14:50:02Z",
+  "filename": "Peloton_(Unternehmen)_logo.svg",
+  "method": "embroidery",
+  "lines": [
+    {
+      "garment_type": "Denim jacket",
+      "base_color": "Medium Wash",
+      "quantity": 123,
+      "placement": "Full Back",
+      "method": "embroidery",
+      "method_label": "Embroidery",
+      "logo_width_in": 10.0,
+      "logo_height_in": 12.0,
+      "logo_area_sqin": 120.0,
+      "size_scale_factor": 12.0,
+      "blank_cost_per_pc": 28.0,
+      "materials_per_pc": 6.0,
+      "labor_per_pc": 14.4,
+      "decoration_cost_per_pc": 20.4,
+      "house_cost_per_pc": 48.4,
+      "customer_price_per_pc": 65.34,
+      "line_total": 8036.82,
+      "markup_pct": 35.0,
+      "sizes": {
+        "S": 33,
+        "M": 27,
+        "L": 34,
+        "XL": 29
+      }
+    },
+    {
+      "garment_type": "Performance / athletic (poly)",
+      "base_color": "White",
+      "quantity": 218,
+      "placement": "Left Chest",
+      "method": "sublimation",
+      "method_label": "Sublimation (poly garments only)",
+      "logo_width_in": 3.5,
+      "logo_height_in": 3.0,
+      "logo_area_sqin": 10.5,
+      "size_scale_factor": 1.05,
+      "blank_cost_per_pc": 9.25,
+      "materials_per_pc": 0.32,
+      "labor_per_pc": 0.53,
+      "decoration_cost_per_pc": 0.84,
+      "house_cost_per_pc": 10.09,
+      "customer_price_per_pc": 13.62,
+      "line_total": 2969.49,
+      "markup_pct": 35.0,
+      "sizes": {
+        "S": 52,
+        "M": 55,
+        "L": 57,
+        "XL": 54
+      }
+    }
+  ],
+  "total_units": 341,
+  "total_house": 8189.82,
+  "total_customer": 11056.26,
+  "total_profit": 2866.44,
+  "markup_pct": 35.0,
+  "job_number": "JOB-PEL-2026-0103"
+}

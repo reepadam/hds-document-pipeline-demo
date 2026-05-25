@@ -1,0 +1,62 @@
+{
+  "order_id": "20251002-145002-e135",
+  "customer_id": "8953f3f61609",
+  "logo_id": "a73f9d4758f9",
+  "created_at": "2025-10-02T14:50:02Z",
+  "filename": "84lumber.png",
+  "method": "embroidery",
+  "lines": [
+    {
+      "garment_type": "Cap / hat (structured)",
+      "base_color": "Black",
+      "quantity": 244,
+      "placement": "Back",
+      "method": "embroidery",
+      "method_label": "Embroidery",
+      "logo_width_in": 3.5,
+      "logo_height_in": 1.5,
+      "logo_area_sqin": 5.25,
+      "size_scale_factor": 0.53,
+      "blank_cost_per_pc": 6.75,
+      "materials_per_pc": 0.26,
+      "labor_per_pc": 0.63,
+      "decoration_cost_per_pc": 0.89,
+      "house_cost_per_pc": 7.64,
+      "customer_price_per_pc": 10.32,
+      "line_total": 2517.44,
+      "markup_pct": 35.0,
+      "sizes": {
+        "OSFA": 244
+      }
+    },
+    {
+      "garment_type": "Cap / hat (structured)",
+      "base_color": "White",
+      "quantity": 48,
+      "placement": "Front Center",
+      "method": "embroidery",
+      "method_label": "Embroidery",
+      "logo_width_in": 4.0,
+      "logo_height_in": 2.25,
+      "logo_area_sqin": 9.0,
+      "size_scale_factor": 0.9,
+      "blank_cost_per_pc": 6.75,
+      "materials_per_pc": 0.45,
+      "labor_per_pc": 1.08,
+      "decoration_cost_per_pc": 1.53,
+      "house_cost_per_pc": 8.28,
+      "customer_price_per_pc": 11.18,
+      "line_total": 536.54,
+      "markup_pct": 35.0,
+      "sizes": {
+        "OSFA": 48
+      }
+    }
+  ],
+  "total_units": 292,
+  "total_house": 2293.6,
+  "total_customer": 3097.18,
+  "total_profit": 803.58,
+  "markup_pct": 35.0,
+  "job_number": "JOB-LUM-2026-0102"
+}

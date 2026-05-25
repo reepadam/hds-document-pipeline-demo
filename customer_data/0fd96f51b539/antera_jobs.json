@@ -1,0 +1,14 @@
+[
+  {
+    "job_id": "JOB-RST-2026-0500",
+    "description": "2026 tour leg-1 venue tees (50K)",
+    "status": "active",
+    "opened_at": "2026-05-25T01:42:02Z"
+  },
+  {
+    "job_id": "JOB-RST-2026-0511",
+    "description": "VIP-only embroidered jacket run",
+    "status": "active",
+    "opened_at": "2026-05-25T01:42:02Z"
+  }
+]

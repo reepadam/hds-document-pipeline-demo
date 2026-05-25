@@ -1,0 +1,108 @@
+{
+  "order_id": "20251004-145002-a343",
+  "customer_id": "8953f3f61609",
+  "logo_id": "a73f9d4758f9",
+  "created_at": "2025-10-04T14:50:02Z",
+  "filename": "84lumber.png",
+  "method": "embroidery",
+  "lines": [
+    {
+      "garment_type": "Towel (terrycloth)",
+      "base_color": "Black",
+      "quantity": 295,
+      "placement": "Corner Embroidery",
+      "method": "embroidery",
+      "method_label": "Embroidery",
+      "logo_width_in": 3.0,
+      "logo_height_in": 3.0,
+      "logo_area_sqin": 9.0,
+      "size_scale_factor": 0.9,
+      "blank_cost_per_pc": 7.5,
+      "materials_per_pc": 0.45,
+      "labor_per_pc": 1.08,
+      "decoration_cost_per_pc": 1.53,
+      "house_cost_per_pc": 9.03,
+      "customer_price_per_pc": 12.19,
+      "line_total": 3596.2,
+      "markup_pct": 35.0,
+      "sizes": {
+        "Sport (16x27)": 295
+      }
+    },
+    {
+      "garment_type": "Canvas tote bag",
+      "base_color": "Navy",
+      "quantity": 75,
+      "placement": "Center Front",
+      "method": "screen_print",
+      "method_label": "Screen print",
+      "logo_width_in": 8.0,
+      "logo_height_in": 8.0,
+      "logo_area_sqin": 64.0,
+      "size_scale_factor": 6.4,
+      "blank_cost_per_pc": 3.5,
+      "materials_per_pc": 1.28,
+      "labor_per_pc": 3.84,
+      "decoration_cost_per_pc": 5.12,
+      "house_cost_per_pc": 8.62,
+      "customer_price_per_pc": 11.64,
+      "line_total": 872.78,
+      "markup_pct": 35.0,
+      "sizes": {
+        "One Size": 75
+      }
+    },
+    {
+      "garment_type": "Cap / hat (structured)",
+      "base_color": "Navy",
+      "quantity": 291,
+      "placement": "Front Center",
+      "method": "embroidery",
+      "method_label": "Embroidery",
+      "logo_width_in": 4.0,
+      "logo_height_in": 2.25,
+      "logo_area_sqin": 9.0,
+      "size_scale_factor": 0.9,
+      "blank_cost_per_pc": 6.75,
+      "materials_per_pc": 0.45,
+      "labor_per_pc": 1.08,
+      "decoration_cost_per_pc": 1.53,
+      "house_cost_per_pc": 8.28,
+      "customer_price_per_pc": 11.18,
+      "line_total": 3252.8,
+      "markup_pct": 35.0,
+      "sizes": {
+        "OSFA": 291
+      }
+    },
+    {
+      "garment_type": "Cap / hat (structured)",
+      "base_color": "Navy",
+      "quantity": 71,
+      "placement": "Front Center",
+      "method": "embroidery",
+      "method_label": "Embroidery",
+      "logo_width_in": 4.0,
+      "logo_height_in": 2.25,
+      "logo_area_sqin": 9.0,
+      "size_scale_factor": 0.9,
+      "blank_cost_per_pc": 6.75,
+      "materials_per_pc": 0.45,
+      "labor_per_pc": 1.08,
+      "decoration_cost_per_pc": 1.53,
+      "house_cost_per_pc": 8.28,
+      "customer_price_per_pc": 11.18,
+      "line_total": 793.64,
+      "markup_pct": 35.0,
+      "sizes": {
+        "OSFA": 71
+      }
+    }
+  ],
+  "total_units": 732,
+  "total_house": 6364.71,
+  "total_customer": 8592.37,
+  "total_profit": 2227.66,
+  "markup_pct": 35.0,
+  "job_number": "JOB-LUM-2026-0118"
+}

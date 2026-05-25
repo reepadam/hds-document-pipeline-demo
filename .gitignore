@@ -1,0 +1,28 @@
+# Credentials - NEVER COMMIT
+.streamlit/secrets.toml
+cloudvision-*.json
+Anthropic_API.txt
+*.key
+*.pem
+
+# Live accept-queue JSON (populated by users clicking Accept buttons)
+# We DO ship the seeded customer profiles + their logos + mock orders.
+customer_data/_queues/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.env
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.swp

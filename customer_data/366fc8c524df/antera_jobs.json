@@ -1,0 +1,14 @@
+[
+  {
+    "job_id": "JOB-FUJ-2026-0033",
+    "description": "NAB 2026 demo-staff polos",
+    "status": "active",
+    "opened_at": "2026-05-25T01:42:02Z"
+  },
+  {
+    "job_id": "JOB-FUJ-2026-0040",
+    "description": "Sales kickoff branded hoodies",
+    "status": "active",
+    "opened_at": "2026-05-25T01:42:02Z"
+  }
+]

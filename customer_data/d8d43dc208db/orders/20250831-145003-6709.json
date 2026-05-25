@@ -1,0 +1,89 @@
+{
+  "order_id": "20250831-145003-6709",
+  "customer_id": "d8d43dc208db",
+  "logo_id": "8e6a20b9fdc9",
+  "created_at": "2025-08-31T14:50:03Z",
+  "filename": "Star_Wars_Logo.svg",
+  "method": "embroidery",
+  "lines": [
+    {
+      "garment_type": "Towel (terrycloth)",
+      "base_color": "Navy",
+      "quantity": 895,
+      "placement": "Corner Embroidery",
+      "method": "embroidery",
+      "method_label": "Embroidery",
+      "logo_width_in": 3.0,
+      "logo_height_in": 3.0,
+      "logo_area_sqin": 9.0,
+      "size_scale_factor": 0.9,
+      "blank_cost_per_pc": 7.5,
+      "materials_per_pc": 0.45,
+      "labor_per_pc": 1.08,
+      "decoration_cost_per_pc": 1.53,
+      "house_cost_per_pc": 9.03,
+      "customer_price_per_pc": 12.19,
+      "line_total": 10910.5,
+      "markup_pct": 35.0,
+      "sizes": {
+        "Sport (16x27)": 895
+      }
+    },
+    {
+      "garment_type": "T-shirt (100% cotton)",
+      "base_color": "Sport Gray",
+      "quantity": 914,
+      "placement": "Left Chest",
+      "method": "screen_print",
+      "method_label": "Screen print",
+      "logo_width_in": 3.5,
+      "logo_height_in": 3.0,
+      "logo_area_sqin": 10.5,
+      "size_scale_factor": 1.05,
+      "blank_cost_per_pc": 4.25,
+      "materials_per_pc": 0.21,
+      "labor_per_pc": 0.63,
+      "decoration_cost_per_pc": 0.84,
+      "house_cost_per_pc": 5.09,
+      "customer_price_per_pc": 6.87,
+      "line_total": 6280.55,
+      "markup_pct": 35.0,
+      "sizes": {
+        "S": 175,
+        "M": 182,
+        "L": 185,
+        "XL": 186,
+        "2XL": 186
+      }
+    },
+    {
+      "garment_type": "Towel (terrycloth)",
+      "base_color": "Navy",
+      "quantity": 166,
+      "placement": "Corner Embroidery",
+      "method": "embroidery",
+      "method_label": "Embroidery",
+      "logo_width_in": 3.0,
+      "logo_height_in": 3.0,
+      "logo_area_sqin": 9.0,
+      "size_scale_factor": 0.9,
+      "blank_cost_per_pc": 7.5,
+      "materials_per_pc": 0.45,
+      "labor_per_pc": 1.08,
+      "decoration_cost_per_pc": 1.53,
+      "house_cost_per_pc": 9.03,
+      "customer_price_per_pc": 12.19,
+      "line_total": 2023.62,
+      "markup_pct": 35.0,
+      "sizes": {
+        "Sport (16x27)": 166
+      }
+    }
+  ],
+  "total_units": 1975,
+  "total_house": 14290.09,
+  "total_customer": 19291.62,
+  "total_profit": 5001.53,
+  "markup_pct": 35.0,
+  "job_number": "JOB-SWR-2026-0299"
+}

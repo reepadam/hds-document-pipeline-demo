@@ -1,0 +1,112 @@
+{
+  "order_id": "20250905-145001-53ad",
+  "customer_id": "547bff89a767",
+  "logo_id": "80a463991cf7",
+  "created_at": "2025-09-05T14:50:01Z",
+  "filename": "Denver_Broncos_logo.svg",
+  "method": "embroidery",
+  "lines": [
+    {
+      "garment_type": "Canvas tote bag",
+      "base_color": "Red",
+      "quantity": 271,
+      "placement": "Center Front",
+      "method": "screen_print",
+      "method_label": "Screen print",
+      "logo_width_in": 8.0,
+      "logo_height_in": 8.0,
+      "logo_area_sqin": 64.0,
+      "size_scale_factor": 6.4,
+      "blank_cost_per_pc": 3.5,
+      "materials_per_pc": 1.28,
+      "labor_per_pc": 3.84,
+      "decoration_cost_per_pc": 5.12,
+      "house_cost_per_pc": 8.62,
+      "customer_price_per_pc": 11.64,
+      "line_total": 3153.63,
+      "markup_pct": 35.0,
+      "sizes": {
+        "One Size": 271
+      }
+    },
+    {
+      "garment_type": "Cap / hat (structured)",
+      "base_color": "Red",
+      "quantity": 226,
+      "placement": "Front Center",
+      "method": "embroidery",
+      "method_label": "Embroidery",
+      "logo_width_in": 4.0,
+      "logo_height_in": 2.25,
+      "logo_area_sqin": 9.0,
+      "size_scale_factor": 0.9,
+      "blank_cost_per_pc": 6.75,
+      "materials_per_pc": 0.45,
+      "labor_per_pc": 1.08,
+      "decoration_cost_per_pc": 1.53,
+      "house_cost_per_pc": 8.28,
+      "customer_price_per_pc": 11.18,
+      "line_total": 2526.23,
+      "markup_pct": 35.0,
+      "sizes": {
+        "OSFA": 226
+      }
+    },
+    {
+      "garment_type": "Cap / hat (structured)",
+      "base_color": "White",
+      "quantity": 472,
+      "placement": "Front Center",
+      "method": "embroidery",
+      "method_label": "Embroidery",
+      "logo_width_in": 4.0,
+      "logo_height_in": 2.25,
+      "logo_area_sqin": 9.0,
+      "size_scale_factor": 0.9,
+      "blank_cost_per_pc": 6.75,
+      "materials_per_pc": 0.45,
+      "labor_per_pc": 1.08,
+      "decoration_cost_per_pc": 1.53,
+      "house_cost_per_pc": 8.28,
+      "customer_price_per_pc": 11.18,
+      "line_total": 5276.02,
+      "markup_pct": 35.0,
+      "sizes": {
+        "OSFA": 472
+      }
+    },
+    {
+      "garment_type": "Polo shirt (cotton-poly blend)",
+      "base_color": "Navy",
+      "quantity": 204,
+      "placement": "Right Sleeve",
+      "method": "embroidery",
+      "method_label": "Embroidery",
+      "logo_width_in": 3.0,
+      "logo_height_in": 3.0,
+      "logo_area_sqin": 9.0,
+      "size_scale_factor": 0.9,
+      "blank_cost_per_pc": 11.0,
+      "materials_per_pc": 0.45,
+      "labor_per_pc": 1.08,
+      "decoration_cost_per_pc": 1.53,
+      "house_cost_per_pc": 12.53,
+      "customer_price_per_pc": 16.92,
+      "line_total": 3450.76,
+      "markup_pct": 35.0,
+      "sizes": {
+        "S": 52,
+        "M": 39,
+        "L": 35,
+        "XL": 39,
+        "2XL": 39
+      }
+    }
+  ],
+  "total_units": 1173,
+  "total_house": 10728.58,
+  "total_customer": 14483.59,
+  "total_profit": 3755.01,
+  "markup_pct": 35.0,
+  "job_number": "JOB-DEN-2026-0073"
+}

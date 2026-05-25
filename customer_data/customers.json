@@ -1,0 +1,128 @@
+[
+  {
+    "customer_id": "c391fdbf6550",
+    "display_name": "Pepsi Co",
+    "antera_customer_id": "HSR-4126813",
+    "notes": "",
+    "created_at": "2026-05-24T23:31:38Z"
+  },
+  {
+    "customer_id": "c6af677d4312",
+    "display_name": "Pittsburgh Steelers",
+    "antera_customer_id": "CUS-STL-001",
+    "notes": "NFL \u2014 local hometown account; high-volume merch + uniform program",
+    "created_at": "2026-05-25T01:41:16Z"
+  },
+  {
+    "customer_id": "48672774324f",
+    "display_name": "Cleveland Cavaliers",
+    "antera_customer_id": "CUS-CLE-002",
+    "notes": "NBA - Northeast Ohio account",
+    "created_at": "2026-05-25T01:42:02Z"
+  },
+  {
+    "customer_id": "eea1c6c7bcb9",
+    "display_name": "Arizona Cardinals",
+    "antera_customer_id": "CUS-ARI-003",
+    "notes": "NFL - fan merch + sideline gear",
+    "created_at": "2026-05-25T01:42:02Z"
+  },
+  {
+    "customer_id": "547bff89a767",
+    "display_name": "Denver Broncos",
+    "antera_customer_id": "CUS-DEN-004",
+    "notes": "NFL - uniform program + team store",
+    "created_at": "2026-05-25T01:42:02Z"
+  },
+  {
+    "customer_id": "5acad51d102d",
+    "display_name": "New England Patriots",
+    "antera_customer_id": "CUS-NEP-005",
+    "notes": "NFL - team store SKUs + season giveaways",
+    "created_at": "2026-05-25T01:42:02Z"
+  },
+  {
+    "customer_id": "2b474cd5e589",
+    "display_name": "NFL (league office)",
+    "antera_customer_id": "CUS-NFL-006",
+    "notes": "League-level promotional + draft event merch",
+    "created_at": "2026-05-25T01:42:02Z"
+  },
+  {
+    "customer_id": "c4d4c8bf2d63",
+    "display_name": "Highmark",
+    "antera_customer_id": "CUS-HMK-010",
+    "notes": "Healthcare - employee uniform program + wellness boxes",
+    "created_at": "2026-05-25T01:42:02Z"
+  },
+  {
+    "customer_id": "a4c055c4b476",
+    "display_name": "Allegheny Health Network (AHN)",
+    "antera_customer_id": "CUS-AHN-011",
+    "notes": "Health system - branded apparel for staff",
+    "created_at": "2026-05-25T01:42:02Z"
+  },
+  {
+    "customer_id": "8953f3f61609",
+    "display_name": "84 Lumber",
+    "antera_customer_id": "CUS-LUM-012",
+    "notes": "Pittsburgh-HQ building products - workwear + safety apparel",
+    "created_at": "2026-05-25T01:42:02Z"
+  },
+  {
+    "customer_id": "35f8cf31e0f2",
+    "display_name": "Vitamix",
+    "antera_customer_id": "CUS-VTX-020",
+    "notes": "Premium kitchen brand - trade-show merch + retailer incentives",
+    "created_at": "2026-05-25T01:42:02Z"
+  },
+  {
+    "customer_id": "366fc8c524df",
+    "display_name": "Fujifilm",
+    "antera_customer_id": "CUS-FUJ-021",
+    "notes": "Tradeshow + corporate gifting",
+    "created_at": "2026-05-25T01:42:02Z"
+  },
+  {
+    "customer_id": "b3d3549b0dc8",
+    "display_name": "Siemens",
+    "antera_customer_id": "CUS-SIE-022",
+    "notes": "Industrial - multi-region uniform + safety program",
+    "created_at": "2026-05-25T01:42:02Z"
+  },
+  {
+    "customer_id": "7e8ed787d4a3",
+    "display_name": "Skanska",
+    "antera_customer_id": "CUS-SKN-023",
+    "notes": "Construction - site-safety apparel + project commemorative gear",
+    "created_at": "2026-05-25T01:42:02Z"
+  },
+  {
+    "customer_id": "6d351ba1762a",
+    "display_name": "Big Lots",
+    "antera_customer_id": "CUS-BIG-024",
+    "notes": "Retail - store-team uniforms across 1300+ stores",
+    "created_at": "2026-05-25T01:42:02Z"
+  },
+  {
+    "customer_id": "426a2caf3799",
+    "display_name": "Peloton",
+    "antera_customer_id": "CUS-PEL-025",
+    "notes": "Member swag + instructor branded apparel",
+    "created_at": "2026-05-25T01:42:02Z"
+  },
+  {
+    "customer_id": "0fd96f51b539",
+    "display_name": "The Rolling Stones (tour merch)",
+    "antera_customer_id": "CUS-RST-030",
+    "notes": "Tour merch program - high-volume runs, tight deadlines",
+    "created_at": "2026-05-25T01:42:02Z"
+  },
+  {
+    "customer_id": "d8d43dc208db",
+    "display_name": "Star Wars (Lucasfilm/Disney)",
+    "antera_customer_id": "CUS-SWR-031",
+    "notes": "Licensed character merch - strict brand approval",
+    "created_at": "2026-05-25T01:42:02Z"
+  }
+]

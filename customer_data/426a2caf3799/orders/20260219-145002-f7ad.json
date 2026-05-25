@@ -1,0 +1,85 @@
+{
+  "order_id": "20260219-145002-f7ad",
+  "customer_id": "426a2caf3799",
+  "logo_id": "552bd0cbcca1",
+  "created_at": "2026-02-19T14:50:02Z",
+  "filename": "Peloton_(Unternehmen)_logo.svg",
+  "method": "embroidery",
+  "lines": [
+    {
+      "garment_type": "Cap / hat (structured)",
+      "base_color": "Black",
+      "quantity": 36,
+      "placement": "Front Center",
+      "method": "embroidery",
+      "method_label": "Embroidery",
+      "logo_width_in": 4.0,
+      "logo_height_in": 2.25,
+      "logo_area_sqin": 9.0,
+      "size_scale_factor": 0.9,
+      "blank_cost_per_pc": 6.75,
+      "materials_per_pc": 0.45,
+      "labor_per_pc": 1.08,
+      "decoration_cost_per_pc": 1.53,
+      "house_cost_per_pc": 8.28,
+      "customer_price_per_pc": 11.18,
+      "line_total": 402.41,
+      "markup_pct": 35.0,
+      "sizes": {
+        "OSFA": 36
+      }
+    },
+    {
+      "garment_type": "Towel (terrycloth)",
+      "base_color": "White",
+      "quantity": 380,
+      "placement": "Corner Embroidery",
+      "method": "embroidery",
+      "method_label": "Embroidery",
+      "logo_width_in": 3.0,
+      "logo_height_in": 3.0,
+      "logo_area_sqin": 9.0,
+      "size_scale_factor": 0.9,
+      "blank_cost_per_pc": 7.5,
+      "materials_per_pc": 0.45,
+      "labor_per_pc": 1.08,
+      "decoration_cost_per_pc": 1.53,
+      "house_cost_per_pc": 9.03,
+      "customer_price_per_pc": 12.19,
+      "line_total": 4632.39,
+      "markup_pct": 35.0,
+      "sizes": {
+        "Sport (16x27)": 380
+      }
+    },
+    {
+      "garment_type": "Cap / hat (structured)",
+      "base_color": "Royal Blue",
+      "quantity": 257,
+      "placement": "Back",
+      "method": "embroidery",
+      "method_label": "Embroidery",
+      "logo_width_in": 3.5,
+      "logo_height_in": 1.5,
+      "logo_area_sqin": 5.25,
+      "size_scale_factor": 0.53,
+      "blank_cost_per_pc": 6.75,
+      "materials_per_pc": 0.26,
+      "labor_per_pc": 0.63,
+      "decoration_cost_per_pc": 0.89,
+      "house_cost_per_pc": 7.64,
+      "customer_price_per_pc": 10.32,
+      "line_total": 2651.57,
+      "markup_pct": 35.0,
+      "sizes": {
+        "OSFA": 257
+      }
+    }
+  ],
+  "total_units": 673,
+  "total_house": 5724.96,
+  "total_customer": 7729.57,
+  "total_profit": 2004.61,
+  "markup_pct": 35.0,
+  "job_number": "JOB-PEL-2026-0103"
+}

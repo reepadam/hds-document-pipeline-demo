@@ -1,0 +1,91 @@
+{
+  "order_id": "20250714-145001-4fb0",
+  "customer_id": "c4d4c8bf2d63",
+  "logo_id": "0921e6c7f133",
+  "created_at": "2025-07-14T14:50:01Z",
+  "filename": "Highmark-logo.png",
+  "method": "screen_print",
+  "lines": [
+    {
+      "garment_type": "Canvas tote bag",
+      "base_color": "Navy",
+      "quantity": 60,
+      "placement": "Center Front",
+      "method": "screen_print",
+      "method_label": "Screen print",
+      "logo_width_in": 8.0,
+      "logo_height_in": 8.0,
+      "logo_area_sqin": 64.0,
+      "size_scale_factor": 6.4,
+      "blank_cost_per_pc": 3.5,
+      "materials_per_pc": 1.28,
+      "labor_per_pc": 3.84,
+      "decoration_cost_per_pc": 5.12,
+      "house_cost_per_pc": 8.62,
+      "customer_price_per_pc": 11.64,
+      "line_total": 698.22,
+      "markup_pct": 35.0,
+      "sizes": {
+        "One Size": 60
+      }
+    },
+    {
+      "garment_type": "Performance / athletic (poly)",
+      "base_color": "Navy",
+      "quantity": 248,
+      "placement": "Full Back",
+      "method": "sublimation",
+      "method_label": "Sublimation (poly garments only)",
+      "logo_width_in": 12.0,
+      "logo_height_in": 14.0,
+      "logo_area_sqin": 168.0,
+      "size_scale_factor": 16.8,
+      "blank_cost_per_pc": 9.25,
+      "materials_per_pc": 5.04,
+      "labor_per_pc": 8.4,
+      "decoration_cost_per_pc": 13.44,
+      "house_cost_per_pc": 22.69,
+      "customer_price_per_pc": 30.63,
+      "line_total": 7596.61,
+      "markup_pct": 35.0,
+      "sizes": {
+        "S": 62,
+        "M": 63,
+        "L": 59,
+        "XL": 64
+      }
+    },
+    {
+      "garment_type": "Performance / athletic (poly)",
+      "base_color": "Royal Blue",
+      "quantity": 392,
+      "placement": "Left Chest",
+      "method": "sublimation",
+      "method_label": "Sublimation (poly garments only)",
+      "logo_width_in": 3.5,
+      "logo_height_in": 3.0,
+      "logo_area_sqin": 10.5,
+      "size_scale_factor": 1.05,
+      "blank_cost_per_pc": 9.25,
+      "materials_per_pc": 0.32,
+      "labor_per_pc": 0.53,
+      "decoration_cost_per_pc": 0.84,
+      "house_cost_per_pc": 10.09,
+      "customer_price_per_pc": 13.62,
+      "line_total": 5339.63,
+      "markup_pct": 35.0,
+      "sizes": {
+        "S": 94,
+        "M": 102,
+        "L": 99,
+        "XL": 97
+      }
+    }
+  ],
+  "total_units": 700,
+  "total_house": 10129.6,
+  "total_customer": 13674.96,
+  "total_profit": 3545.36,
+  "markup_pct": 35.0,
+  "job_number": "JOB-HMK-2026-0301"
+}

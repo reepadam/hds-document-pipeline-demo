@@ -1,0 +1,47 @@
+{
+  "order_id": "20260525-150751-a509",
+  "customer_id": "6d351ba1762a",
+  "logo_id": "45fa702c5c94",
+  "created_at": "2026-05-25T15:07:51Z",
+  "filename": "Big_Lots_2001_logo.svg",
+  "method": "embroidery",
+  "lines": [
+    {
+      "garment_type": "T-shirt (100% cotton)",
+      "base_color": "White",
+      "quantity": 350,
+      "placement": "Center Chest",
+      "method": "embroidery",
+      "method_label": "Embroidery",
+      "logo_width_in": 10.0,
+      "logo_height_in": 8.0,
+      "logo_area_sqin": 80.0,
+      "size_scale_factor": 8.0,
+      "blank_cost_per_pc": 4.25,
+      "materials_per_pc": 4.0,
+      "labor_per_pc": 9.6,
+      "decoration_cost_per_pc": 13.6,
+      "house_cost_per_pc": 17.85,
+      "customer_price_per_pc": 24.1,
+      "line_total": 8434.13,
+      "markup_pct": 35.0,
+      "sizes": {
+        "XS": 0,
+        "S": 100,
+        "M": 100,
+        "L": 100,
+        "XL": 50,
+        "2XL": 0,
+        "3XL": 0,
+        "4XL": 0
+      },
+      "row_id": "436903e0"
+    }
+  ],
+  "total_units": 350,
+  "total_house": 6279.5,
+  "total_customer": 8477.33,
+  "total_profit": 2197.83,
+  "markup_pct": 35.0,
+  "handoff_text": "HDS MARKETING - PRODUCTION HANDOFF\nCustomer: Big Lots  [Antera: CUS-BIG-024]\nArtwork file: Big_Lots_2001_logo.svg\nDecoration method: embroidery\nThread/ink: Madeira Classic 40 rayon for primary colors; Madeira Supertwist for black (superior sheen and durability on visible logos)\n\nLINE ITEMS:\n  - 350 x T-shirt (100% cotton) (White) [Embroidery] @ Center Chest 10.0x8.0\" [S=100, M=100, L=100, XL=50] @ $24.10/pc = $8,434.13\n\nONE-TIME SETUP FEES (per unique method):\n  - Embroidery: $43.20\n\nTOTAL UNITS: 350\nLINES SUBTOTAL: $8,434.13\nONE-TIME SETUP: $43.20\nCUSTOMER QUOTE (grand total): $8,477.33\nHOUSE COST (incl. setup): $6,279.50\nGROSS MARGIN: $2,197.83 (35% markup)\n\nPRODUCTION NOTES:\n  - Digitize SVG in Wilcom or Tajima software; confirm stitch count stays under 10,500 and minimum line width is \u22650.10 inch (text strokes).\n  - Pull Madeira thread codes 1800 (White), 1101 or 1410 (Orange \u2013 verify PMS match to #f77f0d), and 1810 (Black Supertwist); queue on Tajima heads with round 4.25-inch hoop.\n  - Produce 2\u20133 sample pieces; inspect text clarity, satin finish uniformity, and stabilizer removal; adjust density if needed.\n  - Confirm final artwork approval from customer re: trademark compliance and size/placement on left chest (standard 3.5 \u00d7 2.8 inch)."
+}

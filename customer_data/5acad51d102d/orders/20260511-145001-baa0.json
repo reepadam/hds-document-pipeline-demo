@@ -1,0 +1,112 @@
+{
+  "order_id": "20260511-145001-baa0",
+  "customer_id": "5acad51d102d",
+  "logo_id": "186dc872f31f",
+  "created_at": "2026-05-11T14:50:01Z",
+  "filename": "New_England_Patriots_logo.svg",
+  "method": "embroidery",
+  "lines": [
+    {
+      "garment_type": "Cap / hat (structured)",
+      "base_color": "White",
+      "quantity": 46,
+      "placement": "Back",
+      "method": "embroidery",
+      "method_label": "Embroidery",
+      "logo_width_in": 3.5,
+      "logo_height_in": 1.5,
+      "logo_area_sqin": 5.25,
+      "size_scale_factor": 0.53,
+      "blank_cost_per_pc": 6.75,
+      "materials_per_pc": 0.26,
+      "labor_per_pc": 0.63,
+      "decoration_cost_per_pc": 0.89,
+      "house_cost_per_pc": 7.64,
+      "customer_price_per_pc": 10.32,
+      "line_total": 474.6,
+      "markup_pct": 35.0,
+      "sizes": {
+        "OSFA": 46
+      }
+    },
+    {
+      "garment_type": "Hoodie / sweatshirt (heavy fleece)",
+      "base_color": "Charcoal",
+      "quantity": 159,
+      "placement": "Left Chest",
+      "method": "embroidery",
+      "method_label": "Embroidery",
+      "logo_width_in": 3.5,
+      "logo_height_in": 3.0,
+      "logo_area_sqin": 10.5,
+      "size_scale_factor": 1.05,
+      "blank_cost_per_pc": 18.5,
+      "materials_per_pc": 0.53,
+      "labor_per_pc": 1.26,
+      "decoration_cost_per_pc": 1.79,
+      "house_cost_per_pc": 20.29,
+      "customer_price_per_pc": 27.38,
+      "line_total": 4354.18,
+      "markup_pct": 35.0,
+      "sizes": {
+        "S": 38,
+        "M": 34,
+        "L": 27,
+        "XL": 27,
+        "2XL": 33
+      }
+    },
+    {
+      "garment_type": "Towel (terrycloth)",
+      "base_color": "Navy",
+      "quantity": 492,
+      "placement": "Corner Embroidery",
+      "method": "embroidery",
+      "method_label": "Embroidery",
+      "logo_width_in": 3.0,
+      "logo_height_in": 3.0,
+      "logo_area_sqin": 9.0,
+      "size_scale_factor": 0.9,
+      "blank_cost_per_pc": 7.5,
+      "materials_per_pc": 0.45,
+      "labor_per_pc": 1.08,
+      "decoration_cost_per_pc": 1.53,
+      "house_cost_per_pc": 9.03,
+      "customer_price_per_pc": 12.19,
+      "line_total": 5997.73,
+      "markup_pct": 35.0,
+      "sizes": {
+        "Sport (16x27)": 492
+      }
+    },
+    {
+      "garment_type": "Cap / hat (structured)",
+      "base_color": "White",
+      "quantity": 563,
+      "placement": "Front Center",
+      "method": "embroidery",
+      "method_label": "Embroidery",
+      "logo_width_in": 4.0,
+      "logo_height_in": 2.25,
+      "logo_area_sqin": 9.0,
+      "size_scale_factor": 0.9,
+      "blank_cost_per_pc": 6.75,
+      "materials_per_pc": 0.45,
+      "labor_per_pc": 1.08,
+      "decoration_cost_per_pc": 1.53,
+      "house_cost_per_pc": 8.28,
+      "customer_price_per_pc": 11.18,
+      "line_total": 6293.21,
+      "markup_pct": 35.0,
+      "sizes": {
+        "OSFA": 563
+      }
+    }
+  ],
+  "total_units": 1260,
+  "total_house": 12713.95,
+  "total_customer": 17162.92,
+  "total_profit": 4448.97,
+  "markup_pct": 35.0,
+  "job_number": "JOB-NEP-2026-0036"
+}

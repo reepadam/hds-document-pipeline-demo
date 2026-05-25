@@ -1,0 +1,27 @@
+{
+  "expense_id": "20260525-141332-ff76",
+  "customer_id": "eea1c6c7bcb9",
+  "created_at": "2026-05-25T14:13:32Z",
+  "filename": "Uber.jpg",
+  "customer_name": "Arizona Cardinals",
+  "antera_customer_id": "CUS-ARI-003",
+  "job_number": "JOB-ARI-2026-0044",
+  "job_description": "Season-ticket-holder welcome kits",
+  "merchant_name": "Uber",
+  "date": "2025-05-01",
+  "subtotal": "8.52",
+  "tax": "",
+  "tip": "",
+  "total": "13.94",
+  "payment_method": "credit",
+  "card_last_four": "1234",
+  "category": "other",
+  "notes": "",
+  "doc_confidence": "high",
+  "ocr_flags": [
+    "Document explicitly states 'This is not a payment receipt. It is a trip summary to acknowledge the completion of the trip.' Classification as receipt is based on functional similarity to point-of-sale receipts.",
+    "Card last four digits (1234) appear suspiciously round; may be placeholder or OCR artifact.",
+    "Passenger name 'Queenie Peng' and upload date '2025-09-15' appear to be metadata rather than transaction data.",
+    "Chicago Ground Transportation Surcharge marked with \u2460 and Congestion Surcharge marked with ? in source\u2014possible OCR or formatting artifacts."
+  ]
+}

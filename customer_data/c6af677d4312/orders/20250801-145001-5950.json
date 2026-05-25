@@ -1,0 +1,111 @@
+{
+  "order_id": "20250801-145001-5950",
+  "customer_id": "c6af677d4312",
+  "logo_id": "0f8b26ebce1e",
+  "created_at": "2025-08-01T14:50:01Z",
+  "filename": "Pittsburgh_Steelers_logo.svg",
+  "method": "embroidery",
+  "lines": [
+    {
+      "garment_type": "Cap / hat (structured)",
+      "base_color": "Red",
+      "quantity": 955,
+      "placement": "Back",
+      "method": "embroidery",
+      "method_label": "Embroidery",
+      "logo_width_in": 3.5,
+      "logo_height_in": 1.5,
+      "logo_area_sqin": 5.25,
+      "size_scale_factor": 0.53,
+      "blank_cost_per_pc": 6.75,
+      "materials_per_pc": 0.26,
+      "labor_per_pc": 0.63,
+      "decoration_cost_per_pc": 0.89,
+      "house_cost_per_pc": 7.64,
+      "customer_price_per_pc": 10.32,
+      "line_total": 9853.09,
+      "markup_pct": 35.0,
+      "sizes": {
+        "OSFA": 955
+      }
+    },
+    {
+      "garment_type": "Towel (terrycloth)",
+      "base_color": "Black",
+      "quantity": 192,
+      "placement": "Corner Embroidery",
+      "method": "embroidery",
+      "method_label": "Embroidery",
+      "logo_width_in": 3.0,
+      "logo_height_in": 3.0,
+      "logo_area_sqin": 9.0,
+      "size_scale_factor": 0.9,
+      "blank_cost_per_pc": 7.5,
+      "materials_per_pc": 0.45,
+      "labor_per_pc": 1.08,
+      "decoration_cost_per_pc": 1.53,
+      "house_cost_per_pc": 9.03,
+      "customer_price_per_pc": 12.19,
+      "line_total": 2340.58,
+      "markup_pct": 35.0,
+      "sizes": {
+        "Sport (16x27)": 192
+      }
+    },
+    {
+      "garment_type": "Cap / hat (structured)",
+      "base_color": "White",
+      "quantity": 814,
+      "placement": "Back",
+      "method": "embroidery",
+      "method_label": "Embroidery",
+      "logo_width_in": 3.5,
+      "logo_height_in": 1.5,
+      "logo_area_sqin": 5.25,
+      "size_scale_factor": 0.53,
+      "blank_cost_per_pc": 6.75,
+      "materials_per_pc": 0.26,
+      "labor_per_pc": 0.63,
+      "decoration_cost_per_pc": 0.89,
+      "house_cost_per_pc": 7.64,
+      "customer_price_per_pc": 10.32,
+      "line_total": 8398.34,
+      "markup_pct": 35.0,
+      "sizes": {
+        "OSFA": 814
+      }
+    },
+    {
+      "garment_type": "Denim jacket",
+      "base_color": "Black Denim",
+      "quantity": 420,
+      "placement": "Full Back",
+      "method": "embroidery",
+      "method_label": "Embroidery",
+      "logo_width_in": 10.0,
+      "logo_height_in": 12.0,
+      "logo_area_sqin": 120.0,
+      "size_scale_factor": 12.0,
+      "blank_cost_per_pc": 28.0,
+      "materials_per_pc": 6.0,
+      "labor_per_pc": 14.4,
+      "decoration_cost_per_pc": 20.4,
+      "house_cost_per_pc": 48.4,
+      "customer_price_per_pc": 65.34,
+      "line_total": 27442.8,
+      "markup_pct": 35.0,
+      "sizes": {
+        "S": 103,
+        "M": 102,
+        "L": 108,
+        "XL": 107
+      }
+    }
+  ],
+  "total_units": 2381,
+  "total_house": 35608.92,
+  "total_customer": 48078.01,
+  "total_profit": 12469.09,
+  "markup_pct": 35.0,
+  "job_number": null
+}

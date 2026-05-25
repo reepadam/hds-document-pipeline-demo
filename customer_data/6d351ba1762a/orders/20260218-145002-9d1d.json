@@ -1,0 +1,112 @@
+{
+  "order_id": "20260218-145002-9d1d",
+  "customer_id": "6d351ba1762a",
+  "logo_id": "45fa702c5c94",
+  "created_at": "2026-02-18T14:50:02Z",
+  "filename": "Big_Lots_2001_logo.svg",
+  "method": "embroidery",
+  "lines": [
+    {
+      "garment_type": "Cap / hat (structured)",
+      "base_color": "White",
+      "quantity": 437,
+      "placement": "Front Center",
+      "method": "embroidery",
+      "method_label": "Embroidery",
+      "logo_width_in": 4.0,
+      "logo_height_in": 2.25,
+      "logo_area_sqin": 9.0,
+      "size_scale_factor": 0.9,
+      "blank_cost_per_pc": 6.75,
+      "materials_per_pc": 0.45,
+      "labor_per_pc": 1.08,
+      "decoration_cost_per_pc": 1.53,
+      "house_cost_per_pc": 8.28,
+      "customer_price_per_pc": 11.18,
+      "line_total": 4884.79,
+      "markup_pct": 35.0,
+      "sizes": {
+        "OSFA": 437
+      }
+    },
+    {
+      "garment_type": "Canvas tote bag",
+      "base_color": "Navy",
+      "quantity": 231,
+      "placement": "Center Front",
+      "method": "screen_print",
+      "method_label": "Screen print",
+      "logo_width_in": 8.0,
+      "logo_height_in": 8.0,
+      "logo_area_sqin": 64.0,
+      "size_scale_factor": 6.4,
+      "blank_cost_per_pc": 3.5,
+      "materials_per_pc": 1.28,
+      "labor_per_pc": 3.84,
+      "decoration_cost_per_pc": 5.12,
+      "house_cost_per_pc": 8.62,
+      "customer_price_per_pc": 11.64,
+      "line_total": 2688.15,
+      "markup_pct": 35.0,
+      "sizes": {
+        "One Size": 231
+      }
+    },
+    {
+      "garment_type": "T-shirt (100% cotton)",
+      "base_color": "Forest Green",
+      "quantity": 450,
+      "placement": "Full Front",
+      "method": "screen_print",
+      "method_label": "Screen print",
+      "logo_width_in": 12.0,
+      "logo_height_in": 12.0,
+      "logo_area_sqin": 144.0,
+      "size_scale_factor": 14.4,
+      "blank_cost_per_pc": 4.25,
+      "materials_per_pc": 2.88,
+      "labor_per_pc": 8.64,
+      "decoration_cost_per_pc": 11.52,
+      "house_cost_per_pc": 15.77,
+      "customer_price_per_pc": 21.29,
+      "line_total": 9580.28,
+      "markup_pct": 35.0,
+      "sizes": {
+        "S": 94,
+        "M": 85,
+        "L": 87,
+        "XL": 94,
+        "2XL": 90
+      }
+    },
+    {
+      "garment_type": "Cap / hat (structured)",
+      "base_color": "White",
+      "quantity": 558,
+      "placement": "Front Center",
+      "method": "embroidery",
+      "method_label": "Embroidery",
+      "logo_width_in": 4.0,
+      "logo_height_in": 2.25,
+      "logo_area_sqin": 9.0,
+      "size_scale_factor": 0.9,
+      "blank_cost_per_pc": 6.75,
+      "materials_per_pc": 0.45,
+      "labor_per_pc": 1.08,
+      "decoration_cost_per_pc": 1.53,
+      "house_cost_per_pc": 8.28,
+      "customer_price_per_pc": 11.18,
+      "line_total": 6237.32,
+      "markup_pct": 35.0,
+      "sizes": {
+        "OSFA": 558
+      }
+    }
+  ],
+  "total_units": 1676,
+  "total_house": 17383.32,
+  "total_customer": 23467.49,
+  "total_profit": 6084.17,
+  "markup_pct": 35.0,
+  "job_number": "JOB-BIG-2026-0220"
+}
