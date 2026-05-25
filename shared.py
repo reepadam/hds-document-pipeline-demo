@@ -137,6 +137,7 @@ def inject_styles():
           border-radius: 10px;
           padding: 1.2rem;
           width: 100%;
+          min-height: 380px;
           display: flex;
           flex-direction: column;
           transition: border-color 0.12s ease, box-shadow 0.12s ease;
