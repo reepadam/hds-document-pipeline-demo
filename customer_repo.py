@@ -103,6 +103,22 @@ def list_logos(customer_id):
     return sorted(records, key=lambda r: r.get("uploaded_at", ""), reverse=True)
 
 
+def get_logo_path(customer_id, logo_id):
+    """Reconstruct the actual logo file path from IDs (cross-platform safe).
+
+    Ignores any stored file_path in meta.json (those may be Windows-style
+    paths that don't resolve on Linux/Streamlit Cloud). Logo files are
+    always saved as `original<ext>` inside the logo's directory.
+    """
+    logo_dir = _customer_dir(customer_id) / "logos" / logo_id
+    if not logo_dir.exists():
+        return None
+    # Look for original.* file (any extension)
+    for f in logo_dir.glob("original.*"):
+        return f
+    return None
+
+
 def get_logo_bytes(customer_id, logo_id):
     """Return the original logo bytes + original filename for a stored logo."""
     logo_dir = _customer_dir(customer_id) / "logos" / logo_id
@@ -110,8 +126,9 @@ def get_logo_bytes(customer_id, logo_id):
     if not meta_file.exists():
         return None, None
     meta = json.loads(meta_file.read_text())
-    file_path = Path(meta["file_path"])
-    if not file_path.exists():
+    # Reconstruct path from IDs (cross-platform), not from stored file_path
+    file_path = get_logo_path(customer_id, logo_id)
+    if file_path is None or not file_path.exists():
         return None, None
     return file_path.read_bytes(), meta["original_filename"]
 

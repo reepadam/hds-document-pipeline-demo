@@ -58,13 +58,18 @@ if logos:
     for i, lg in enumerate(logos):
         with cols[i % len(cols)]:
             try:
-                if lg["ext"] == ".svg":
-                    with open(lg["file_path"], "rb") as f:
-                        img = svg_to_pil(f.read())
+                # Reconstruct path cross-platform - ignore stored Windows paths
+                logo_path = repo.get_logo_path(customer["customer_id"], lg["logo_id"])
+                if logo_path and logo_path.exists():
+                    if lg["ext"] == ".svg":
+                        with open(logo_path, "rb") as f:
+                            img = svg_to_pil(f.read())
+                    else:
+                        img = Image.open(logo_path)
+                    img.thumbnail((160, 160))
+                    st.image(img, caption=lg["original_filename"])
                 else:
-                    img = Image.open(lg["file_path"])
-                img.thumbnail((160, 160))
-                st.image(img, caption=lg["original_filename"])
+                    st.caption(f"({lg['original_filename']})")
             except Exception:
                 st.caption(f"({lg['original_filename']})")
             st.caption(f"Saved: {lg.get('uploaded_at','')[:16]}")
