@@ -115,12 +115,28 @@ def inject_styles():
           margin-top: 0.3rem;
           border-radius: 4px;
         }
+        .module-card-link {
+          text-decoration: none !important;
+          color: inherit !important;
+          display: block;
+          cursor: pointer;
+          transition: transform 0.12s ease, box-shadow 0.12s ease;
+        }
+        .module-card-link:hover {
+          transform: translateY(-2px);
+          text-decoration: none !important;
+        }
+        .module-card-link:hover .module-card {
+          border-color: var(--hds-coral);
+          box-shadow: 0 6px 16px rgba(26, 58, 92, 0.12);
+        }
         .module-card {
           border: 1px solid #d8d4c8;
           background: white;
           border-radius: 10px;
           padding: 1.2rem;
           height: 100%;
+          transition: border-color 0.12s ease, box-shadow 0.12s ease;
         }
         .module-card h3 {
           margin-top: 0 !important;

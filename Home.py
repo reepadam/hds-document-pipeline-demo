@@ -3,8 +3,17 @@ HDS Document Pipeline - HOME splash page.
 Directional menu: pick the module by what you want to upload.
 Run: python -m streamlit run app.py
 """
+import re
 import streamlit as st
 from shared import inject_styles, chat_sidebar
+
+
+def page_url(page_path):
+    """Convert 'pages/1_Artwork_and_Order_Builder.py' → '/Artwork_and_Order_Builder'."""
+    filename = page_path.rsplit("/", 1)[-1]
+    name = filename.removesuffix(".py")
+    name = re.sub(r"^\d+_", "", name)  # strip leading "1_"
+    return f"/{name}"
 
 st.set_page_config(
     page_title="HDS Document Pipeline - POC",
@@ -116,27 +125,26 @@ MODULES = [
     },
 ]
 
-# Render as 3-up rows
+# Render as 3-up rows. Each card is a clickable <a> wrapping the whole tile.
 for row_start in range(0, len(MODULES), 3):
     row_modules = MODULES[row_start:row_start + 3]
     cols = st.columns(3)  # always 3 cols so partial rows don't stretch
     for i, mod in enumerate(row_modules):
         with cols[i]:
             chip_extra = f" {mod['chip_class']}" if mod['chip_class'] else ""
+            url = page_url(mod["page"])
             st.markdown(
-                f"""<div class="module-card">
-                <div class="module-icon">{mod['icon']}</div>
-                <span class="upload-chip{chip_extra}">{mod['chip']}</span>
-                <h3>{mod['name']}</h3>
-                <div class="module-desc">{mod['desc']}</div>
-                <div class="module-handoff">{mod['handoff']}</div>
-                </div>""",
+                f"""<a href="{url}" target="_self" class="module-card-link">
+                <div class="module-card">
+                  <div class="module-icon">{mod['icon']}</div>
+                  <span class="upload-chip{chip_extra}">{mod['chip']}</span>
+                  <h3>{mod['name']}</h3>
+                  <div class="module-desc">{mod['desc']}</div>
+                  <div class="module-handoff">{mod['handoff']}</div>
+                </div>
+                </a>""",
                 unsafe_allow_html=True,
             )
-            try:
-                st.page_link(mod["page"], label=f"Open {mod['name']} →")
-            except Exception:
-                st.caption(f"(link disabled: {mod['page']})")
 
 # ---- Footer ----
 st.markdown("---")
