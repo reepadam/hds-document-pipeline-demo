@@ -337,22 +337,54 @@ for idx, row_id in enumerate(list(st.session_state["row_ids"])):
                 st.rerun()
 
         default_w, default_h = GARMENT_PLACEMENTS.get(garment_choice, {}).get(placement_choice, (3.5, 3.0))
+
+        # Compute logo aspect ratio from the loaded artwork (w/h, >1 = wider)
+        logo_aspect = 1.0
+        if logo_pil is not None and logo_pil.height > 0:
+            logo_aspect = logo_pil.width / logo_pil.height
+
+        # Aspect-lock callbacks: when one dimension changes, recompute the other
+        def _on_w_change(rid=row_id, asp=logo_aspect):
+            new_w = st.session_state.get(f"w_{rid}") or 0
+            if new_w and asp:
+                st.session_state[f"h_{rid}"] = round(new_w / asp, 2)
+
+        def _on_h_change(rid=row_id, asp=logo_aspect):
+            new_h = st.session_state.get(f"h_{rid}") or 0
+            if new_h and asp:
+                st.session_state[f"w_{rid}"] = round(new_h * asp, 2)
+
+        w_key = f"w_{row_id}"
+        last_plc_key = f"_lastplc_{row_id}"
+        # When placement changes, fit logo into placement box preserving aspect ratio
+        if st.session_state.get(last_plc_key) != f"{garment_choice}|{placement_choice}":
+            target_aspect = default_w / default_h if default_h else 1.0
+            if logo_aspect >= target_aspect:
+                fit_w = float(default_w)
+                fit_h = round(fit_w / logo_aspect, 2) if logo_aspect else float(default_h)
+            else:
+                fit_h = float(default_h)
+                fit_w = round(fit_h * logo_aspect, 2)
+            st.session_state[w_key] = fit_w
+            st.session_state[f"h_{row_id}"] = fit_h
+            st.session_state[f"xoff_{row_id}"] = 0
+            st.session_state[f"yoff_{row_id}"] = 0
+            st.session_state[last_plc_key] = f"{garment_choice}|{placement_choice}"
+
         sz_cols = st.columns([1, 1, 6])
         with sz_cols[0]:
-            w_key = f"w_{row_id}"
-            last_plc_key = f"_lastplc_{row_id}"
-            if st.session_state.get(last_plc_key) != f"{garment_choice}|{placement_choice}":
-                st.session_state[w_key] = float(default_w)
-                st.session_state[f"h_{row_id}"] = float(default_h)
-                st.session_state[last_plc_key] = f"{garment_choice}|{placement_choice}"
-            st.number_input("Logo width (in)", min_value=0.5, max_value=20.0, step=0.25, key=w_key, format="%.2f")
+            st.number_input("Logo width (in)", min_value=0.5, max_value=20.0, step=0.25,
+                            key=w_key, format="%.2f", on_change=_on_w_change,
+                            help="Aspect ratio locked to the uploaded artwork — changing this auto-adjusts height.")
         with sz_cols[1]:
-            st.number_input("Logo height (in)", min_value=0.5, max_value=20.0, step=0.25, key=f"h_{row_id}", format="%.2f")
+            st.number_input("Logo height (in)", min_value=0.5, max_value=20.0, step=0.25,
+                            key=f"h_{row_id}", format="%.2f", on_change=_on_h_change,
+                            help="Aspect ratio locked to the uploaded artwork — changing this auto-adjusts width.")
         with sz_cols[2]:
             w_val = st.session_state.get(w_key, default_w)
             h_val = st.session_state.get(f"h_{row_id}", default_h)
             area = (w_val or 0) * (h_val or 0)
-            st.markdown(f"<div style='padding-top:1.8rem;color:#666;font-size:0.85rem;'>Logo area: <strong>{area:.1f} sq in</strong> &nbsp;|&nbsp; vs. baseline (10 sq in): <strong>{area/10:.2f}x</strong></div>", unsafe_allow_html=True)
+            st.markdown(f"<div style='padding-top:1.8rem;color:#666;font-size:0.85rem;'>Logo area: <strong>{area:.1f} sq in</strong> &nbsp;|&nbsp; vs. baseline (10 sq in): <strong>{area/10:.2f}x</strong> &nbsp;|&nbsp; aspect locked at <strong>{logo_aspect:.2f}:1</strong></div>", unsafe_allow_html=True)
 
         sizes_for_garment = GARMENT_SIZES.get(garment_choice, ["One Size"])
         st.markdown("Sizes / quantities:")
@@ -386,15 +418,36 @@ for idx, row_id in enumerate(list(st.session_state["row_ids"])):
         with preview_cols[1]:
             if logo_pil is not None:
                 try:
+                    x_off = int(st.session_state.get(f"xoff_{row_id}", 0) or 0)
+                    y_off = int(st.session_state.get(f"yoff_{row_id}", 0) or 0)
                     mockup_img = render_mockup(
                         garment_choice, st.session_state.get(color_key, "White"), logo_pil,
                         placement_choice, w_val, h_val,
+                        x_offset_px=x_off, y_offset_px=y_off,
                     )
                     st.image(mockup_img, caption=f"{placement_choice} - {w_val:.1f}x{h_val:.1f}\"", use_container_width=True)
                 except Exception as e:
                     st.caption(f"_Mockup unavailable: {e}_")
             else:
                 st.caption("_(Mockup only for image/SVG)_")
+
+        # Fine-tune position sliders (collapsed by default)
+        with st.expander("🎯 Fine-tune logo position (X/Y nudge)"):
+            ocols = st.columns([2, 2, 1])
+            with ocols[0]:
+                st.slider("X offset (px)  ← left | right →", min_value=-200, max_value=200, value=0, step=2,
+                          key=f"xoff_{row_id}",
+                          help="Nudge the logo left (negative) or right (positive) from the placement default.")
+            with ocols[1]:
+                st.slider("Y offset (px)  ← up | down →", min_value=-200, max_value=200, value=0, step=2,
+                          key=f"yoff_{row_id}",
+                          help="Nudge the logo up (negative) or down (positive) from the placement default.")
+            with ocols[2]:
+                st.markdown("&nbsp;")
+                if st.button("Reset to default", key=f"reset_off_{row_id}"):
+                    st.session_state[f"xoff_{row_id}"] = 0
+                    st.session_state[f"yoff_{row_id}"] = 0
+                    st.rerun()
 
 add_col, gen_col = st.columns([1, 1])
 with add_col:

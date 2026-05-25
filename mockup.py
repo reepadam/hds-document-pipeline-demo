@@ -253,7 +253,8 @@ PLACEMENT_COORDS = {
 }
 
 
-def render_mockup(garment, base_color, logo_image, placement, logo_width_in, logo_height_in):
+def render_mockup(garment, base_color, logo_image, placement, logo_width_in, logo_height_in,
+                  x_offset_px=0, y_offset_px=0):
     """Composite a logo onto a flat garment silhouette.
 
     Args:
@@ -291,8 +292,8 @@ def render_mockup(garment, base_color, logo_image, placement, logo_width_in, log
         # Preserve aspect ratio by fitting inside target box
         logo_rgba.thumbnail((target_w, target_h), Image.LANCZOS)
 
-        cx = int(CANVAS_W * cx_pct)
-        cy = int(CANVAS_H * cy_pct)
+        cx = int(CANVAS_W * cx_pct) + int(x_offset_px)
+        cy = int(CANVAS_H * cy_pct) + int(y_offset_px)
         paste_x = cx - logo_rgba.width // 2
         paste_y = cy - logo_rgba.height // 2
 
