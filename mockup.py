@@ -15,29 +15,57 @@ import numpy as np
 from PIL import Image, ImageDraw
 
 
-def auto_remove_background(img, tolerance=35):
-    """Detect a uniform background by sampling the 4 corners. If all 4 are
-    within tolerance of each other, treat that color as background and make
-    matching pixels transparent. Returns RGBA image."""
+def auto_remove_background(img, tolerance=35, passes=1):
+    """Detect uniform background by sampling the 4 corners. If all 4 match,
+    treat that color as background and make matching pixels transparent.
+
+    passes=1: removes only the outermost background (safe default).
+    passes=2: also removes a secondary uniform "frame" color visible after pass 1
+              (handles logos like IKEA with a brand-color backplate inside a
+              white border). May incorrectly strip large solid-color regions
+              from logo designs (e.g. a circular badge background).
+    """
     img = img.convert("RGBA")
     arr = np.array(img)
     h, w = arr.shape[:2]
     if h < 2 or w < 2:
         return img
-    corners = [arr[0, 0], arr[0, w - 1], arr[h - 1, 0], arr[h - 1, w - 1]]
-    r0, g0, b0 = int(corners[0][0]), int(corners[0][1]), int(corners[0][2])
-    similar = all(
-        abs(int(c[0]) - r0) < tolerance
-        and abs(int(c[1]) - g0) < tolerance
-        and abs(int(c[2]) - b0) < tolerance
-        for c in corners
-    )
-    if not similar:
-        return img
-    # Vectorized: mask pixels within tolerance of the background color
-    diff = np.abs(arr[:, :, :3].astype(int) - np.array([r0, g0, b0])).max(axis=2)
-    mask = diff < tolerance
-    arr[:, :, 3] = np.where(mask, 0, arr[:, :, 3])
+
+    def find_first_opaque(x_start, y_start, dx, dy):
+        """Walk from (x_start, y_start) in direction (dx, dy), return the
+        first non-transparent pixel. Used to find the 'visible corner' after
+        prior passes may have made the literal corner transparent."""
+        x, y = x_start, y_start
+        max_steps = min(h, w) // 3
+        for _ in range(max_steps):
+            if 0 <= x < w and 0 <= y < h:
+                if arr[y, x, 3] > 0:
+                    return arr[y, x]
+            x += dx
+            y += dy
+        return None
+
+    for _ in range(max(1, passes)):
+        corners = [
+            find_first_opaque(0, 0, 1, 1),
+            find_first_opaque(w - 1, 0, -1, 1),
+            find_first_opaque(0, h - 1, 1, -1),
+            find_first_opaque(w - 1, h - 1, -1, -1),
+        ]
+        if any(c is None for c in corners):
+            break
+        r0, g0, b0 = int(corners[0][0]), int(corners[0][1]), int(corners[0][2])
+        similar = all(
+            abs(int(c[0]) - r0) < tolerance
+            and abs(int(c[1]) - g0) < tolerance
+            and abs(int(c[2]) - b0) < tolerance
+            for c in corners
+        )
+        if not similar:
+            break
+        diff = np.abs(arr[:, :, :3].astype(int) - np.array([r0, g0, b0])).max(axis=2)
+        mask = (diff < tolerance) & (arr[:, :, 3] > 0)
+        arr[:, :, 3] = np.where(mask, 0, arr[:, :, 3])
     return Image.fromarray(arr, "RGBA")
 
 # Map color names to RGB tuples. Falls back to mid-gray for unknowns.
@@ -281,7 +309,7 @@ PLACEMENT_COORDS = {
 
 
 def render_mockup(garment, base_color, logo_image, placement, logo_width_in, logo_height_in,
-                  x_offset_px=0, y_offset_px=0):
+                  x_offset_px=0, y_offset_px=0, aggressive_bg=False):
     """Composite a logo onto a flat garment silhouette.
 
     Args:
@@ -315,8 +343,11 @@ def render_mockup(garment, base_color, logo_image, placement, logo_width_in, log
         target_w = max(1, int(logo_width_in * ppi))
         target_h = max(1, int(logo_height_in * ppi))
 
-        # Auto-detect and strip uniform background (e.g. white SVG fills)
-        logo_rgba = auto_remove_background(logo_image.convert("RGBA"))
+        # Auto-detect and strip uniform background (e.g. white SVG fills).
+        # aggressive=True also strips a secondary uniform layer (e.g. IKEA's
+        # blue backplate visible after the white border is removed).
+        passes = 2 if aggressive_bg else 1
+        logo_rgba = auto_remove_background(logo_image.convert("RGBA"), passes=passes)
         # Preserve aspect ratio by fitting inside target box
         logo_rgba.thumbnail((target_w, target_h), Image.LANCZOS)
 

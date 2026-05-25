@@ -432,6 +432,12 @@ for idx, row_id in enumerate(list(st.session_state["row_ids"])):
                 st.caption("_Enter sizes to see line subtotal_")
         with preview_cols[1]:
             if logo_pil is not None:
+                aggressive = st.checkbox(
+                    "🪄 Aggressive background strip",
+                    key=f"aggbg_{row_id}",
+                    value=False,
+                    help="ON = also strips a secondary uniform color layer (handles logos like IKEA where the brand color is a backplate inside a white border). OFF = safer, only removes the outermost background.",
+                )
                 try:
                     x_off = int(st.session_state.get(f"xoff_{row_id}", 0) or 0)
                     y_off = int(st.session_state.get(f"yoff_{row_id}", 0) or 0)
@@ -439,6 +445,7 @@ for idx, row_id in enumerate(list(st.session_state["row_ids"])):
                         garment_choice, st.session_state.get(color_key, "White"), logo_pil,
                         placement_choice, w_val, h_val,
                         x_offset_px=x_off, y_offset_px=y_off,
+                        aggressive_bg=aggressive,
                     )
                     st.image(mockup_img, caption=f"{placement_choice} - {w_val:.1f}x{h_val:.1f}\"", use_container_width=True)
                 except Exception as e:
