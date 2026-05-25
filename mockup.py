@@ -109,8 +109,23 @@ CANVAS_H = 600
 BG_COLOR = (250, 250, 246)  # warm bg matching HDS palette
 
 
-def _color_for(name):
-    return COLOR_RGB.get(name, (160, 160, 160))
+def _color_for(name_or_hex):
+    """Resolve a color name (e.g. 'Navy') OR a hex string (e.g. '#1a3a5c') to RGB."""
+    if isinstance(name_or_hex, str) and name_or_hex.startswith("#"):
+        try:
+            h = name_or_hex.lstrip("#")
+            if len(h) == 3:
+                h = "".join(c * 2 for c in h)
+            return (int(h[0:2], 16), int(h[2:4], 16), int(h[4:6], 16))
+        except (ValueError, IndexError):
+            return (160, 160, 160)
+    return COLOR_RGB.get(name_or_hex, (160, 160, 160))
+
+
+def color_name_to_hex(name):
+    """Convert a known color name to a #rrggbb hex string for the color picker default."""
+    rgb = COLOR_RGB.get(name, (160, 160, 160))
+    return f"#{rgb[0]:02x}{rgb[1]:02x}{rgb[2]:02x}"
 
 
 def _draw_tshirt(draw, fill, outline=(60, 60, 60)):

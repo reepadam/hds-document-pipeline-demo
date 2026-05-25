@@ -22,7 +22,7 @@ from pipeline import (
     METHOD_COSTS,
     GARMENT_METHOD_DEFAULTS,
 )
-from mockup import render_mockup
+from mockup import render_mockup, color_name_to_hex
 import customer_repo as repo
 from shared import inject_styles, render_page_header, render_antera_handoff, customer_selector, chat_sidebar
 
@@ -307,7 +307,20 @@ for idx, row_id in enumerate(list(st.session_state["row_ids"])):
             color_key = f"col_{row_id}"
             if color_key in st.session_state and st.session_state[color_key] not in valid_colors:
                 del st.session_state[color_key]
-            st.selectbox("Base color", valid_colors, key=color_key)
+            # Dropdown for "what the customer ordered" + hex picker for mockup display
+            csub1, csub2 = st.columns([3, 1])
+            with csub1:
+                st.selectbox("Base color", valid_colors, key=color_key)
+            with csub2:
+                # When dropdown changes, sync hex picker to that color's default
+                named_color = st.session_state.get(color_key, valid_colors[0])
+                hex_key = f"hex_{row_id}"
+                last_named_key = f"_lastnamed_{row_id}"
+                if st.session_state.get(last_named_key) != named_color:
+                    st.session_state[hex_key] = color_name_to_hex(named_color)
+                    st.session_state[last_named_key] = named_color
+                st.color_picker("Hex (mockup)", key=hex_key,
+                                help="Mockup display color. Overrides the dropdown's default shade for the preview. Order still references the dropdown name.")
         with top_cols[3]:
             valid_placements = list(GARMENT_PLACEMENTS.get(garment_choice, {"Left Chest": (3.5, 3.0)}).keys())
             plc_key = f"plc_{row_id}"
@@ -441,8 +454,10 @@ for idx, row_id in enumerate(list(st.session_state["row_ids"])):
                 try:
                     x_off = int(st.session_state.get(f"xoff_{row_id}", 0) or 0)
                     y_off = int(st.session_state.get(f"yoff_{row_id}", 0) or 0)
+                    # Use hex picker value for mockup display; falls back to dropdown name
+                    mockup_color = st.session_state.get(f"hex_{row_id}") or st.session_state.get(color_key, "White")
                     mockup_img = render_mockup(
-                        garment_choice, st.session_state.get(color_key, "White"), logo_pil,
+                        garment_choice, mockup_color, logo_pil,
                         placement_choice, w_val, h_val,
                         x_offset_px=x_off, y_offset_px=y_off,
                         aggressive_bg=aggressive,
