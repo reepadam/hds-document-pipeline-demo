@@ -294,7 +294,8 @@ STAGE_LABELS = {
     "approved": "Approved — Ready for Production",
     "in_production": "In Production",
     "completed": "Completed",
-    "rejected": "Rejected / Change Requested",
+    "rejected": "Change Requested",
+    "superseded": "Superseded (replaced by change order)",
 }
 STAGE_ICONS = {
     "draft": "📝",
@@ -306,6 +307,7 @@ STAGE_ICONS = {
     "in_production": "⚙️",
     "completed": "📦",
     "rejected": "⚠️",
+    "superseded": "🔁",
 }
 
 
@@ -382,6 +384,76 @@ def reject_order(customer_id, order_id, actor="system", notes=""):
     rec["stage_changed_at"] = _now_iso()
     order_path.write_text(json.dumps(rec, indent=2, default=str))
     return rec
+
+
+def create_change_order(customer_id, original_order_id, reason, change_details, actor="user"):
+    """Create a change order that supersedes the original.
+
+    - Copies the original's order data verbatim into a new file with ID
+      `<original_id>-C001` (or -C002, etc. if there's already a change order).
+    - Marks the original as 'superseded' with a pointer to the new ID.
+    - The change order starts back at 'pending_customer' so the new spec
+      goes through the approval pipeline fresh.
+    """
+    orders_dir = _customer_dir(customer_id) / "orders"
+    original_path = orders_dir / f"{original_order_id}.json"
+    if not original_path.exists():
+        return None
+    original = json.loads(original_path.read_text())
+
+    # Find next change number — strip any existing -C### suffix from the base
+    base_id = original_order_id.rsplit("-C", 1)[0]
+    existing_changes = sorted(orders_dir.glob(f"{base_id}-C*.json"))
+    next_num = len(existing_changes) + 1
+    new_id = f"{base_id}-C{next_num:03d}"
+
+    # Build the new change-order record (copy original, override key fields)
+    cust = get_customer(customer_id)
+    cust_flow = get_flow_for_customer(cust)
+    new_rec = dict(original)
+    new_rec["order_id"] = new_id
+    new_rec["created_at"] = _now_iso()
+    new_rec["approval_stage"] = cust_flow[1] if len(cust_flow) > 1 else "pending_customer"
+    new_rec["stage_changed_at"] = _now_iso()
+    new_rec["is_change_order"] = True
+    new_rec["change_from"] = original_order_id
+    new_rec["change_reason"] = reason
+    new_rec["change_details"] = change_details
+    new_rec["approval_log"] = [{
+        "at": _now_iso(),
+        "actor": actor,
+        "action": "change_order_created",
+        "from_stage": original.get("approval_stage", "?"),
+        "to_stage": new_rec["approval_stage"],
+        "notes": f"Change order created from {original_order_id}. Reason: {reason}",
+    }]
+    (orders_dir / f"{new_id}.json").write_text(json.dumps(new_rec, indent=2, default=str))
+
+    # Mark original as superseded
+    original["approval_stage"] = "superseded"
+    original["superseded_by"] = new_id
+    original["stage_changed_at"] = _now_iso()
+    original.setdefault("approval_log", []).append({
+        "at": _now_iso(),
+        "actor": actor,
+        "action": "superseded",
+        "to_stage": "superseded",
+        "from_stage": original.get("approval_stage", "?"),
+        "notes": f"Replaced by change order {new_id}",
+    })
+    original_path.write_text(json.dumps(original, indent=2, default=str))
+    return new_rec
+
+
+def get_order(customer_id, order_id):
+    """Load a single order record."""
+    path = _customer_dir(customer_id) / "orders" / f"{order_id}.json"
+    if not path.exists():
+        return None
+    try:
+        return json.loads(path.read_text())
+    except json.JSONDecodeError:
+        return None
 
 
 def list_all_orders_with_stage():
