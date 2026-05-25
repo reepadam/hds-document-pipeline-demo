@@ -11,7 +11,34 @@ proper garment templates with UV mapping. For the demo, programmatic
 PIL drawing is sufficient.
 """
 from io import BytesIO
+import numpy as np
 from PIL import Image, ImageDraw
+
+
+def auto_remove_background(img, tolerance=35):
+    """Detect a uniform background by sampling the 4 corners. If all 4 are
+    within tolerance of each other, treat that color as background and make
+    matching pixels transparent. Returns RGBA image."""
+    img = img.convert("RGBA")
+    arr = np.array(img)
+    h, w = arr.shape[:2]
+    if h < 2 or w < 2:
+        return img
+    corners = [arr[0, 0], arr[0, w - 1], arr[h - 1, 0], arr[h - 1, w - 1]]
+    r0, g0, b0 = int(corners[0][0]), int(corners[0][1]), int(corners[0][2])
+    similar = all(
+        abs(int(c[0]) - r0) < tolerance
+        and abs(int(c[1]) - g0) < tolerance
+        and abs(int(c[2]) - b0) < tolerance
+        for c in corners
+    )
+    if not similar:
+        return img
+    # Vectorized: mask pixels within tolerance of the background color
+    diff = np.abs(arr[:, :, :3].astype(int) - np.array([r0, g0, b0])).max(axis=2)
+    mask = diff < tolerance
+    arr[:, :, 3] = np.where(mask, 0, arr[:, :, 3])
+    return Image.fromarray(arr, "RGBA")
 
 # Map color names to RGB tuples. Falls back to mid-gray for unknowns.
 COLOR_RGB = {
@@ -288,7 +315,8 @@ def render_mockup(garment, base_color, logo_image, placement, logo_width_in, log
         target_w = max(1, int(logo_width_in * ppi))
         target_h = max(1, int(logo_height_in * ppi))
 
-        logo_rgba = logo_image.convert("RGBA")
+        # Auto-detect and strip uniform background (e.g. white SVG fills)
+        logo_rgba = auto_remove_background(logo_image.convert("RGBA"))
         # Preserve aspect ratio by fitting inside target box
         logo_rgba.thumbnail((target_w, target_h), Image.LANCZOS)
 

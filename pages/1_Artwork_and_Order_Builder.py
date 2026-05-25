@@ -371,7 +371,8 @@ for idx, row_id in enumerate(list(st.session_state["row_ids"])):
             st.session_state[f"yoff_{row_id}"] = 0
             st.session_state[last_plc_key] = f"{garment_choice}|{placement_choice}"
 
-        sz_cols = st.columns([1, 1, 6])
+        # Row 1: size inputs (aspect-locked)
+        sz_cols = st.columns([1, 1, 1, 1, 0.7])
         with sz_cols[0]:
             st.number_input("Logo width (in)", min_value=0.5, max_value=20.0, step=0.25,
                             key=w_key, format="%.2f", on_change=_on_w_change,
@@ -381,10 +382,24 @@ for idx, row_id in enumerate(list(st.session_state["row_ids"])):
                             key=f"h_{row_id}", format="%.2f", on_change=_on_h_change,
                             help="Aspect ratio locked to the uploaded artwork — changing this auto-adjusts width.")
         with sz_cols[2]:
-            w_val = st.session_state.get(w_key, default_w)
-            h_val = st.session_state.get(f"h_{row_id}", default_h)
-            area = (w_val or 0) * (h_val or 0)
-            st.markdown(f"<div style='padding-top:1.8rem;color:#666;font-size:0.85rem;'>Logo area: <strong>{area:.1f} sq in</strong> &nbsp;|&nbsp; vs. baseline (10 sq in): <strong>{area/10:.2f}x</strong> &nbsp;|&nbsp; aspect locked at <strong>{logo_aspect:.2f}:1</strong></div>", unsafe_allow_html=True)
+            st.slider("Nudge X (px)", min_value=-200, max_value=200, value=0, step=2,
+                      key=f"xoff_{row_id}",
+                      help="Move logo left (−) / right (+) on the mockup preview. Affects display only.")
+        with sz_cols[3]:
+            st.slider("Nudge Y (px)", min_value=-200, max_value=200, value=0, step=2,
+                      key=f"yoff_{row_id}",
+                      help="Move logo up (−) / down (+) on the mockup preview. Affects display only.")
+        with sz_cols[4]:
+            st.markdown("&nbsp;")
+            if st.button("Reset nudge", key=f"reset_off_{row_id}"):
+                st.session_state[f"xoff_{row_id}"] = 0
+                st.session_state[f"yoff_{row_id}"] = 0
+                st.rerun()
+
+        w_val = st.session_state.get(w_key, default_w)
+        h_val = st.session_state.get(f"h_{row_id}", default_h)
+        area = (w_val or 0) * (h_val or 0)
+        st.markdown(f"<div style='color:#666;font-size:0.82rem;margin-bottom:0.5rem;'>Logo area: <strong>{area:.1f} sq in</strong> &nbsp;|&nbsp; vs. baseline (10 sq in): <strong>{area/10:.2f}x</strong> &nbsp;|&nbsp; aspect locked at <strong>{logo_aspect:.2f}:1</strong></div>", unsafe_allow_html=True)
 
         sizes_for_garment = GARMENT_SIZES.get(garment_choice, ["One Size"])
         st.markdown("Sizes / quantities:")
@@ -430,24 +445,6 @@ for idx, row_id in enumerate(list(st.session_state["row_ids"])):
                     st.caption(f"_Mockup unavailable: {e}_")
             else:
                 st.caption("_(Mockup only for image/SVG)_")
-
-        # Fine-tune position sliders (collapsed by default)
-        with st.expander("🎯 Fine-tune logo position (X/Y nudge)"):
-            ocols = st.columns([2, 2, 1])
-            with ocols[0]:
-                st.slider("X offset (px)  ← left | right →", min_value=-200, max_value=200, value=0, step=2,
-                          key=f"xoff_{row_id}",
-                          help="Nudge the logo left (negative) or right (positive) from the placement default.")
-            with ocols[1]:
-                st.slider("Y offset (px)  ← up | down →", min_value=-200, max_value=200, value=0, step=2,
-                          key=f"yoff_{row_id}",
-                          help="Nudge the logo up (negative) or down (positive) from the placement default.")
-            with ocols[2]:
-                st.markdown("&nbsp;")
-                if st.button("Reset to default", key=f"reset_off_{row_id}"):
-                    st.session_state[f"xoff_{row_id}"] = 0
-                    st.session_state[f"yoff_{row_id}"] = 0
-                    st.rerun()
 
 add_col, gen_col = st.columns([1, 1])
 with add_col:
