@@ -700,7 +700,22 @@ if lines:
                     }
                     saved_order = repo.save_order(active_customer["customer_id"],
                         st.session_state["active_logo_id"], order_data)
-                    st.success(f"Saved order `{saved_order['order_id']}`.")
+                    # Also push to the global Reporting queue so it appears in the
+                    # Customer Orders drill-down alongside other accepted entries.
+                    repo.append_to_queue("orders", {
+                        "order_id": saved_order["order_id"],
+                        "customer_id": active_customer["customer_id"],
+                        "customer_name": active_customer["display_name"],
+                        "antera_customer_id": active_customer.get("antera_customer_id"),
+                        "filename": filename,
+                        "method": recs.get("recommended_decoration_method"),
+                        "total_units": total_qty,
+                        "total_customer": round(total_customer, 2),
+                        "total_house": round(total_house, 2),
+                        "total_profit": round(total_profit, 2),
+                        "line_count": len(lines),
+                    })
+                    st.success(f"Saved order `{saved_order['order_id']}` and pushed to Reporting queue.")
             else:
                 st.caption("_(Select a customer to save orders)_")
 else:

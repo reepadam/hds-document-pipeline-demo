@@ -140,8 +140,31 @@ if qpick == "receipts":
         cols[4].markdown(f"_{e.get('category','—').replace('_',' ')}_")
         cols[5].markdown(f"**{fmt_money(e.get('total'))}**")
         cols[6].caption(e.get("notes") or "")
+elif qpick == "orders":
+    hcols = st.columns([1.6, 1.5, 1.2, 0.7, 1.1, 1.3])
+    for c, h in zip(hcols, ["Customer", "Order ID", "Method", "Units", "Total", "Accepted"]):
+        c.markdown(f"**{h}**")
+    for e in filtered:
+        cols = st.columns([1.6, 1.5, 1.2, 0.7, 1.1, 1.3])
+        cols[0].markdown(e.get("customer_name", "—"))
+        cols[1].markdown(f"`{e.get('order_id','—')}`")
+        cols[2].markdown(f"_{e.get('method','—')}_")
+        cols[3].markdown(f"{e.get('total_units',0):,}")
+        cols[4].markdown(f"**${e.get('total_customer',0):,.2f}**")
+        cols[5].caption(e.get("accepted_at","")[:16])
+
+    # Summary metrics for orders
+    if filtered:
+        total_units = sum(int(e.get("total_units", 0) or 0) for e in filtered)
+        total_revenue = sum(float(e.get("total_customer", 0) or 0) for e in filtered)
+        total_margin = sum(float(e.get("total_profit", 0) or 0) for e in filtered)
+        st.markdown("---")
+        scols = st.columns(3)
+        scols[0].metric("Total units (filtered)", f"{total_units:,}")
+        scols[1].metric("Total customer revenue", f"${total_revenue:,.2f}")
+        scols[2].metric("Total gross margin", f"${total_margin:,.2f}")
 else:
-    # Generic table for other queues
+    # Generic table for other queues (spec_sheets, notes — phase 2)
     for e in filtered:
         with st.container(border=True):
             st.markdown(f"**`{e.get('entry_id','?')}`** · {e.get('accepted_at','')[:16]}")
