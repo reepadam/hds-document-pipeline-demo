@@ -7,7 +7,7 @@ gross margin, no internal cost basis. Markup is baked into the unit prices.
 from io import BytesIO
 from datetime import datetime, timedelta
 from reportlab.lib import colors
-from reportlab.lib.pagesizes import letter
+from reportlab.lib.pagesizes import letter, landscape
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib.units import inch
 from reportlab.platypus import (
@@ -38,7 +38,7 @@ def build_quote_pdf(
     buf = BytesIO()
     doc = SimpleDocTemplate(
         buf,
-        pagesize=letter,
+        pagesize=landscape(letter),  # 11" wide × 8.5" tall - lets line item columns breathe
         leftMargin=0.6 * inch, rightMargin=0.6 * inch,
         topMargin=0.5 * inch, bottomMargin=0.5 * inch,
         title=f"HDS Marketing Quote {quote_number}",
@@ -83,7 +83,7 @@ def build_quote_pdf(
             right_style,
         ),
     ]]
-    header_table = Table(header_data, colWidths=[4.0 * inch, 3.4 * inch])
+    header_table = Table(header_data, colWidths=[5.5 * inch, 4.3 * inch])
     header_table.setStyle(TableStyle([
         ("VALIGN", (0, 0), (-1, -1), "TOP"),
     ]))
@@ -92,7 +92,7 @@ def build_quote_pdf(
     story.append(Spacer(1, 0.15 * inch))
 
     # Divider
-    divider = Table([[""]], colWidths=[7.4 * inch], rowHeights=[2])
+    divider = Table([[""]], colWidths=[9.8 * inch], rowHeights=[2])
     divider.setStyle(TableStyle([
         ("BACKGROUND", (0, 0), (-1, -1), HDS_NAVY),
     ]))
@@ -116,7 +116,7 @@ def build_quote_pdf(
             body_style,
         ),
     ]]
-    bill_table = Table(bill_data, colWidths=[3.7 * inch, 3.7 * inch])
+    bill_table = Table(bill_data, colWidths=[4.9 * inch, 4.9 * inch])
     bill_table.setStyle(TableStyle([
         ("VALIGN", (0, 0), (-1, -1), "TOP"),
         ("LEFTPADDING", (0, 0), (-1, -1), 6),
@@ -182,7 +182,7 @@ def build_quote_pdf(
 
     line_table = Table(
         line_rows,
-        colWidths=[1.15*inch, 0.45*inch, 0.65*inch, 0.95*inch, 0.95*inch, 0.85*inch, 0.4*inch, 0.75*inch, 0.85*inch],
+        colWidths=[1.55*inch, 0.55*inch, 0.95*inch, 1.25*inch, 1.3*inch, 1.1*inch, 0.5*inch, 1.0*inch, 1.1*inch],
         repeatRows=1,
     )
     line_table.setStyle(TableStyle([
@@ -225,7 +225,7 @@ def build_quote_pdf(
                 Paragraph(entry.get("method_label", "—"), body_style),
                 Paragraph(f"${entry.get('setup_customer', 0):,.2f}", right_style),
             ])
-        setup_table = Table(setup_rows, colWidths=[5.4*inch, 2.0*inch], repeatRows=1)
+        setup_table = Table(setup_rows, colWidths=[7.5*inch, 2.3*inch], repeatRows=1)
         setup_table.setStyle(TableStyle([
             ("BACKGROUND", (0, 0), (-1, 0), HDS_NAVY),
             ("TEXTCOLOR", (0, 0), (-1, 0), colors.white),
@@ -247,7 +247,7 @@ def build_quote_pdf(
         ["", "One-time setup:", f"${setup_customer_total:,.2f}"],
         ["", "TOTAL QUOTE:", f"${grand_total:,.2f}"],
     ]
-    total_table = Table(total_rows, colWidths=[3.4*inch, 2.4*inch, 1.6*inch])
+    total_table = Table(total_rows, colWidths=[5.6*inch, 2.5*inch, 1.7*inch])
     total_table.setStyle(TableStyle([
         ("LINEABOVE", (1, -1), (-1, -1), 1.5, HDS_NAVY),
         ("FONTNAME", (1, -1), (-1, -1), "Helvetica-Bold"),
