@@ -16,7 +16,7 @@ def page_url(page_path):
     return f"/{name}"
 
 st.set_page_config(
-    page_title="HDS Document Pipeline - POC",
+    page_title="OCR + LLM Document Pipeline - POC",
     page_icon=":page_facing_up:",
     layout="wide",
 )
@@ -24,15 +24,15 @@ inject_styles()
 chat_sidebar()
 
 # ---- Hero ----
-st.title("HDS Document Pipeline")
+st.title("OCR + LLM Document Pipeline")
 st.markdown(
     '<div class="hds-tagline">Making the complex, easy. - a proof of concept by Adam J. Reep</div>',
     unsafe_allow_html=True,
 )
 st.markdown(
-    "A modular OCR + LLM pipeline that **augments your existing Antera ERP** - it does not replace it. "
-    "Each module below ingests one document or artwork type and hands structured data off to Antera "
-    "(or to a Sheets review buffer your team approves before Antera ingest)."
+    "A modular OCR + LLM pipeline that **augments your existing system of record** - it does not replace it. "
+    "Each module below ingests one document or artwork type and hands structured data off to the ERP, MRP, or "
+    "operational platform of choice (or to a Sheets review buffer the team approves before ingest)."
 )
 st.markdown('<span class="hds-badge">PROOF OF CONCEPT</span>', unsafe_allow_html=True)
 st.markdown("---")
