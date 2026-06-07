@@ -21,6 +21,13 @@ st.set_page_config(
     layout="wide",
 )
 inject_styles()
+
+# ---- The Fourth Floor (unlisted; reach via ?floor=4) ----
+if st.query_params.get("floor") == "4":
+    import fourth_floor
+    fourth_floor.render()
+    st.stop()
+
 chat_sidebar()
 
 # ---- Hero ----

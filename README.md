@@ -1,5 +1,7 @@
 # Document → Structured Data Pipeline
 
+**Live demo:** https://document-pipeline-demo.streamlit.app
+
 **Built for the HDS Marketing AI Workflow Architect interview demo.**
 
 A "Swiss army" pipeline that takes any document (typed, handwritten, mixed) and produces structured JSON ready for ERP ingest.
@@ -29,7 +31,7 @@ The pipeline auto-classifies into one of these and produces type-specific struct
 ## Running locally
 
 ```bash
-cd C:\Users\Adam\Documents\Claude\Job\demo_app
+cd C:\Users\Adam\Documents\Claude\Projects\Job\demo_app
 pip install -r requirements.txt
 streamlit run app.py
 ```
@@ -39,8 +41,8 @@ The app will open at `http://localhost:8501`.
 ## Credentials
 
 Hardcoded paths in `app.py`:
-- `C:\Users\Adam\Documents\Claude\Job\cloudvision-497116-3258213b51c0.json` (GCP service account)
-- `C:\Users\Adam\Documents\Claude\Job\Anthropic_API.txt` (Anthropic API key)
+- `C:\Users\Adam\Documents\Claude\Projects\Job\cloudvision-497116-3258213b51c0.json` (GCP service account)
+- `C:\Users\Adam\Documents\Claude\Projects\Job\Anthropic_API.txt` (Anthropic API key)
 
 **Before deploying to Streamlit Community Cloud**, these will move to Streamlit Secrets (not committed to any repo).
 
