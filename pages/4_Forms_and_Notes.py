@@ -9,7 +9,7 @@ from pathlib import Path
 from pipeline import process_document
 from shared import inject_styles, render_page_header, render_antera_handoff, chat_sidebar
 
-st.set_page_config(page_title="Forms & Notes - HDS", page_icon=":pencil2:", layout="wide")
+st.set_page_config(page_title="Forms & Notes", page_icon=":pencil2:", layout="wide")
 inject_styles()
 render_page_header("✍️ Forms & Notes", "Handwritten notes + mixed printed/handwritten forms")
 render_antera_handoff("Action items and unresolved questions attach as tasks or production-note comments. Coming next: Zebra edit-an-order - snap a marked-up work order, system applies the handwritten changes before production locks.")

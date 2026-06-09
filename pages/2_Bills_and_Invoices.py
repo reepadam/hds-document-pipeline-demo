@@ -9,7 +9,7 @@ from pathlib import Path
 from pipeline import process_document
 from shared import inject_styles, render_page_header, render_antera_handoff, chat_sidebar
 
-st.set_page_config(page_title="Bills & Invoices - HDS", page_icon=":receipt:", layout="wide")
+st.set_page_config(page_title="Bills & Invoices", page_icon=":receipt:", layout="wide")
 inject_styles()
 render_page_header("🧾 Bills & Invoices", "Vendor + freight invoice extraction for AP")
 render_antera_handoff("Extracted JSON pushes to a Sheets AP queue (Phase 2) where AP reviews and bulk-approves into AP. Single point of human review, audit-friendly.")

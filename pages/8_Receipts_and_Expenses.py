@@ -10,7 +10,7 @@ from pipeline import process_document, fmt_money
 import customer_repo as repo
 from shared import inject_styles, render_page_header, render_antera_handoff, customer_selector, expand_uploads, chat_sidebar
 
-st.set_page_config(page_title="Receipts & Expenses - HDS", page_icon=":receipt:", layout="wide")
+st.set_page_config(page_title="Receipts & Expenses", page_icon=":receipt:", layout="wide")
 inject_styles()
 render_page_header("💳 Receipts & Expenses", "Batch-snap receipts, edit, file against a job.")
 render_antera_handoff(

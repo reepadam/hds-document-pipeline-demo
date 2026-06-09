@@ -14,7 +14,7 @@ from PIL import Image
 from pipeline import extract_text_universal, get_universal_context, get_anthropic_client, EXTRACTION_MODEL, svg_to_pil, pdf_to_images
 from shared import inject_styles, render_page_header, render_antera_handoff, chat_sidebar
 
-st.set_page_config(page_title="Universal Text Extractor - HDS", page_icon=":wrench:", layout="wide")
+st.set_page_config(page_title="Universal Text Extractor", page_icon=":wrench:", layout="wide")
 inject_styles()
 render_page_header("🔧 Universal Text Extractor", "Get text from anything. Bulk + zip supported.")
 render_antera_handoff(
