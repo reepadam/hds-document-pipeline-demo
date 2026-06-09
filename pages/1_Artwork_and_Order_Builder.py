@@ -28,7 +28,6 @@ from shared import inject_styles, render_page_header, render_antera_handoff, cus
 
 st.set_page_config(page_title="Artwork & Order Builder - HDS", page_icon=":art:", layout="wide")
 inject_styles()
-chat_sidebar()
 render_page_header("🎨 Artwork & Order Builder", "Logo → decoration recommendation → production sheet → quote")
 
 # Customer selector (optional - walk-ins allowed)
@@ -224,7 +223,7 @@ prod_sheet = recs.get("production_sheet")
 if recs.get("recommended_decoration_method") == "embroidery" and prod_sheet:
     st.markdown("---")
     st.subheader("Production Sheet (Madeira / Tajima DG format)")
-    render_antera_handoff("In production, this sheet attaches to the Antera production work order alongside the .DST stitch file.")
+    render_antera_handoff("In production, this sheet attaches to the production work order alongside the .DST stitch file.")
 
     info = prod_sheet.get("design_info", {}) or {}
     head1, head2 = st.columns([1, 1])
@@ -270,7 +269,7 @@ if not recs:
 
 st.markdown("---")
 st.subheader("Order Builder")
-render_antera_handoff("Generates a customer quote draft + production handoff. Quote pushes to Antera as a sales order; handoff sheet attaches to the work order.")
+render_antera_handoff("Generates a customer quote draft + production handoff. Quote pushes to as a sales order; handoff sheet attaches to the work order.")
 st.caption("Each line: garment + color + placement + logo size + size qtys. Decoration cost scales with logo area (a 2x1\" wrist hit costs much less than a 12x14\" back hit).")
 
 def get_logo_pil(fb, ext):
@@ -609,11 +608,11 @@ if lines:
     if st.session_state.get("quote_locked"):
         st.markdown("---")
         st.subheader("Production Handoff Sheet")
-        render_antera_handoff("Copy into Antera sales order notes or attach as the production work order packet.")
+        render_antera_handoff("Copy into sales order notes or attach as the production work order packet.")
         handoff_lines = [
             "HDS MARKETING - PRODUCTION HANDOFF",
             f"Customer: {active_customer['display_name'] if active_customer else '(walk-in)'}"
-            + (f"  [Antera: {active_customer.get('antera_customer_id') or '?'}]" if active_customer else ""),
+            + (f"  [ERP: {active_customer.get('antera_customer_id') or '?'}]" if active_customer else ""),
             f"Artwork file: {filename}",
             f"Suggested method (from artwork analysis): {recs.get('recommended_decoration_method','?')}",
             f"Suggested thread/ink: {recs.get('thread_or_ink_recommendation',{}).get('brand_product','?')}",

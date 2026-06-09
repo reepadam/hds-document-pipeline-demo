@@ -28,7 +28,6 @@ if st.query_params.get("floor") == "4":
     fourth_floor.render()
     st.stop()
 
-chat_sidebar()
 
 # ---- Hero ----
 st.title("OCR + LLM Document Pipeline")
@@ -56,7 +55,7 @@ MODULES = [
         "name": "Artwork & Order Builder",
         "desc": "Upload a customer logo. Pipeline analyzes colors, recommends decoration method (embroidery/screen print/DTG/sublimation), generates a Madeira-style production sheet, then builds a multi-line quote with garment, color, placement, logo size, size breakdown, and 2D mockup per line. Saves orders to customer history.",
         "page": "pages/1_Artwork_and_Order_Builder.py",
-        "handoff": "→ Antera sales order + production work order",
+        "handoff": "→ sales order + production work order",
     },
     {
         "icon": "🧾",
@@ -65,7 +64,7 @@ MODULES = [
         "name": "Bills & Invoices",
         "desc": "Upload a vendor invoice or freight invoice (UPS, FedEx, R+L, etc.). Extracts vendor, transaction details, line items with SKUs, totals, and payment method. Flags any field where OCR uncertainty needs human review.",
         "page": "pages/2_Bills_and_Invoices.py",
-        "handoff": "→ Antera AP queue (via Sheets review buffer)",
+        "handoff": "→ AP queue (via Sheets review buffer)",
     },
     {
         "icon": "💳",
@@ -74,7 +73,7 @@ MODULES = [
         "name": "Receipts & Expenses",
         "desc": "Field rep snaps a receipt photo. Pipeline extracts merchant, date, total, tax, tip, payment method, and auto-classifies the expense category. Rep picks customer + job from a dropdown - no email subjects, no remembering job numbers. Files to the customer's expense history under that job.",
         "page": "pages/8_Receipts_and_Expenses.py",
-        "handoff": "→ Antera Job Costing (charged to the selected Antera Job ID)",
+        "handoff": "→ Job Costing (charged to the selected Job ID)",
     },
     {
         "icon": "📋",
@@ -83,7 +82,7 @@ MODULES = [
         "name": "Spec Sheets",
         "desc": "Upload a product data sheet (Madeira thread, Wilflex ink, blank apparel specs). Extracts manufacturer, product line, composition, test ratings, mechanical properties, care instructions, certifications into a standardized reference table.",
         "page": "pages/3_Spec_Sheets.py",
-        "handoff": "→ Antera Item Master import row",
+        "handoff": "→ Item Master import row",
     },
     {
         "icon": "✍️",
@@ -92,7 +91,7 @@ MODULES = [
         "name": "Forms & Notes",
         "desc": "Upload handwritten production-floor notes, sales meeting jots, or printed forms with handwritten fields filled in. Extracts dates, author, key fields, action items, and unresolved questions for team follow-up. Phase 2 adds the Zebra 'edit-an-order' workflow.",
         "page": "pages/4_Forms_and_Notes.py",
-        "handoff": "→ Antera task / production note attachment",
+        "handoff": "→ task / production note attachment",
     },
     {
         "icon": "🛒",
@@ -101,7 +100,7 @@ MODULES = [
         "name": "Customer Orders",
         "desc": "Customer emailed you an order request? Drop the PDF or scan here. Extracts customer info, items requested, decoration spec, in-hands date, special instructions. Files the request under the customer profile so it becomes a quoteable request - no data entry.",
         "page": "pages/5_Customer_Orders.py",
-        "handoff": "→ Antera quote draft",
+        "handoff": "→ quote draft",
     },
     {
         "icon": "👥",
@@ -110,7 +109,7 @@ MODULES = [
         "name": "Customer Library",
         "desc": "Browse customers, their saved artwork (with thumbnails), and their full order history. Click any logo to reopen it in the Artwork module for a quick reorder. This is the chatbot-ready data layer for the Phase 2 customer ordering assistant.",
         "page": "pages/6_Customer_Library.py",
-        "handoff": "Indexes by Antera Customer ID",
+        "handoff": "Indexes by Customer ID",
     },
     {
         "icon": "🔧",
@@ -119,7 +118,7 @@ MODULES = [
         "name": "Universal Text Extractor",
         "desc": "The Swiss army knife. Drop ANY file - PDF, image, SVG, DOCX, AI, even unusual formats - and get all text in a copyable block plus Claude's contextual notes on what the document is and what it's for. No structured schema, no metrics, no JSON wrangling. Proves the pipeline can ingest anything.",
         "page": "pages/7_Universal_Text_Extractor.py",
-        "handoff": "Ad-hoc tool — no Antera integration",
+        "handoff": "Ad-hoc tool — no integration",
     },
     {
         "icon": "📊",
@@ -128,7 +127,7 @@ MODULES = [
         "name": "Reporting",
         "desc": "Drill into accepted queues across all modules - receipts by job, expenses by category, invoices by vendor, spec sheets by manufacturer. The information-flow view: every Accept button across the platform lands here, queryable by customer, job, category, and date.",
         "page": "pages/9_Reporting.py",
-        "handoff": "Demo skinny: JSON queues. Prod: pushes to Antera + Sheets.",
+        "handoff": "Demo skinny: JSON queues. Prod: pushes to your ERP + Sheets.",
     },
     {
         "icon": "📋",
@@ -137,7 +136,7 @@ MODULES = [
         "name": "Approvals & Change Mgmt",
         "desc": "Every order, grouped by approval stage. Sports/licensed orders route through team → league/properties → sponsor sign-off (NFL Properties, MLB, NBA, NHL). Corporate orders route through customer → production-mgr. Approve or request change in one click, with audit log. Replaces email-thread approvals where status hides in someone's inbox.",
         "page": "pages/10_Approvals_and_Changes.py",
-        "handoff": "→ Locks Antera production work order when fully approved",
+        "handoff": "→ Locks production work order when fully approved",
     },
 ]
 

@@ -14,9 +14,8 @@ from shared import inject_styles, render_page_header, render_antera_handoff, cha
 
 st.set_page_config(page_title="Customer Library - HDS", page_icon=":busts_in_silhouette:", layout="wide")
 inject_styles()
-chat_sidebar()
 render_page_header("👥 Customer Library", "Customers, their artwork, their orders")
-render_antera_handoff("Indexed by Antera Customer ID. Antera still owns billing, contacts, and payment terms - this is the artwork + decoration history layer Antera doesn't natively manage. Phase 2 chatbot queries directly against this data.")
+render_antera_handoff("Indexed by Customer ID. still owns billing, contacts, and payment terms - this is the artwork + decoration history layer doesn't natively manage. Phase 2 chatbot queries directly against this data.")
 
 customers = repo.list_customers()
 
@@ -42,7 +41,7 @@ with info_col1:
     if customer.get("notes"):
         st.caption(customer["notes"])
 with info_col2:
-    st.metric("Antera ID", customer.get("antera_customer_id") or "—")
+    st.metric("ID", customer.get("antera_customer_id") or "—")
 with info_col3:
     st.metric("Created", customer.get("created_at", "")[:10] or "—")
 

@@ -16,7 +16,6 @@ from shared import inject_styles, render_page_header, render_antera_handoff, cha
 
 st.set_page_config(page_title="Universal Text Extractor - HDS", page_icon=":wrench:", layout="wide")
 inject_styles()
-chat_sidebar()
 render_page_header("🔧 Universal Text Extractor", "Get text from anything. Bulk + zip supported.")
 render_antera_handoff(
     "No structured schema, no metrics. Raw 'Swiss army' tool that ingests ANYTHING. "

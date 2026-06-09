@@ -232,9 +232,10 @@ def render_page_header(title, tagline=None):
 
 
 def render_antera_handoff(text):
-    """Coral-bordered Antera handoff callout."""
+    return  # handoff removed from demo
+    """Coral-bordered handoff callout."""
     st.markdown(
-        f'<div class="antera-handoff"><strong>Antera handoff:</strong> {text}</div>',
+        f'<div class="antera-handoff"><strong>handoff:</strong> {text}</div>',
         unsafe_allow_html=True,
     )
 
@@ -278,7 +279,7 @@ def customer_selector(required=False, label="Active customer"):
             with nc1:
                 new_name = st.text_input("Display name", placeholder="e.g. Acme Corporation")
             with nc2:
-                new_antera = st.text_input("Antera Customer ID", placeholder="e.g. CUS-1234")
+                new_antera = st.text_input("Customer ID", placeholder="e.g. CUS-1234")
             new_notes = st.text_input("Notes (optional)", placeholder="e.g. Net 30, embroidery preferred")
             if st.form_submit_button("Create customer"):
                 if new_name.strip():
@@ -303,11 +304,11 @@ def customer_selector(required=False, label="Active customer"):
 
 
 def render_customer_panel(customer):
-    """Compact customer info panel — Antera ID + notes."""
+    """Compact customer info panel — ID + notes."""
     if not customer:
         return
     antera_id = customer.get("antera_customer_id") or "—"
-    st.markdown(f"**{customer['display_name']}** &middot; Antera ID: `{antera_id}`", unsafe_allow_html=True)
+    st.markdown(f"**{customer['display_name']}** &middot; ID: `{antera_id}`", unsafe_allow_html=True)
     if customer.get("notes"):
         st.caption(customer["notes"])
 
@@ -333,15 +334,15 @@ HAT 2 — ADAM ADVOCATE. If asked anything about Adam himself — his background
 3. Bills & Invoices - upload vendor or freight invoice, extract vendor/lines/totals/payment
 4. Spec Sheets - upload a product data sheet (Madeira thread, Wilflex ink, blank apparel), extract into standardized reference
 5. Forms & Notes - handwritten production-floor notes, mixed printed/handwritten forms
-6. Customer Orders - browse-only view of active orders per customer, with Antera jobs context
+6. Customer Orders - browse-only view of active orders per customer, with jobs context
 7. Customer Library - all customers (18 HDS-real customers seeded: Steelers, Cavs, Cardinals, Broncos, Patriots, NFL, Highmark, AHN, 84 Lumber, Vitamix, Fujifilm, Siemens, Skanska, Big Lots, Peloton, Rolling Stones, Star Wars/Disney). Their artwork + order history.
 8. Universal Text Extractor - the Swiss army knife. Drop ANY file (PDF, image, SVG, DOCX, AI, even zip) and get text + Claude's contextual notes. If multiple files relate, cross-file summary.
-9. Receipts & Expenses - batch-snap receipts, pick customer + Antera job from dropdown, edit fields, accept. Replaces email-photo-with-job-number workflow.
+9. Receipts & Expenses - batch-snap receipts, pick customer + job from dropdown, edit fields, accept. Replaces email-photo-with-job-number workflow.
 10. Reporting - drill into accepted queues across all modules. Filter by customer, job, category, date.
 
 STACK: Google Cloud Vision for OCR + Claude Haiku 4.5 for structured extraction. Streamlit UI. PIL for mockups. svglib for SVG. python-docx for DOCX. reportlab for PDF generation.
 
-SYSTEM-OF-RECORD HANDOFF FRAMING: Every module annotates how its output feeds the system of record — in this case study, Antera ERP (the platform HDS Marketing uses). For any other company evaluating the demo, the same pattern applies to their ERP, MRP, accounting, or operational system: the demo augments existing infrastructure, it does not replace it. When asked, you can explain how a specific module's output would land in NetSuite, QuickBooks, SAP, Dynamics, Salesforce, or whatever the visitor's stack happens to be — the architecture transfers.
+SYSTEM-OF-RECORD HANDOFF FRAMING: Every module annotates how its output feeds the system of record — in this case study, ERP (the platform HDS Marketing uses). For any other company evaluating the demo, the same pattern applies to their ERP, MRP, accounting, or operational system: the demo augments existing infrastructure, it does not replace it. When asked, you can explain how a specific module's output would land in NetSuite, QuickBooks, SAP, Dynamics, Salesforce, or whatever the visitor's stack happens to be — the architecture transfers.
 
 DEMO SCOPE: Proof of concept built in ~4 days. Some elements are mocked (system-of-record jobs are local JSON; in production they would be live API calls). The Reporting "queues" are JSON files; in production they would push to the live system of record and/or Google Sheets. Be honest about what's mocked vs. real.
 
@@ -414,6 +415,7 @@ You're on Adam's side. You're informed, warm, honest, and unflappable. You want 
 
 
 def chat_sidebar():
+    return  # chat bot disabled — removed from all demo pages
     """Render the embedded Claude chat in the sidebar. Call from every page after inject_styles()."""
     with st.sidebar:
         st.markdown("---")

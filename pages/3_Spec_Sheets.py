@@ -10,9 +10,8 @@ from shared import inject_styles, render_page_header, render_antera_handoff, cha
 
 st.set_page_config(page_title="Spec Sheets - HDS", page_icon=":clipboard:", layout="wide")
 inject_styles()
-chat_sidebar()
 render_page_header("📋 Spec Sheets", "Product data sheet → standardized reference table")
-render_antera_handoff("Outputs an Antera Item Master import row - manufacturer, product line, composition, key specs - so spec data goes from PDF to product catalog without manual re-entry.")
+render_antera_handoff("Outputs an Item Master import row - manufacturer, product line, composition, key specs - so spec data goes from PDF to product catalog without manual re-entry.")
 
 uploaded = st.file_uploader("Drop a product data sheet (PDF / JPG / PNG)", type=["pdf", "jpg", "jpeg", "png"])
 if uploaded is None:

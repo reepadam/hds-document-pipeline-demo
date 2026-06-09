@@ -11,9 +11,8 @@ from shared import inject_styles, render_page_header, render_antera_handoff, cha
 
 st.set_page_config(page_title="Forms & Notes - HDS", page_icon=":pencil2:", layout="wide")
 inject_styles()
-chat_sidebar()
 render_page_header("✍️ Forms & Notes", "Handwritten notes + mixed printed/handwritten forms")
-render_antera_handoff("Action items and unresolved questions attach as Antera tasks or production-note comments. Coming next: Zebra edit-an-order - snap a marked-up work order, system applies the handwritten changes before production locks.")
+render_antera_handoff("Action items and unresolved questions attach as tasks or production-note comments. Coming next: Zebra edit-an-order - snap a marked-up work order, system applies the handwritten changes before production locks.")
 
 uploaded = st.file_uploader("Drop a handwritten note, sales jot, or mixed form (PDF / JPG / PNG)", type=["pdf", "jpg", "jpeg", "png"])
 if uploaded is None:

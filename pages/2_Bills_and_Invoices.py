@@ -11,9 +11,8 @@ from shared import inject_styles, render_page_header, render_antera_handoff, cha
 
 st.set_page_config(page_title="Bills & Invoices - HDS", page_icon=":receipt:", layout="wide")
 inject_styles()
-chat_sidebar()
 render_page_header("🧾 Bills & Invoices", "Vendor + freight invoice extraction for AP")
-render_antera_handoff("Extracted JSON pushes to a Sheets AP queue (Phase 2) where AP reviews and bulk-approves into Antera AP. Single point of human review, audit-friendly.")
+render_antera_handoff("Extracted JSON pushes to a Sheets AP queue (Phase 2) where AP reviews and bulk-approves into AP. Single point of human review, audit-friendly.")
 
 uploaded = st.file_uploader("Drop an invoice (PDF / JPG / PNG)", type=["pdf", "jpg", "jpeg", "png"])
 if uploaded is None:

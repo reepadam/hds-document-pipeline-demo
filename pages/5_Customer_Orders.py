@@ -8,10 +8,9 @@ from shared import inject_styles, render_page_header, render_antera_handoff, cha
 
 st.set_page_config(page_title="Customer Orders - HDS", page_icon=":shopping_cart:", layout="wide")
 inject_styles()
-chat_sidebar()
-render_page_header("🛒 Customer Orders", "Active orders per customer, with Antera job context.")
+render_page_header("🛒 Customer Orders", "Active orders per customer, with job context.")
 render_antera_handoff(
-    "Read-only view of accepted/in-flight customer orders. Mirrors what Antera sales-order module shows, "
+    "Read-only view of accepted/in-flight customer orders. Mirrors what sales-order module shows, "
     "with the artwork + decoration spec context attached. Order intake itself happens via the Artwork & "
     "Order Builder module (or future Email Intake)."
 )
@@ -31,20 +30,20 @@ if not customer:
     st.stop()
 
 st.markdown(f"### {customer['display_name']}")
-st.caption(f"Antera ID: `{customer.get('antera_customer_id') or '—'}` · {customer.get('notes') or ''}")
+st.caption(f"ID: `{customer.get('antera_customer_id') or '—'}` · {customer.get('notes') or ''}")
 
 orders = repo.list_orders(customer["customer_id"])
 jobs = repo.list_antera_jobs(customer["customer_id"])
 
 mcols = st.columns(3)
-mcols[0].metric("Active Antera jobs", len(jobs))
+mcols[0].metric("Active jobs", len(jobs))
 mcols[1].metric("Accepted orders", len(orders))
 total_units = sum(o.get("total_units", 0) for o in orders) if orders else 0
 mcols[2].metric("Total units (across orders)", f"{total_units:,}")
 
-# Active Antera jobs section
+# Active jobs section
 st.markdown("---")
-st.subheader("Active Antera Jobs")
+st.subheader("Active Jobs")
 if jobs:
     for job in jobs:
         with st.container(border=True):
@@ -62,7 +61,7 @@ if jobs:
                     for e in expenses_for_job:
                         st.markdown(f"- Expense `{e.get('expense_id','?')}` · {e.get('merchant_name','?')} · ${e.get('total','—')}")
 else:
-    st.caption("_No mocked Antera jobs for this customer. Run seed script or add via API in production._")
+    st.caption("_No mocked jobs for this customer. Run seed script or add via API in production._")
 
 # Order history section
 st.markdown("---")

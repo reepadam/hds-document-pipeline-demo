@@ -1,7 +1,7 @@
 """
 Reporting module - drills into accepted queues (receipts, invoices, spec sheets, etc.)
 with dropdowns/filters. JSON-backed for the demo; in production this view sits over
-Antera + the Sheets review buffer.
++ the Sheets review buffer.
 """
 import streamlit as st
 from collections import defaultdict
@@ -11,10 +11,9 @@ from shared import inject_styles, render_page_header, render_antera_handoff, cha
 
 st.set_page_config(page_title="Reporting - HDS", page_icon=":bar_chart:", layout="wide")
 inject_styles()
-chat_sidebar()
 render_page_header("📊 Reporting", "Drill into accepted queues. Information flow you can see.")
 render_antera_handoff(
-    "Demo skinny: queues are JSON files locally. In production each queue pushes to Antera "
+    "Demo skinny: queues are JSON files locally. In production each queue pushes to "
     "(AP, Job Costing, Item Master) and/or a Sheets review buffer. The reporting view here "
     "is the same shape regardless of backend."
 )
@@ -63,7 +62,7 @@ sel_customer = fcols[0].selectbox("Customer", all_customers)
 if qpick == "receipts":
     job_numbers = sorted({e.get("job_number") for e in entries if e.get("job_number")})
     all_jobs = ["(all jobs)"] + job_numbers
-    sel_job = fcols[1].selectbox("Antera Job", all_jobs)
+    sel_job = fcols[1].selectbox("Job", all_jobs)
 else:
     sel_job = "(all jobs)"
 

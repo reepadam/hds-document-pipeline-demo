@@ -18,13 +18,12 @@ from shared import inject_styles, render_page_header, render_antera_handoff, cha
 
 st.set_page_config(page_title="Approvals & Changes - HDS", page_icon=":clipboard:", layout="wide")
 inject_styles()
-chat_sidebar()
 render_page_header("📋 Approvals & Change Management", "Order routing, sign-offs, and change orders in one view.")
 render_antera_handoff(
     "Sports/licensed orders route through team → league/properties → sponsor sign-off (NFL Properties, MLB, NBA, NHL). "
     "Corporate orders route through customer → production-mgr. Each Accept advances the order and appends an audit log. "
     "Request Change creates a numbered change order (ORDER-XYZ-C001) that becomes the new system-of-record; original is marked superseded. "
-    "When fully approved, the Antera production work order locks and the floor is notified."
+    "When fully approved, the production work order locks and the floor is notified."
 )
 
 st.markdown("---")

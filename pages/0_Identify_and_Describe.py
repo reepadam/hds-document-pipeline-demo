@@ -1,7 +1,7 @@
 """
 Identify & Describe — vision-first showcase module.
 
-Give it any image and Claude *looks at the picture* (not just text on it):
+Give it any image and Claude looks at the picture (not just text on it):
 1. identifies the item, 2. writes a marketplace-ready description.
 Raw OCR is shown beside each result to make the point that OCR alone can't
 describe an image — vision can. Built general (antiques, products, parts,
@@ -17,24 +17,23 @@ import streamlit as st
 from PIL import Image
 
 from pipeline import get_anthropic_client, EXTRACTION_MODEL, ocr_image_bytes
-from shared import inject_styles, render_page_header, chat_sidebar
+from shared import inject_styles, render_page_header
 
-MAX_PER_SESSION = 8          # cap on the public demo (protects the API key)
-MAX_DIM = 1024               # downscale long edge before the vision call (cost lever)
-IN_RATE = 0.000001           # Claude Haiku 4.5 input  $/token ($1 / 1M, Jun 2026)
-OUT_RATE = 0.000005          # Claude Haiku 4.5 output $/token ($5 / 1M, Jun 2026)
+MAX_PER_SESSION = 8
+MAX_DIM = 1024
+IN_RATE = 0.000001
+OUT_RATE = 0.000005
 IMG_EXTS = ("jpg", "jpeg", "png", "webp", "gif", "bmp", "tiff", "tif")
 
 st.set_page_config(page_title="Identify & Describe", page_icon=":mag:", layout="wide")
 inject_styles()
-chat_sidebar()
 render_page_header(
-    "🔎 Identify & Describe",
+    "Identify & Describe",
     "Give it any image — it sees the item, names it, and writes a description.",
 )
 
 st.caption(
-    "Vision-first: Claude **looks at the picture**, not just any text on it. Built general — point it "
+    "Vision-first: Claude looks at the picture, not just any text on it. Built general — point it "
     "at antiques, coins, postcards, products, parts, anything. Raw OCR is shown beside each result so "
     f"you can see why OCR alone can't describe an image. Capped at {MAX_PER_SESSION} images/session on this public demo."
 )
@@ -151,7 +150,7 @@ for r in results:
             st.error(r["err"])
         else:
             st.write(r["desc"])
-            st.caption(f"Tokens {r['tin']}→{r['tout']} · ~${r['cost']}")
+            st.caption(f"Tokens {r['tin']} to {r['tout']} · ~${r['cost']}")
     st.markdown("---")
 
 buf = io.StringIO()
@@ -163,7 +162,7 @@ for r in results:
         desc_only = parts[1].strip() if len(parts) == 2 else r["desc"]
         w.writerow([Path(r["name"]).stem, desc_only])
 st.download_button(
-    "📥 Download SKU + description CSV (demo batch)",
+    "Download SKU + description CSV (demo batch)",
     data=buf.getvalue(),
     file_name="identify_describe_sample.csv",
     mime="text/csv",

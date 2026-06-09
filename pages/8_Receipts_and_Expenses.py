@@ -1,6 +1,6 @@
 """
 Receipts & Expenses module - batch upload, edit, accept to local queue.
-Mocked Antera Job ID dropdown per customer.
+Mocked Job ID dropdown per customer.
 """
 import streamlit as st
 import json
@@ -12,18 +12,17 @@ from shared import inject_styles, render_page_header, render_antera_handoff, cus
 
 st.set_page_config(page_title="Receipts & Expenses - HDS", page_icon=":receipt:", layout="wide")
 inject_styles()
-chat_sidebar()
 render_page_header("💳 Receipts & Expenses", "Batch-snap receipts, edit, file against a job.")
 render_antera_handoff(
     "Replaces the email-photo-with-job-number-in-subject workflow. Job dropdown is pulled from the "
-    "customer's active Antera Jobs - rep picks from list, no remembering or fat-fingering. Accepted "
-    "expenses queue locally for the Reporting module; in production they push to Antera Job Costing."
+    "customer's active Jobs - rep picks from list, no remembering or fat-fingering. Accepted "
+    "expenses queue locally for the Reporting module; in production they push to Job Costing."
 )
 
 st.markdown("---")
 active_customer = customer_selector(required=False, label="Customer this expense belongs to")
 
-# Antera Job dropdown (mocked from antera_jobs.json per customer)
+# Job dropdown (mocked from antera_jobs.json per customer)
 job_number = ""
 job_description = ""
 if active_customer:
@@ -32,18 +31,18 @@ if active_customer:
         job_labels = [f"{j['job_id']}  —  {j['description']}" for j in jobs]
         job_labels = ["(no job)"] + job_labels
         picked = st.selectbox(
-            "Antera Job ID",
+            "Job ID",
             job_labels,
-            help="Mocked from the customer's active Antera jobs. In production this is a live API call to Antera.",
+            help="Mocked from the customer's active jobs. In production this is a live API call to.",
         )
         if picked != "(no job)":
             idx = job_labels.index(picked) - 1
             job_number = jobs[idx]["job_id"]
             job_description = jobs[idx]["description"]
     else:
-        st.caption(f"_No mocked Antera jobs for {active_customer['display_name']} yet. Use the seed script or add via API in production._")
+        st.caption(f"_No mocked jobs for {active_customer['display_name']} yet. Use the seed script or add via API in production._")
 else:
-    st.caption("_Select a customer to see their Antera Jobs._")
+    st.caption("_Select a customer to see their Jobs._")
 
 uploaded_files = st.file_uploader(
     "Drop one or more receipts (JPG / PNG / PDF) or a ZIP of receipts",
