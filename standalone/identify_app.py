@@ -1,12 +1,14 @@
 """
-Identify & Describe — standalone, brand-free, gated single-image tool.
-Easter egg: only visitors who hit the URL with the right ?key= get in; everyone
-else sees a blank page. Protects the API account from random discovery/abuse.
+Identify & Describe - standalone, brand-free, gated, usage-capped single-image tool.
+Easter egg: only visitors with the right ?key= get in. Hard cap of MAX_USES images
+(durable, via Cloudflare D1) protects the API account from over-use.
 Upload one image -> Tesseract OCR (free) + Claude vision (reads OCR as a hint,
 names what/who is depicted) -> listing description.
 """
 import base64
+import json as _json
 from io import BytesIO
+from urllib import request as _urlreq
 
 import streamlit as st
 from PIL import Image
@@ -19,6 +21,7 @@ except Exception:
 
 MODEL = "claude-haiku-4-5"
 MAX_DIM = 1024
+MAX_USES = 20
 IN_RATE = 0.000001
 OUT_RATE = 0.000005
 IMG_EXTS = ["jpg", "jpeg", "png", "webp", "gif", "bmp", "tiff", "tif"]
@@ -44,13 +47,60 @@ def _gate():
     except Exception:
         expected = ""
     if not expected:
-        return  # no token configured yet -> open (set access_token in Secrets to lock)
+        return
     if st.query_params.get("key", "") == expected:
         return
-    st.stop()  # blank page for anyone without the key
+    st.stop()
 
 
 _gate()
+
+
+@st.cache_resource
+def _usage_counter():
+    # Per-instance fallback only (resets on sleep/redeploy). Used when D1 isn't configured.
+    return {"n": 0}
+
+
+def _d1_cfg():
+    try:
+        acct = st.secrets.get("cf_account_id", "")
+        db = st.secrets.get("cf_d1_db_id", "")
+        tok = st.secrets.get("cf_api_token", "")
+    except Exception:
+        return None
+    return (acct, db, tok) if (acct and db and tok) else None
+
+
+def _d1_query(sql, params=None):
+    cfg = _d1_cfg()
+    if not cfg:
+        return None
+    acct, db, tok = cfg
+    url = f"https://api.cloudflare.com/client/v4/accounts/{acct}/d1/database/{db}/query"
+    body = _json.dumps({"sql": sql, "params": params or []}).encode()
+    req = _urlreq.Request(
+        url, data=body, method="POST",
+        headers={"Authorization": f"Bearer {tok}", "Content-Type": "application/json"},
+    )
+    with _urlreq.urlopen(req, timeout=15) as resp:
+        return _json.loads(resp.read().decode())
+
+
+def _try_consume():
+    """Durable cap via Cloudflare D1. Atomically claims one use if under MAX_USES.
+    Returns (True, n) if allowed, (False, n) if capped, or (None, None) if D1 not configured."""
+    if not _d1_cfg():
+        return None, None
+    res = _d1_query(
+        "UPDATE counter SET n = n + 1 WHERE id = 1 AND n < ? RETURNING n", [MAX_USES]
+    )
+    rows = (res or {}).get("result", [{}])[0].get("results", [])
+    if rows:
+        return True, rows[0]["n"]
+    cur = _d1_query("SELECT n FROM counter WHERE id = 1")
+    n = (cur or {}).get("result", [{}])[0].get("results", [{}])[0].get("n", MAX_USES)
+    return False, n
 
 
 def get_key():
@@ -109,7 +159,19 @@ if not up:
 
 data = up.read()
 sig = f"{up.name}:{len(data)}"
+
 if st.session_state.get("idd_sig") != sig:
+    allowed, used = _try_consume()
+    if allowed is None:
+        # D1 not configured yet - fall back to per-instance counter.
+        counter = _usage_counter()
+        if counter["n"] >= MAX_USES:
+            st.warning("This preview has reached its usage limit. Reach out for full, unlimited access.")
+            st.stop()
+        counter["n"] += 1
+    elif not allowed:
+        st.warning("This preview has reached its usage limit. Reach out for full, unlimited access.")
+        st.stop()
     with st.spinner("Looking..."):
         ocr = run_ocr(data)
         try:
